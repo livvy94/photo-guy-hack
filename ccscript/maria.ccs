@@ -1,3 +1,5 @@
+//spoilers lmao
+
 Box:
   "@This appears to be a small, texturless, floating box." next
   "@What it's for is anybody's guess." end
@@ -31,7 +33,7 @@ MariaBeckons:
   "@The shimmering form beckons." wait
   //warp to Mt. Itoi
   eob
-  
+
 GoodEndingGeorge:
   //You enter the cabin and Maria's body, the shimmering form, reunites with her spirit next to George.
   //I have no idea if this conflicts with what happens in CogDis... I don't really mind if it does, though. This is its own continuity.
@@ -55,11 +57,11 @@ GoodEndingGeorge:
   "@It will be a long journey, and they will undoubtedly try to thwart us at every turn..." next
   "@However...would you like to accompany us?" newline
   menu 2 {
-		"Of course!": {
+    "Of course!": {
       window_clear
-      "@Thank you again for everything you’ve done." next 
-      "@You look young enough to be in college, is that correct?" next 
-      "@Feel free to return to your dorm and pack supplies, clothing, extra film..." next 
+      "@Thank you again for everything you’ve done." next
+      "@You look young enough to be in college, is that correct?" next
+      "@Feel free to return to your dorm and pack supplies, clothing, extra film..." next
       "@This will certainly be a trip to remember." wait
       //happy ending theme
       //roll credits
@@ -72,7 +74,7 @@ GoodEndingGeorge:
       "@If the invasion comes and things become unbearable, you’re more than welcome to fight alongside us." wait
       //pensive credits theme
       //roll credits
-			end
-		}
+      end
+    }
   }
   end

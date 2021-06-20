@@ -1,288 +1,287 @@
 command e(label) "{long label}"
 l_0xc58000: //Here comes the Debug Menu.
-		"[18 02]"
-		window_close(2) //This re-arrangement of these codes makes sure everything opens properly, and the window is actually in the foreground
-		window_close(7)
-		window_open(1)
-		pause(5)
-		window_open(2)
-	"[19 02]Party members[02]"
-	"[19 02]Inventory stuff[02]"
-	"[19 02]Jukebox[02]"
-	"[19 02]Moneys[02]"
-	"[19 02]Level Uppatron[02]"
-	"[19 02]Status ailments[02]"
-	"[19 02]Warp Zone[02]"
-	"[19 02]Cutscene testing[02]"
-	"[19 02]Teleport FX test[02]"
-	"[19 02]Event flags[02]"
-	"[19 02]Invasion Forces[02]"
-		"[1C 0C 02][11][1B 05]"
-		window_closetop
-		window_switch(1)
-		clearline
-		newline
-		"[1B 06]"
-		//This thing is a "Multiple-Address Jump Pointer" - http://datacrystal.romhacking.net/wiki/EarthBound:Control_Codes
-		//[09 (number of pointers in hex) (all of the pointers)
-		//It was tricky to add stuff to it and have it actually work :D
-		"[09 0E]"
-		e(l_0xc58103) //Party members
-		e(l_0xc58262) //Inventory stuff
-		e(l_0xc58d09) //Jukebox
-		e(l_0xc58afb) //Moneys
-		e(l_0xc58a36) //Level Uppatron
-		e(l_0xc58718) //Status ailments
-		e(l_0xc588cd) //Warp Zone
-		e(l_0xc59895) //Cutscene testing
-		e(l_0xc58e73) //Teleport FX test
-		e(l_0xc580da) //Event flags
-		e(debug_invasionForces) //Invasion Forces
-		end 
+        "[18 02]"
+        window_close(2) //This re-arrangement of these codes makes sure everything opens properly, and the window is actually in the foreground
+        window_close(7)
+        window_open(1)
+        pause(5)
+        window_open(2)
+    "[19 02]Party members[02]"
+    "[19 02]Inventory stuff[02]"
+    "[19 02]Jukebox[02]"
+    "[19 02]Moneys[02]"
+    "[19 02]Level Uppatron[02]"
+    "[19 02]Status ailments[02]"
+    "[19 02]Warp Zone[02]"
+    "[19 02]Cutscene testing[02]"
+    "[19 02]Teleport FX test[02]"
+    "[19 02]Event flags[02]"
+    "[19 02]Invasion Forces[02]"
+        "[1C 0C 02][11][1B 05]"
+        window_closetop
+        window_switch(1)
+        clearline
+        newline
+        "[1B 06]"
+        //This thing is a "Multiple-Address Jump Pointer" - http://datacrystal.romhacking.net/wiki/EarthBound:Control_Codes
+        //[09 (number of pointers in hex) (all of the pointers)
+        //It was tricky to add stuff to it and have it actually work :D
+        "[09 0E]"
+        e(l_0xc58103) //Party members
+        e(l_0xc58262) //Inventory stuff
+        e(l_0xc58d09) //Jukebox
+        e(l_0xc58afb) //Moneys
+        e(l_0xc58a36) //Level Uppatron
+        e(l_0xc58718) //Status ailments
+        e(l_0xc588cd) //Warp Zone
+        e(l_0xc59895) //Cutscene testing
+        e(l_0xc58e73) //Teleport FX test
+        e(l_0xc580da) //Event flags
+        e(debug_invasionForces) //Invasion Forces
+        end
 
 l_0xc580da:
-	window_closeall //This was glitching, writing to a window in the background after running once.
-	window_open(7) //So everytime this runs, it'll close everything first.
-	pause(5)
-	window_clear
-	menu 1
-	{
-		"Manual toggle":
-			{
-				window_clear
-				"@Google <EarthBound event flags> to find a list." next
-				window_clear
-				"@Input an event flag to toggle:" newline
-				"  " input(3)
-				toggle(0) //The 0 stands for whatever they entered
-				sound(114)
-				goto(l_0xc580da)
-			}
-		"Take all photos":
-			{
-				window_clear
-				sound(114)
-				pause(10)
-				set(696) 
-				set(697) 
-				set(698) 
-				set(699) 
-				set(700) 
-				set(701) 
-				set(702) 
-				set(703) 
-				set(704) 
-				set(705) 
-				set(706) 
-				set(707) 
-				set(708) 
-				set(709) 
-				set(710) 
-				set(711) 
-				set(712) 
-				set(713) 
-				set(714) 
-				set(715) 
-				set(716) 
-				set(717) 
-				set(718) 
-				set(719) 
-				set(720) 
-				set(721) 
-				set(722) 
-				set(723) 
-				set(724) 
-				set(725) 
-				set(726) 
-				set(727) 
-				"@The Photo Guy's album is now full." wait
-				goto(l_0xc580da)
-			}
-			"Toggle melodies":
-			{
-				window_clear
-				menu 1
-				{
-					"Giant Step": toggle(182)
-					"Lilliput Steps": toggle(183)
-					"Milky Well": toggle(184)
-					"Rainy Circle": toggle(185)
-					"Magnet Hill": toggle(186)
-					"Pink Cloud": toggle(187)
-					"Lumine Hall": toggle(188)
-					"Fire Spring": toggle(189)
-				}
-				goto(l_0xc580da)
-				
-			}
-	}
-	goto(l_0xc58000)
+    window_closeall //This was glitching, writing to a window in the background after running once.
+    window_open(7) //So everytime this runs, it'll close everything first.
+    pause(5)
+    window_clear
+    menu 1
+    {
+        "Manual toggle":
+            {
+                window_clear
+                "@Google <EarthBound event flags> to find a list." next
+                window_clear
+                "@Input an event flag to toggle:" newline
+                "  " input(3)
+                toggle(0) //The 0 stands for whatever they entered
+                sound(114)
+                goto(l_0xc580da)
+            }
+        "Take all photos":
+            {
+                window_clear
+                sound(114)
+                pause(10)
+                set(696)
+                set(697)
+                set(698)
+                set(699)
+                set(700)
+                set(701)
+                set(702)
+                set(703)
+                set(704)
+                set(705)
+                set(706)
+                set(707)
+                set(708)
+                set(709)
+                set(710)
+                set(711)
+                set(712)
+                set(713)
+                set(714)
+                set(715)
+                set(716)
+                set(717)
+                set(718)
+                set(719)
+                set(720)
+                set(721)
+                set(722)
+                set(723)
+                set(724)
+                set(725)
+                set(726)
+                set(727)
+                "@The Photo Guy's album is now full." wait
+                goto(l_0xc580da)
+            }
+            "Toggle melodies":
+            {
+                window_clear
+                menu 1
+                {
+                    "Giant Step": toggle(182)
+                    "Lilliput Steps": toggle(183)
+                    "Milky Well": toggle(184)
+                    "Rainy Circle": toggle(185)
+                    "Magnet Hill": toggle(186)
+                    "Pink Cloud": toggle(187)
+                    "Lumine Hall": toggle(188)
+                    "Fire Spring": toggle(189)
+                }
+                goto(l_0xc580da)
+            }
+    }
+    goto(l_0xc58000)
 
 l_0xc58103:
-	window_clear
+    window_clear
     "@Party editor" linebreak
-		"[19 02]"
-	"Add"
-		"[02][19 02]"
-	"Drop"
-		"[02][1C 07 02][11]{clearline}[09 02 {e(l_0xc5812f)} {e(l_0xc581ee)}]" goto(l_0xc58000)
+        "[19 02]"
+    "Add"
+        "[02][19 02]"
+    "Drop"
+        "[02][1C 07 02][11]{clearline}[09 02 {e(l_0xc5812f)} {e(l_0xc581ee)}]" goto(l_0xc58000)
 
 l_0xc5812f:
     open_hp
-	"@Loading people..." goto(l_0xc58148)
+    "@Loading people..." goto(l_0xc58148)
 
 l_0xc58148:
     window_open(8)
-		"[19 02]"
-	"Ness"
-		"[02][19 02]"
-	"Paula"
-		"[02][19 02]"
-	"Jeff"
-		"[02][19 02]"
-	"Poo"
-		"[02][19 02]"
-	"Pokey"
-		"[02][19 02]"
-	"Picky"
-		"[02][19 02]"
-	"King"
-		"[02][19 02]"
-	"Tony"
-		"[02][19 02]"
-	"Bubble Monkey"
-		"[02][19 02]"
-	"Dungeon Man"
-		"[02][19 02]"
-	"Flying Man 1"
-		"[02][19 02]"
-	"Flying Man 2"
-		"[02][19 02]"
-	"Flying Man 3"
-		"[02][19 02]"
-	"Flying Man 4"
-		"[02][19 02]"
-	"Flying Man 5"
-		"[02][1C 0C 03][11][1B 05][19 04]"
-		window_closetop
-		window_switch(1)
-		"[1B 06][1B 02 {e(l_0xc581e7)}]{swap}[1F 11 00]"
-		open_hp
-		goto(l_0xc58148)
+        "[19 02]"
+    "Ness"
+        "[02][19 02]"
+    "Paula"
+        "[02][19 02]"
+    "Jeff"
+        "[02][19 02]"
+    "Poo"
+        "[02][19 02]"
+    "Pokey"
+        "[02][19 02]"
+    "Picky"
+        "[02][19 02]"
+    "King"
+        "[02][19 02]"
+    "Tony"
+        "[02][19 02]"
+    "Bubble Monkey"
+        "[02][19 02]"
+    "Dungeon Man"
+        "[02][19 02]"
+    "Flying Man 1"
+        "[02][19 02]"
+    "Flying Man 2"
+        "[02][19 02]"
+    "Flying Man 3"
+        "[02][19 02]"
+    "Flying Man 4"
+        "[02][19 02]"
+    "Flying Man 5"
+        "[02][1C 0C 03][11][1B 05][19 04]"
+        window_closetop
+        window_switch(1)
+        "[1B 06][1B 02 {e(l_0xc581e7)}]{swap}[1F 11 00]"
+        open_hp
+        goto(l_0xc58148)
 
 l_0xc581e7:
     window_closetop
-	goto(l_0xc58000)
+    goto(l_0xc58000)
 
 l_0xc581ee:
-	"[19 10 02][1B 02 {e(l_0xc58250)}]"
-	"@Which party member should go?" linebreak
-	goto(l_0xc58214)
+    "[19 10 02][1B 02 {e(l_0xc58250)}]"
+    "@Which party member should go?" linebreak
+    goto(l_0xc58214)
 
 l_0xc58214:
-	"[19 10 02][1B 02 {e(l_0xc5824b)}]  [1F 52 01][1B 02 {e(l_0xc5824b)}]{clearline}{swap}[19 10 00][1B 02 {e(l_0xc58214)}]{swap}[1F 12 00]"
-	"@[1C 02 00] went back home.{pause(15)}{linebreak}  Bye, [1C 02 00]!" wait
-	goto(l_0xc58103)
+    "[19 10 02][1B 02 {e(l_0xc5824b)}]  [1F 52 01][1B 02 {e(l_0xc5824b)}]{clearline}{swap}[19 10 00][1B 02 {e(l_0xc58214)}]{swap}[1F 12 00]"
+    "@[1C 02 00] went back home.{pause(15)}{linebreak}  Bye, [1C 02 00]!" wait
+    goto(l_0xc58103)
 
 l_0xc5824b:
     goto(l_0xc58000)
 
 l_0xc58250:
     "{window_clear}@You can't have a party of zero! {pause(20)}The game acts up when it's all by itself!" wait
-	goto(l_0xc58000)
+    goto(l_0xc58000)
 
 l_0xc58262:
     newline
     window_open(7) //So everytime this runs, it'll close everything first.
-	pause(5)
-	window_clear
-		"[18 02][19 02]"
-	"Add to inventory"
-		"[02][19 02]"
-	"Key Items"
-		"[02][19 02]"
-	"Call SandwichBot"
-		"[02][19 02]"
-	"Clear inventory"
-		"[02][19 02]"
-	"Fill Escargo"
-		"[02][19 02]"
-	"Clear Escargo"
-		"[02][19 02]"
-	"Equip cool stuff"
-		"[02][1C 0C 01][11][1B 05]{window_closetop}[19 04]{window_switch(1)}" newline
-		"[1B 06][09 07 {e(l_0xc582f8)} {e(l_0xc58369)} {e(l_0xc58539)} {e(l_0xc58568)} {e(l_0xc585dc)} {e(l_0xc58614)} {e(l_0xc5863c)}]" goto(l_0xc58000)
+    pause(5)
+    window_clear
+        "[18 02][19 02]"
+    "Add to inventory"
+        "[02][19 02]"
+    "Key Items"
+        "[02][19 02]"
+    "Call SandwichBot"
+        "[02][19 02]"
+    "Clear inventory"
+        "[02][19 02]"
+    "Fill Escargo"
+        "[02][19 02]"
+    "Clear Escargo"
+        "[02][19 02]"
+    "Equip cool stuff"
+        "[02][1C 0C 01][11][1B 05]{window_closetop}[19 04]{window_switch(1)}" newline
+        "[1B 06][09 07 {e(l_0xc582f8)} {e(l_0xc58369)} {e(l_0xc58539)} {e(l_0xc58568)} {e(l_0xc585dc)} {e(l_0xc58614)} {e(l_0xc5863c)}]" goto(l_0xc58000)
 
 l_0xc582f8:
-	window_clear
+    window_clear
     "@Input Goods ID:" linebreak
-		"   [1F 52 03]{clearline}[1B 02 {e(l_0xc58364)}]{swap}[1D 03 FF][1B 02 {e(l_0xc58358)}]{store_registers}"
-	"@The [1C 05 00]?{pause(30)}{newline}  To whom?" prompt
-		call(l_0xc5e52e) 
-		linebreak
-		"[1B 02 {e(l_0xc582f8)}][1D 0E 00 00]"
-		sound(116) //The sound is enough confirmation
-		pause(40)
-		goto(l_0xc582f8)
+        "   [1F 52 03]{clearline}[1B 02 {e(l_0xc58364)}]{swap}[1D 03 FF][1B 02 {e(l_0xc58358)}]{store_registers}"
+    "@The [1C 05 00]?{pause(30)}{newline}  To whom?" prompt
+        call(l_0xc5e52e)
+        linebreak
+        "[1B 02 {e(l_0xc582f8)}][1D 0E 00 00]"
+        sound(116) //The sound is enough confirmation
+        pause(40)
+        goto(l_0xc582f8)
 
 l_0xc58358:
     window_clear
-	"@Oh! {pause(30)}You've got too much stuff." next
-	"@The Debug Menu may be awe-inspiring," next
+    "@Oh! {pause(30)}You've got too much stuff." next
+    "@The Debug Menu may be awe-inspiring," next
     "  but there's no way around this inventory system!" wait
-	goto(l_0xc58364)
+    goto(l_0xc58364)
 
 l_0xc58364:
     goto(l_0xc58000)
 
 l_0xc58369:
-		"[18 02]{window_open(7)}[19 02]"
-	"Key to the shack"
-		"[02][19 02]"
-	"Reciever phone"
-		"[02][19 02]"
-	"Pencil eraser"
-		"[02][19 02]"
-	"Franklin badge"
-		"[02][19 02]"
-	"Key to the cabin"
-		"[02][19 02]"
-	"Wad of bills"
-		"[02][19 02]"
-	"Bad key machine"
-		"[02][19 02]"
-	"Zombie paper"
-		"[02][19 02]"
-	"Diamond"
-		"[02][19 02]"
-	"Yogurt dispenser"
-		"[02][19 02]"
-	"Hieroglyph copy"
-		"[02][19 02]"
-	"Hawk eye"
-		"[02][19 02]"
-	"Pak of bubble gum"
-		"[02][19 02]"
-	"Shyness book"
-		"[02][19 02]"
-	"Meteorite piece"
-		"[02][19 02]"
-	"Signed banana"
-		"[02][19 02]"
-	"Eraser eraser"
-		"[02][19 02]"
-	"Tendakraut"
-		"[02][19 02]"
-	"Carrot key"
-		"[02][1C 0C 01][11][1B 05]"
-		window_closetop
-		"[19 04]"
-		window_switch(1)
-		newline
-		"[1B 06][1B 02 {e(l_0xc58364)}]"
-		swap
-	"@To whom?" next 
-		call(l_0xc5e52e) "[1B 02 {e(l_0xc58369)}]{swap}[1F C0 13 {e(l_0xc584b4)} {e(l_0xc584bb)} {e(l_0xc584c2)} {e(l_0xc584c9)} {e(l_0xc584d0)} {e(l_0xc584d7)} {e(l_0xc584de)} {e(l_0xc584e5)} {e(l_0xc584ec)} {e(l_0xc584f3)} {e(l_0xc584fa)} {e(l_0xc58501)} {e(l_0xc58508)} {e(l_0xc5850f)} {e(l_0xc58516)} {e(l_0xc5851d)} {e(l_0xc58524)} {e(l_0xc5852b)} {e(l_0xc58532)}]" goto(l_0xc58369)
+        "[18 02]{window_open(7)}[19 02]"
+    "Key to the shack"
+        "[02][19 02]"
+    "Reciever phone"
+        "[02][19 02]"
+    "Pencil eraser"
+        "[02][19 02]"
+    "Franklin badge"
+        "[02][19 02]"
+    "Key to the cabin"
+        "[02][19 02]"
+    "Wad of bills"
+        "[02][19 02]"
+    "Bad key machine"
+        "[02][19 02]"
+    "Zombie paper"
+        "[02][19 02]"
+    "Diamond"
+        "[02][19 02]"
+    "Yogurt dispenser"
+        "[02][19 02]"
+    "Hieroglyph copy"
+        "[02][19 02]"
+    "Hawk eye"
+        "[02][19 02]"
+    "Pak of bubble gum"
+        "[02][19 02]"
+    "Shyness book"
+        "[02][19 02]"
+    "Meteorite piece"
+        "[02][19 02]"
+    "Signed banana"
+        "[02][19 02]"
+    "Eraser eraser"
+        "[02][19 02]"
+    "Tendakraut"
+        "[02][19 02]"
+    "Carrot key"
+        "[02][1C 0C 01][11][1B 05]"
+        window_closetop
+        "[19 04]"
+        window_switch(1)
+        newline
+        "[1B 06][1B 02 {e(l_0xc58364)}]"
+        swap
+    "@To whom?" next
+        call(l_0xc5e52e) "[1B 02 {e(l_0xc58369)}]{swap}[1F C0 13 {e(l_0xc584b4)} {e(l_0xc584bb)} {e(l_0xc584c2)} {e(l_0xc584c9)} {e(l_0xc584d0)} {e(l_0xc584d7)} {e(l_0xc584de)} {e(l_0xc584e5)} {e(l_0xc584ec)} {e(l_0xc584f3)} {e(l_0xc584fa)} {e(l_0xc58501)} {e(l_0xc58508)} {e(l_0xc5850f)} {e(l_0xc58516)} {e(l_0xc5851d)} {e(l_0xc58524)} {e(l_0xc5852b)} {e(l_0xc58532)}]" goto(l_0xc58369)
 
 l_0xc584b4:
     "{swap}[1D 0E 00 AA]" eob
@@ -354,10 +353,10 @@ l_0xc58567:
 l_0xc58568:
     "@Inventory clearer" linebreak
     "[19 02]"
-	"Everything"
-	"[02][19 02]"
-	"By item"
-	"[02][1C 07 02][11]{clearline}[09 02 {e(l_0xc58597)} {e(l_0xc585c5)}]" goto(l_0xc58364)
+    "Everything"
+    "[02][19 02]"
+    "By item"
+    "[02][1C 07 02][11]{clearline}[09 02 {e(l_0xc58597)} {e(l_0xc585c5)}]" goto(l_0xc58364)
 
 l_0xc58597:
     "{counter(1)}" goto(l_0xc58599)
@@ -385,8 +384,8 @@ l_0xc585db:
 
 l_0xc585dc:
     "@The empty Escargo Express spaces are now full of cool stuff.{sound(116)}"
-	counter(20)
-	goto(l_0xc585f2)
+    counter(20)
+    goto(l_0xc585f2)
 
 l_0xc585f2:
     "{ctoarg}[1D 0C 01 01][18 07 02 00 00 00 00][1B 03 {e(l_0xc5860e)}][1D 18 00]{inc}" goto(l_0xc585f2)
@@ -396,8 +395,8 @@ l_0xc5860e:
 
 l_0xc58614:
     window_clear
-	"@Breaking news! {pause(20)}Escargo Express warehouse robbed!"
-	goto(l_0xc58624)
+    "@Breaking news! {pause(20)}Escargo Express warehouse robbed!"
+    goto(l_0xc58624)
 
 l_0xc58624:
     "[19 1A 01][1B 02 {e(l_0xc58636)}][19 1C FF 01]" goto(l_0xc58624)
@@ -407,7 +406,7 @@ l_0xc58636:
 
 l_0xc5863c:
     "@Cool stuff equipped!{sound(115)}" wait
-	call(l_0xc58659) goto(l_0xc58000)
+    call(l_0xc58659) goto(l_0xc58000)
 
 l_0xc58659:
     "{counter(1)}" goto(l_0xc5865b)
@@ -439,26 +438,26 @@ l_0xc586ff:
 l_0xc58718:
     window_clear
     "@Select a party member, then choose a status ailment."
-		"[1A 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01][1B 02 {e(l_0xc587ee)}]{store_registers}" linebreak
-		"[18 02]"
-		window_open(12)
-	"[19 02]Heal all[02]"
-	"[19 02]KO[02]"
-	"[19 02]Diamond[02]"
-	"[19 02]Paralysis[02]"
-	"[19 02]Nausea[02]"
-	"[19 02]Poison[02]"
-	"[19 02]Heatstroke[02]"
-	"[19 02]The Cold[02]"
-	"[19 02]Mushroom[02]"
-	"[19 02]Mini-Ghost[02]"
-	"[19 02]Homesickness[02]"
-	"[19 02]HP Rolldown[02]"
-	"[19 02]PP Rolldown[02]"
-	"[1C 0C 02][11][1B 05]"
-		window_closetop
-		window_switch(1)
-		"[1B 06][09 0D {e(l_0xc587f3)} {e(l_0xc58813)} {e(l_0xc5882f)} {e(l_0xc58841)} {e(l_0xc5884e)} {e(l_0xc5885b)} {e(l_0xc58868)} {e(l_0xc58875)} {e(l_0xc58882)} {e(l_0xc5888f)} {e(l_0xc5889c)} {e(l_0xc588a9)} {e(l_0xc588bb)}]" goto(l_0xc58718)
+        "[1A 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01][1B 02 {e(l_0xc587ee)}]{store_registers}" linebreak
+        "[18 02]"
+        window_open(12)
+    "[19 02]Heal all[02]"
+    "[19 02]KO[02]"
+    "[19 02]Diamond[02]"
+    "[19 02]Paralysis[02]"
+    "[19 02]Nausea[02]"
+    "[19 02]Poison[02]"
+    "[19 02]Heatstroke[02]"
+    "[19 02]The Cold[02]"
+    "[19 02]Mushroom[02]"
+    "[19 02]Mini-Ghost[02]"
+    "[19 02]Homesickness[02]"
+    "[19 02]HP Rolldown[02]"
+    "[19 02]PP Rolldown[02]"
+    "[1C 0C 02][11][1B 05]"
+        window_closetop
+        window_switch(1)
+        "[1B 06][09 0D {e(l_0xc587f3)} {e(l_0xc58813)} {e(l_0xc5882f)} {e(l_0xc58841)} {e(l_0xc5884e)} {e(l_0xc5885b)} {e(l_0xc58868)} {e(l_0xc58875)} {e(l_0xc58882)} {e(l_0xc5888f)} {e(l_0xc5889c)} {e(l_0xc588a9)} {e(l_0xc588bb)}]" goto(l_0xc58718)
 
 l_0xc587ee:
     goto(l_0xc58000)
@@ -544,51 +543,51 @@ l_0xc588cc:
 
 l_0xc588cd:
     "@Reversing the polarity..."
-	pause(10)
-	window_open(8)
-		"[19 02]"
-	"Onett"
-		"[02][19 02]"
-	"Twoson"
-		"[02][19 02]"
-	"H. H. Village"
-		"[02][19 02]"
-	"Cultist's Cabin"
-		"[02][19 02]"
-	"Threed"
-		"[02][19 02]"
-	"Winters"
-		"[02][19 02]"
-	"Saturn Valley"
-		"[02][19 02]"
-	"Belch's Base"
-		"[02][19 02]"
-	"ALIENS"
-		"[02][19 02]"
-	"Fourside"
-		"[02][19 02]"
-	"Moonside"
-		"[02][19 02]"
-	"Summers"
-		"[02][19 02]"
-	"Dalaam"
-		"[02][19 02]"
-	"Scaraba"
-		"[02][19 02]"
-	"Deep Darkness"
-		"[02][19 02]"
-	"Tenda Village"
-		"[02][19 02]"
-	"L. Underworld"
-		"[02][19 02]"
-	"Ness's Magicant"
-		"[02][19 02]"
-	"Beatles Cave"
-		"[02][19 02]"
-	"Giygas Cave"
-		"[02][1C 0C 03][11][1B 05]"
-	window_closetop
-	window_switch(1) newline
+    pause(10)
+    window_open(8)
+        "[19 02]"
+    "Onett"
+        "[02][19 02]"
+    "Twoson"
+        "[02][19 02]"
+    "H. H. Village"
+        "[02][19 02]"
+    "Cultist's Cabin"
+        "[02][19 02]"
+    "Threed"
+        "[02][19 02]"
+    "Winters"
+        "[02][19 02]"
+    "Saturn Valley"
+        "[02][19 02]"
+    "Belch's Base"
+        "[02][19 02]"
+    "ALIENS"
+        "[02][19 02]"
+    "Fourside"
+        "[02][19 02]"
+    "Moonside"
+        "[02][19 02]"
+    "Summers"
+        "[02][19 02]"
+    "Dalaam"
+        "[02][19 02]"
+    "Scaraba"
+        "[02][19 02]"
+    "Deep Darkness"
+        "[02][19 02]"
+    "Tenda Village"
+        "[02][19 02]"
+    "L. Underworld"
+        "[02][19 02]"
+    "Ness's Magicant"
+        "[02][19 02]"
+    "Beatles Cave"
+        "[02][19 02]"
+    "Giygas Cave"
+        "[02][1C 0C 03][11][1B 05]"
+    window_closetop
+    window_switch(1) newline
     "[1B 06][09 14 {e(l_0xc589e6)} {e(l_0xc589ea)} {e(l_0xc589ee)} {e(l_0xc589f2)} {e(l_0xc589f6)} {e(l_0xc589fa)} {e(l_0xc589fe)} {e(l_0xc58a02)} {e(l_0xc58a06)} {e(l_0xc58a0a)} {e(l_0xc58a0e)} {e(l_0xc58a12)} {e(l_0xc58a16)} {e(l_0xc58a1a)} {e(l_0xc58a1e)} {e(l_0xc58a22)} {e(l_0xc58a2e)} {e(l_0xc58a32)} {e(l_0xc58a26)} {e(l_0xc58a2a)}]" goto(l_0xc58000)
 
 
@@ -655,16 +654,16 @@ l_0xc58a32:
 
 l_0xc58a36:
     "@To whom?" linebreak
-		"[19 02]"
-	"Everybody"
-		"[02][19 02]"
-	"One"
-		"[02][1C 07 02][11]{clearline}[09 02 {e(l_0xc58a61)} {e(l_0xc58a93)}]" goto(l_0xc58000)
+        "[19 02]"
+    "Everybody"
+        "[02][19 02]"
+    "One"
+        "[02][1C 07 02][11]{clearline}[09 02 {e(l_0xc58a61)} {e(l_0xc58a93)}]" goto(l_0xc58000)
 
 l_0xc58a61:
     call(l_0xc58add) "[1B 02 {e(l_0xc58a8d)}]{swap}[1E 08 01 00][1E 08 02 00][1E 08 03 00][1E 08 04 00]"
-	"@Adjustments made!" wait 
-	goto(l_0xc58a8d)
+    "@Adjustments made!" wait
+    goto(l_0xc58a8d)
 
 l_0xc58a8d:
     goto(l_0xc58000)
@@ -675,8 +674,8 @@ l_0xc58a92:
 l_0xc58a93:
     newline
     "@Which party member's level should be edited?"
-	"[1A 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01]"
-	"[1B 02 {e(l_0xc58ad7)}]{swap}" call(l_0xc58add) "[1B 02 {e(l_0xc58ad7)}]{swap}[1E 08 00 00]" goto(l_0xc58a93)
+    "[1A 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01]"
+    "[1B 02 {e(l_0xc58ad7)}]{swap}" call(l_0xc58add) "[1B 02 {e(l_0xc58ad7)}]{swap}[1E 08 00 00]" goto(l_0xc58a93)
 
 l_0xc58ad7:
     goto(l_0xc58000)
@@ -692,26 +691,26 @@ l_0xc58add:
 l_0xc58afb:
     newline
     "@I'm an ATM, ka-ching." pause(20)
-		"[18 02]"
-		open_hp
-		open_wallet
-		window_open(7)
-		"[19 02]"
-	"Max out the bank"
-		"[02][19 02]"
-	"Max out wallet"
-		"[02][19 02]"
-	"Edit wallet"
-		"[02][19 02]"
-	"Lose wallet"
-		"[02][1C 0C 01][11][1B 05]{window_closetop}{window_switch(1)}[1B 06]" newline
-		"[09 04 {e(l_0xc58b6c)} {e(l_0xc58bac)} {e(l_0xc58bd2)} {e(l_0xc58c30)}]" goto(l_0xc58000)
+        "[18 02]"
+        open_hp
+        open_wallet
+        window_open(7)
+        "[19 02]"
+    "Max out the bank"
+        "[02][19 02]"
+    "Max out wallet"
+        "[02][19 02]"
+    "Edit wallet"
+        "[02][19 02]"
+    "Lose wallet"
+        "[02][1C 0C 01][11][1B 05]{window_closetop}{window_switch(1)}[1B 06]" newline
+        "[09 04 {e(l_0xc58b6c)} {e(l_0xc58bac)} {e(l_0xc58bd2)} {e(l_0xc58c30)}]" goto(l_0xc58000)
 
 l_0xc58b6c:
     "@You now have 9999999 dollars in the bank." next
-	"@Dolla dolla bill, y'all." wait
-	counter(1)
-	goto(l_0xc58b88)
+    "@Dolla dolla bill, y'all." wait
+    counter(1)
+    goto(l_0xc58b88)
 
 l_0xc58b88:
     "{ctoarg}{swap}{result_is(200)}[1B 03 {e(l_0xc58ba0)}][1D 06 50 C3 00 00]{inc}" goto(l_0xc58b88)
@@ -724,20 +723,20 @@ l_0xc58bab:
 
 l_0xc58bac:
     "@You're now carrying 99999 dollars." next
-	"@You're ecstatic!" wait
-	"[1D 08 60 EA][1D 08 40 9C]{open_wallet}" goto(l_0xc58000)
+    "@You're ecstatic!" wait
+    "[1D 08 60 EA][1D 08 40 9C]{open_wallet}" goto(l_0xc58000)
 
 l_0xc58bd1:
     eob
 
 l_0xc58bd2:
     "@Input a number." linebreak
-		"[18 05 04 0A]&[18 05 04 02]$[1F 52 05]"
-		clearline
-		"[1B 02 {e(l_0xc58c2a)}]{store_registers}{call(l_0xc58c55)}{load_registers}{swap}[1D 08 00 00]{open_wallet}"
-	"@You're now carrying [1C 0A 00 00 00 00] dollars." next
-	"  JOY!" wait
-	goto(l_0xc58c2a)
+        "[18 05 04 0A]&[18 05 04 02]$[1F 52 05]"
+        clearline
+        "[1B 02 {e(l_0xc58c2a)}]{store_registers}{call(l_0xc58c55)}{load_registers}{swap}[1D 08 00 00]{open_wallet}"
+    "@You're now carrying [1C 0A 00 00 00 00] dollars." next
+    "  JOY!" wait
+    goto(l_0xc58c2a)
 
 l_0xc58c2a:
     goto(l_0xc58000)
@@ -746,10 +745,10 @@ l_0xc58c2f:
     eob
 
 l_0xc58c30:
-    call(l_0xc58c55) 
-	"@You are now broke!" next
+    call(l_0xc58c55)
+    "@You are now broke!" next
     "  Well...{pause(15)}crap." wait
-	goto(l_0xc58000)
+    goto(l_0xc58000)
 
 l_0xc58c54:
     eob
@@ -772,21 +771,21 @@ l_0xc58c7d:
 /////////Business Stuff has gone bankrupt. Too many dependencies!
 
 l_0xc58d09:
-		"[18 02]"
-		//open_hp
-		//open_wallet
-		window_close(7)
-		window_open(37)
-		"[19 02]"
-	"Music"
-		"[02][19 02]"
-	"Sound Effects"
-		"[02][19 02]"
-	"SPC Effects"
-		"[02][1C 0C 01][11][1B 05]"
-		window_closetop
-		window_switch(1)
-		"[1B 06][09 03 {e(l_0xc58d46)} {e(l_0xc58d70)} {e(l_0xc58d96)}]" goto(l_0xc58000)
+        "[18 02]"
+        //open_hp
+        //open_wallet
+        window_close(7)
+        window_open(37)
+        "[19 02]"
+    "Music"
+        "[02][19 02]"
+    "Sound Effects"
+        "[02][19 02]"
+    "SPC Effects"
+        "[02][1C 0C 01][11][1B 05]"
+        window_closetop
+        window_switch(1)
+        "[1B 06][09 03 {e(l_0xc58d46)} {e(l_0xc58d70)} {e(l_0xc58d96)}]" goto(l_0xc58000)
 
 l_0xc58d46:
     window_clear
@@ -795,10 +794,10 @@ l_0xc58d46:
 
 l_0xc58d58:
     "    [1F 52 03]"
-	clearline
-	"[1B 02 {e(l_0xc58d09)}]" swap //"[1B 02 {e(l_0xc58000)}]" swap
-	music(0)
-	goto(l_0xc58d58)
+    clearline
+    "[1B 02 {e(l_0xc58d09)}]" swap //"[1B 02 {e(l_0xc58000)}]" swap
+    music(0)
+    goto(l_0xc58d58)
 
 l_0xc58d70:
     window_clear
@@ -807,144 +806,141 @@ l_0xc58d70:
 
 l_0xc58d80:
     "     [1F 52 03]" clearline
-	"[1B 02 {e(l_0xc58d09)}]" swap
-	sound(0)
-	goto(l_0xc58d80)
+    "[1B 02 {e(l_0xc58d09)}]" swap
+    sound(0)
+    goto(l_0xc58d80)
 
 l_0xc58d96:
     window_clear
-	window_open(7)
-	pause(5)
-	"@What kind of effects?" newline
-	menu 1
-	{
-		"From a list":
-		{
-			window_clear
-			menu 1
-			{
-				"Volume Normal": {music_effect(24)}
-				"Volume Medium": {music_effect(7)}
-				"Volume Low": {music_effect(23)}
-				"Helium": {music_effect(21)}
-				"Oxygen?": {music_effect(22)}
-				"Fast-forward": {music_effect(5)}
-				"Quick fade out": {music_effect(2)}
-				"Slow fade out": {music_effect(3)}
-			}
-		}
-		"Specific code":
-		{
-			window_clear
-			"@Need an explanation?" newline
-			menu
-			{
-				"Of course":
-				{
-					window_clear
-					"@Try Googling <CCScript Reference> and searching the page for music (underscore) effect." next
-					window_clear
-					"@There's a complete list there." wait
-					
-				}
-				"No":
-				{
-					window_clear
-					"@Input a number." newline
-					goto(l_0xc58da9)
-				}
-			}
-		}
-	}
+    window_open(7)
+    pause(5)
+    "@What kind of effects?" newline
+    menu 1
+    {
+        "From a list":
+        {
+            window_clear
+            menu 1
+            {
+                "Volume Normal": {music_effect(24)}
+                "Volume Medium": {music_effect(7)}
+                "Volume Low": {music_effect(23)}
+                "Helium": {music_effect(21)}
+                "Oxygen?": {music_effect(22)}
+                "Fast-forward": {music_effect(5)}
+                "Quick fade out": {music_effect(2)}
+                "Slow fade out": {music_effect(3)}
+            }
+        }
+        "Specific code":
+        {
+            window_clear
+            "@Need an explanation?" newline
+            menu
+            {
+                "Of course":
+                {
+                    window_clear
+                    "@Try Googling <CCScript Reference> and searching the page for music (underscore) effect." next
+                    window_clear
+                    "@There's a complete list there." wait
+                }
+                "No":
+                {
+                    window_clear
+                    "@Input a number." newline
+                    goto(l_0xc58da9)
+                }
+            }
+        }
+    }
     goto(l_0xc58d09)
 
 mapMusicSwitching:
-	
+    
 
 
 l_0xc58da9: //Manual number entry
     "     [1F 52 02]" clearline
-	"[1B 02 {e(l_0xc58000)}]" swap
-	"[1F 07 00]" 
-	goto(l_0xc58da9)
-	
+    "[1B 02 {e(l_0xc58000)}]" swap
+    "[1F 07 00]"
+    goto(l_0xc58da9)
+
 debug_invasionForces:
-	window_closeall
-	pause(5)
-	window_open(1)
-	window_clear
-	"@Connecting to Mothership..." wait
-	window_clear
-	"  Invasion Commencement Signal" linebreak
-	menu
-	{
-		"Enable": 
-		{
-			window_clear
-			"  Invasion Signal Completed"
-			wait
-			unset(flag 11)
-		}
-		"Disable":
-		{
-			window_clear
-			"  Invasion Signal Terminated"
-			wait
-			set(flag 11)
-		}
-	}
-	goto(l_0xc58000)
-	eob
-	
-	
+    window_closeall
+    pause(5)
+    window_open(1)
+    window_clear
+    "@Connecting to Mothership..." wait
+    window_clear
+    "  Invasion Commencement Signal" linebreak
+    menu
+    {
+        "Enable":
+        {
+            window_clear
+            "  Invasion Signal Completed"
+            wait
+            unset(flag 11)
+        }
+        "Disable":
+        {
+            window_clear
+            "  Invasion Signal Terminated"
+            wait
+            set(flag 11)
+        }
+    }
+    goto(l_0xc58000)
+    eob
+
 l_0xc58dbf:
     //See debug_invasionForces for the stuff that used to go here.
-	//It was glitching out, so I copied and pasted everything into a menu command.
-	eob
+    //It was glitching out, so I copied and pasted everything into a menu command.
+    eob
 
 l_0xc58df1:
     //This is where the stuff under "Enable" used to be
-	eob
+    eob
 
 l_0xc58e02:
     //This is where the stuff under "Disable" used to be
-	eob
+    eob
 
 //The hint guy doesn't appear in this hack.
 
 teleportFXtest:
-	window_clear
-	window_open(7)
-	menu 1
-	{
-		"Straight line":
-		{
-			goto(l_0xc58e9f)
-		}
-		"Spinny":
-		{
-			goto(l_0xc58ea6)
-		}
-		"PK Cutscene":
-		{
-			goto(l_0xc58eb4)
-		}
-		"PK Hack":
-		{
-			goto(l_0xc58ead)
-		}
-		
-	}
-	goto(l_0xc58000)
+    window_clear
+    window_open(7)
+    menu 1
+    {
+        "Straight line":
+        {
+            goto(l_0xc58e9f)
+        }
+        "Spinny":
+        {
+            goto(l_0xc58ea6)
+        }
+        "PK Cutscene":
+        {
+            goto(l_0xc58eb4)
+        }
+        "PK Hack":
+        {
+            goto(l_0xc58ead)
+        }
+    }
+    goto(l_0xc58000)
 
 l_0xc58e73:
-	goto(teleportFXtest) //I'm just going to put this all in an easy-to-use menu.
-	window_clear
-    "@Enter a number." 
+    goto(teleportFXtest) //I'm just going to put this all in an easy-to-use menu.
+    window_clear
+    "@Enter a number."
     "  [1F 52 01]{clearline}[09 04 {e(l_0xc58e9f)} {e(l_0xc58ea6)} {e(l_0xc58ead)} {e(l_0xc58eb4)}]" goto(l_0xc58000)
 
 l_0xc58e9f:
-    "{window_closeall}[1F 20 04 01]" eob 
+    "{window_closeall}[1F 20 04 01]" eob
 
 l_0xc58ea6:
     "{window_closeall}[1F 20 04 02]" eob
@@ -957,7 +953,7 @@ l_0xc58eb4:
 
 l_0xc58ebb:
     "@SKtPSNDWKWEMS." wait
-	call(l_0xc58555) eob //This calls the SandwitchBot, but it's unused. I wonder why it's here?
+    call(l_0xc58555) eob //This calls the SandwitchBot, but it's unused. I wonder why it's here?
 
 l_0xc58ed1:
     "@NNMDKMSN." end
@@ -990,9 +986,9 @@ l_0xc58feb:
 
 l_0xc59019:
     "{counter(10)}" eob
-	
+
 ///////////////////////////////////////////////////
-	
+
 l_0xc5901c:
     "{counter(11)}" eob
 
@@ -1091,15 +1087,15 @@ l_0xc59895:
     "@Input space-time coordinates:" linebreak
     "  [1F 52 02]" newline
     "[09 46 {e(l_0xc599d0)} {e(l_0xc599f4)} {e(l_0xc59a15)} {e(l_0xc59a40)} {e(l_0xc59a72)} {e(l_0xc59aa4)} {e(l_0xc59ace)} {e(l_0xc59af5)} {e(l_0xc59b25)} {e(l_0xc59b45)} {e(l_0xc59b78)} {e(l_0xc59bb5)} {e(l_0xc59bd7)} {e(l_0xc59bfc)} {e(l_0xc59c39)} {e(l_0xc59c67)} {e(l_0xc59c84)} {e(l_0xc59cb5)} {e(l_0xc59cd9)} {e(l_0xc59d06)} {e(l_0xc59d30)} {e(l_0xc59d61)} {e(l_0xc59d7f)} {e(l_0xc59da0)} {e(l_0xc59dbd)} {e(l_0xc59de1)} {e(l_0xc59e01)} {e(l_0xc59e21)} {e(l_0xc59e40)} {e(l_0xc59e62)} {e(l_0xc59e84)} {e(l_0xc59eb2)} {e(l_0xc59f08)} {e(l_0xc59f44)} {e(l_0xc59f60)} {e(l_0xc59f80)} {e(l_0xc59fa0)} {e(l_0xc59fbd)} {e(l_0xc59ff1)} {e(l_0xc5a00c)} {e(l_0xc5a036)} {e(l_0xc5a05b)} {e(l_0xc5a07e)} {e(l_0xc5a0b3)} {e(l_0xc5a0db)} {e(l_0xc5a0fe)} {e(l_0xc5a11a)} {e(l_0xc5a154)} {e(l_0xc5a17d)} {e(l_0xc5a1ae)} {e(l_0xc5a1cd)} {e(l_0xc5a1ff)} {e(l_0xc5a232)} {e(l_0xc5a25e)} {e(l_0xc5a27a)} {e(l_0xc5a29c)} {e(l_0xc5a2c2)} {e(l_0xc5a2ec)} {e(l_0xc5a318)} {e(l_0xc5a342)} {e(l_0xc5a36c)} {e(l_0xc5a396)} {e(l_0xc5a3c0)} {e(l_0xc5a3ea)} {e(l_0xc5a414)} {e(l_0xc5a43e)} {e(l_0xc5a465)} {e(l_0xc5a48b)} {e(l_0xc5a4b4)} {e(l_0xc5a4cd)}]"
-	goto(l_0xc58000)
+    goto(l_0xc58000)
 
 l_0xc599d0: //1
     "@Right before {name(7)} runs away"
-	"{wait}{window_closeall}{counter(10)}" call(l_0xc5a4ec) "[1F 11 05][1F 11 07][1F 21 73]" eob
+    "{wait}{window_closeall}{counter(10)}" call(l_0xc5a4ec) "[1F 11 05][1F 11 07][1F 21 73]" eob
 
 l_0xc599f4: //2
     "@Right before facing Starman Junior...?"
-	"{wait}{window_closeall}{counter(11)}" call(l_0xc5a4ec) "[1F 11 05][1F 11 06][1F 21 74]" eob
+    "{wait}{window_closeall}{counter(11)}" call(l_0xc5a4ec) "[1F 11 05][1F 11 06][1F 21 74]" eob
 
 l_0xc59a15: //3
     "@Before beating Captain Strong" 
@@ -1107,267 +1103,267 @@ l_0xc59a15: //3
 
 l_0xc59a40: //4
     "@Twoson"
-	"{wait}{window_closeall}{counter(14)}" call(l_0xc5a4ec) "{set(flag 210)}[1D 0E 01 B0][1D 0E 01 A4][1D 0E 01 A2][1D 0E 01 C5][1D 0E 01 CA]{set(flag 512)}[1F 21 1D]" eob
+    "{wait}{window_closeall}{counter(14)}" call(l_0xc5a4ec) "{set(flag 210)}[1D 0E 01 B0][1D 0E 01 A4][1D 0E 01 A2][1D 0E 01 C5][1D 0E 01 CA]{set(flag 512)}[1F 21 1D]" eob
 
 l_0xc59a72: //5
-    "@Before the first Runaway Five show" 
+    "@Before the first Runaway Five show"
     "{wait}{window_closeall}{counter(22)}" call(l_0xc5a4ec) "{set(flag 85)}{set(flag 553)}{set(flag 549)}{set(flag 43)}[1F 21 76]" eob
 
 l_0xc59aa4: //6
     "@Before Carpainter gets zappy zappy"
-	"{wait}{window_closeall}{counter(20)}" call(l_0xc5a4ec) "{set(flag 175)}[1F 21 77]" eob
+    "{wait}{window_closeall}{counter(20)}" call(l_0xc5a4ec) "{set(flag 175)}[1F 21 77]" eob
 
 l_0xc59ace: //7
-    "@Before freeing {name(2)}." 
+    "@Before freeing {name(2)}."
     "{wait}{window_closeall}{counter(21)}" call(l_0xc5a4ec) "{set(flag 68)}{unset(flag 175)}[1D 0E 01 AB][1F 21 78]" eob
 
 l_0xc59af5: //8
     "@Before freeing the Runaway Five for the first time"
-	"{wait}{window_closeall}{counter(22)}" call(l_0xc5a4ec) "[1F 11 02][1D 0E 01 B4]{set(flag 319)}[1F 21 79]" eob
+    "{wait}{window_closeall}{counter(22)}" call(l_0xc5a4ec) "[1F 11 02][1D 0E 01 B4]{set(flag 319)}[1F 21 79]" eob
 
 l_0xc59b25: //9
     "@Before being captured by the zombies"
-	"{wait}{window_closeall}{counter(23)}" call(l_0xc5a4ec) "{set(flag 297)}[1F 11 02][1F 21 7A]" eob
+    "{wait}{window_closeall}{counter(23)}" call(l_0xc5a4ec) "{set(flag 297)}[1F 11 02][1F 21 7A]" eob
 
 l_0xc59b45: //10
     "@Before Bubble Monkey joins {name(3)}"
-	"{wait}{window_closeall}{counter(30)}" call(l_0xc5a4ec) "[1F 11 03][1F 12 01]{set(flag 323)}[1D 0E 03 68][1F 21 7B]" eob
+    "{wait}{window_closeall}{counter(30)}" call(l_0xc5a4ec) "[1F 11 03][1F 12 01]{set(flag 323)}[1D 0E 03 68][1F 21 7B]" eob
 
 l_0xc59b78: //11
     "@Before riding Tessie"
-	"{wait}{window_closeall}{counter(31)}" call(l_0xc5a4ec) "[1F 11 03][1F 12 01][1F 11 09][1D 0E 03 68]{set(flag 344)}{set(flag 696)}[1F 21 2E][1F 66 01 27 0F AE C9 00][1F 66 02 30 87 B0 C6 00]" eob
+    "{wait}{window_closeall}{counter(31)}" call(l_0xc5a4ec) "[1F 11 03][1F 12 01][1F 11 09][1D 0E 03 68]{set(flag 344)}{set(flag 696)}[1F 21 2E][1F 66 01 27 0F AE C9 00][1F 66 02 30 87 B0 C6 00]" eob
 
 l_0xc59bb5: //12
     "@Before riding the Sky Runner"
-	"{wait}{window_closeall}{counter(32)}" call(l_0xc5a4ec) "[1F 11 03][1F 12 01][1F 21 7D]" eob
+    "{wait}{window_closeall}{counter(32)}" call(l_0xc5a4ec) "[1F 11 03][1F 12 01][1F 21 7D]" eob
 
 l_0xc59bd7: //13
     "@Before the Runaway Five's first performance at the Topolla"
-	"{wait}{window_closeall}{counter(40)}" call(l_0xc5a4ec) "[1F 11 02][1F 11 03][1F 21 7E]" eob
+    "{wait}{window_closeall}{counter(40)}" call(l_0xc5a4ec) "[1F 11 02][1F 11 03][1F 21 7E]" eob
 
 l_0xc59bfc: //14
     "@Before George Montague gives you the Diamond"
-	"{wait}{window_closeall}{counter(40)}" call(l_0xc5a4ec) "{set(flag 277)}{set(flag 278)}{set(flag 279)}{set(flag 280)}{set(flag 281)}{set(flag 72)}{unset(flag 54)}{set(flag 282)}{set(flag 272)}[1F 11 02][1F 11 03][1F 21 7F]" eob
+    "{wait}{window_closeall}{counter(40)}" call(l_0xc5a4ec) "{set(flag 277)}{set(flag 278)}{set(flag 279)}{set(flag 280)}{set(flag 281)}{set(flag 72)}{unset(flag 54)}{set(flag 282)}{set(flag 272)}[1F 11 02][1F 11 03][1F 21 7F]" eob
 
 l_0xc59c39: //15
     "@Before freeing the Runaway Five again"
-	"{wait}{window_closeall}{counter(41)}" call(l_0xc5a4ec) "{unset(flag 146)}{unset(flag 147)}[1F 11 02][1F 11 03][1D 0E 01 B6][1F 21 80]" eob
+    "{wait}{window_closeall}{counter(41)}" call(l_0xc5a4ec) "{unset(flag 146)}{unset(flag 147)}[1F 11 02][1F 11 03][1D 0E 01 B6][1F 21 80]" eob
 
 l_0xc59c67: //16
     "@Before fighting the Clumsy Robot"
-	"{wait}{window_closeall}{counter(43)}" call(l_0xc5a4ec) "{set(flag 142)}[1F 11 03][1F 21 81]" eob
+    "{wait}{window_closeall}{counter(43)}" call(l_0xc5a4ec) "{set(flag 142)}[1F 11 03][1F 21 81]" eob
 
 l_0xc59c84: //17
     "@Inside the Monotoli Building"
-	"{wait}{window_closeall}{counter(43)}" call(l_0xc5a4ec) "{set(flag 317)}{set(flag 142)}{set(flag 143)}[1F 11 03][1F 11 02][1F 21 82]" eob
+    "{wait}{window_closeall}{counter(43)}" call(l_0xc5a4ec) "{set(flag 317)}{set(flag 142)}{set(flag 143)}[1F 11 03][1F 11 02][1F 21 82]" eob
 
 l_0xc59cb5: //18
     "@Before the second ride in the Sky Runner"
-	"{wait}{window_closeall}{counter(44)}" call(l_0xc5a4ec) "{set(flag 48)}[1F 11 03][1F 11 02][1F 21 83]" eob
+    "{wait}{window_closeall}{counter(44)}" call(l_0xc5a4ec) "{set(flag 48)}[1F 11 03][1F 11 02][1F 21 83]" eob
 
 l_0xc59cd9: //19
     "@Before eating Magic Cake"
-	"{wait}{window_closeall}{counter(44)}" call(l_0xc5a4ec) "{set(flag 203)}{set(flag 617)}{set(flag 61)}[1F 11 03][1F 11 02][1F 21 84]" eob
+    "{wait}{window_closeall}{counter(44)}" call(l_0xc5a4ec) "{set(flag 203)}{set(flag 617)}{set(flag 61)}[1F 11 03][1F 11 02][1F 21 84]" eob
 
 l_0xc59d06: //20
     "@Before the Mu training scene"
-	"{wait}{window_closeall}{counter(50)}" call(l_0xc5a4ec) "[1F 11 04][1F 12 01][1F 66 01 01 03 22 C9 00][1F 21 85]" eob
+    "{wait}{window_closeall}{counter(50)}" call(l_0xc5a4ec) "[1F 11 04][1F 12 01][1F 66 01 01 03 22 C9 00][1F 21 85]" eob
 
 l_0xc59d30: //21
     "@Before Venus' performance"
-	"{wait}{window_closeall}{counter(50)}" call(l_0xc5a4ec) "{set(flag 150)}{set(flag 273)}{set(flag 16)}{set(flag 140)}{set(flag 52)}" call(l_0xc5a526) "[1F 21 86]" eob
+    "{wait}{window_closeall}{counter(50)}" call(l_0xc5a4ec) "{set(flag 150)}{set(flag 273)}{set(flag 16)}{set(flag 140)}{set(flag 52)}" call(l_0xc5a526) "[1F 21 86]" eob
 
 l_0xc59d61: //22
     "@Before the second Tessie ride"
-	"{wait}{window_closeall}{counter(51)}" call(l_0xc5a4ec) call(l_0xc5a526) "[1F 21 87]" eob
+    "{wait}{window_closeall}{counter(51)}" call(l_0xc5a4ec) call(l_0xc5a526) "[1F 21 87]" eob
 
 l_0xc59d7f: //23
     "@Before confronting Starman DX"
-	"{wait}{window_closeall}{counter(51)}" call(l_0xc5a4ec) "{set(flag 299)}" call(l_0xc5a526) "[1F 21 88]" eob
+    "{wait}{window_closeall}{counter(51)}" call(l_0xc5a4ec) "{set(flag 299)}" call(l_0xc5a526) "[1F 21 88]" eob
 
 l_0xc59da0: //24
     "@Before setting sail for Scaraba"
-	"{wait}{window_closeall}{counter(52)}" call(l_0xc5a4ec) call(l_0xc5a526) "[1F 21 89]" eob
+    "{wait}{window_closeall}{counter(52)}" call(l_0xc5a4ec) call(l_0xc5a526) "[1F 21 89]" eob
 
 l_0xc59dbd: //25
     "@Lost Underworld"
-	"{wait}{window_closeall}{counter(61)}" call(l_0xc5a4ec) call(l_0xc5a526) "[1F 21 21][1D 0E 01 D3]" eob
+    "{wait}{window_closeall}{counter(61)}" call(l_0xc5a4ec) call(l_0xc5a526) "[1F 21 21][1D 0E 01 D3]" eob
 
 l_0xc59de1: //26
     "@Outside the Sphinx"
-	"{wait}{window_closeall}{counter(52)}" call(l_0xc5a4ec) call(l_0xc5a526) "[1F 21 8B]" eob
+    "{wait}{window_closeall}{counter(52)}" call(l_0xc5a4ec) call(l_0xc5a526) "[1F 21 8B]" eob
 
 l_0xc59e01: //27
     "@Before getting the Yellow Submarine"
-	"{wait}{window_closeall}{counter(54)}" call(l_0xc5a4ec) "[1F 11 02][1F 11 03]{set(flag 274)}[1F 21 8C]" eob
+    "{wait}{window_closeall}{counter(54)}" call(l_0xc5a4ec) "[1F 11 02][1F 11 03]{set(flag 274)}[1F 21 8C]" eob
 
 l_0xc59e21: //28
     "@Before Lumine Hall"
-	"{wait}{window_closeall}{counter(60)}" call(l_0xc5a4ec) call(l_0xc5a526) "{set(flag 196)}[1F 21 8D]" eob
+    "{wait}{window_closeall}{counter(60)}" call(l_0xc5a4ec) call(l_0xc5a526) "{set(flag 196)}[1F 21 8D]" eob
 
 l_0xc59e40: //29
     "@Right before getting the final melody"
-	"{wait}{window_closeall}{counter(61)}" call(l_0xc5a4ec) call(l_0xc5a526) "{set(flag 197)}[1F 21 8E]" eob
+    "{wait}{window_closeall}{counter(61)}" call(l_0xc5a4ec) call(l_0xc5a526) "{set(flag 197)}[1F 21 8E]" eob
 
 l_0xc59e62: //30
     "@Phase Distorter, no Meteorite Piece"
-	"{wait}{window_closeall}{counter(63)}" call(l_0xc5a4ec) call(l_0xc5a526) "[1F 21 8F]" eob
+    "{wait}{window_closeall}{counter(63)}" call(l_0xc5a4ec) call(l_0xc5a526) "[1F 21 8F]" eob
 
 l_0xc59e84: //31
     "@Ready to board Phase Distorter II"
-	"{wait}{window_closeall}{counter(63)}" call(l_0xc5a4ec) call(l_0xc5a526) "{set(flag 79)}{set(flag 134)}{set(flag 133)}{set(flag 382)}[1F 21 8F]" eob
+    "{wait}{window_closeall}{counter(63)}" call(l_0xc5a4ec) call(l_0xc5a526) "{set(flag 79)}{set(flag 134)}{set(flag 133)}{set(flag 382)}[1F 21 8F]" eob
 
 l_0xc59eb2: //32
     "@Right before the Monkey Cave, with most of the required items"
-	"{wait}{window_closeall}{counter(43)}" call(l_0xc5a4ec) "[1F 11 03][1D 0E 01 E0][1D 0E 01 5D][1D 0E 01 5A][1D 0E 01 5A][1D 0E 01 E9][1D 0E 01 5F][1D 0E 01 5F][1D 0E 01 61][1D 0E 01 7F][1D 0E 01 6C][1D 0E 01 5C][1D 0E 01 8C][1D 0E 01 B8]{set(flag 59)}{set(flag 745)}[1F 21 90]" eob
+    "{wait}{window_closeall}{counter(43)}" call(l_0xc5a4ec) "[1F 11 03][1D 0E 01 E0][1D 0E 01 5D][1D 0E 01 5A][1D 0E 01 5A][1D 0E 01 E9][1D 0E 01 5F][1D 0E 01 5F][1D 0E 01 61][1D 0E 01 7F][1D 0E 01 6C][1D 0E 01 5C][1D 0E 01 8C][1D 0E 01 B8]{set(flag 59)}{set(flag 745)}[1F 21 90]" eob
 
 l_0xc59f08: //33
     "@Right before {name(4)} gets Starstorm _"
-	"{wait}{window_closeall}{counter(43)}" call(l_0xc5a4ec) call(l_0xc5a526) "{set(flag 132)}{set(flag 382)}[1F 66 01 07 3C BC C9 00][1F 66 02 29 17 59 EF 00][1F 21 91]" eob
+    "{wait}{window_closeall}{counter(43)}" call(l_0xc5a4ec) call(l_0xc5a526) "{set(flag 132)}{set(flag 382)}[1F 66 01 07 3C BC C9 00][1F 66 02 29 17 59 EF 00][1F 21 91]" eob
 
 l_0xc59f44: //34
     "@Before learning of {name(2)}'s kidnapping"
-	"{wait}{window_closeall}{counter(14)}" call(l_0xc5a4ec) "{set(flag 210)}[1F 21 92]" eob
+    "{wait}{window_closeall}{counter(14)}" call(l_0xc5a4ec) "{set(flag 210)}[1F 21 92]" eob
 
 l_0xc59f60: //35
     "@Apple Kid's toolbox"
-	"{wait}{window_closeall}{counter(14)}" call(l_0xc5a4ec) "{set(flag 210)}[1D 0E 01 5A][1F 21 93]" eob
+    "{wait}{window_closeall}{counter(14)}" call(l_0xc5a4ec) "{set(flag 210)}[1D 0E 01 5A][1F 21 93]" eob
 
 l_0xc59f80: //36
     "@After buying the fixer-upper"
-	"{wait}{window_closeall}{counter(12)}" call(l_0xc5a4ec) "{set(flag 99)}[1F 21 94]" eob
+    "{wait}{window_closeall}{counter(12)}" call(l_0xc5a4ec) "{set(flag 99)}[1F 21 94]" eob
 
 l_0xc59fa0: //37
     "@Onett Library"
-	"{wait}{window_closeall}{counter(12)}" call(l_0xc5a4ec) "[1F 21 95]" eob
+    "{wait}{window_closeall}{counter(12)}" call(l_0xc5a4ec) "[1F 21 95]" eob
 
 l_0xc59fbd: //38
     "@Right before {name(4)} leaves the party to train"
-	"{wait}{window_closeall}{counter(52)}" call(l_0xc5a4ec) call(l_0xc5a526) "{set(flag 217)}[1F 66 01 10 58 32 C9 00][1D 0E 04 AF][1F 21 A6]" eob
+    "{wait}{window_closeall}{counter(52)}" call(l_0xc5a4ec) call(l_0xc5a526) "{set(flag 217)}[1F 66 01 10 58 32 C9 00][1D 0E 04 AF][1F 21 A6]" eob
 
 l_0xc59ff1: //39
     "@Right before {name(1)}'s Nightmare"
-	"{wait}{window_closeall}{counter(62)}" call(l_0xc5a4ec) "{set(flag 548)}[1F 21 A7]" eob
+    "{wait}{window_closeall}{counter(62)}" call(l_0xc5a4ec) "{set(flag 548)}[1F 21 A7]" eob
 
 l_0xc5a00c: //40
     "@Before Capainter, with the Franklin Badge"
-	"{wait}{window_closeall}{counter(21)}" call(l_0xc5a4ec) "[1D 0E 01 01][1F 21 77]" eob
+    "{wait}{window_closeall}{counter(21)}" call(l_0xc5a4ec) "[1D 0E 01 01][1F 21 77]" eob
 
 l_0xc5a036: //41
     "@Everdred's speech"
-	"{wait}{window_closeall}{counter(41)}" call(l_0xc5a4ec) "{set(flag 139)}{set(flag 60)}[1F 11 03][1D 0E 01 5A][1F 21 A8]" eob
+    "{wait}{window_closeall}{counter(41)}" call(l_0xc5a4ec) "{set(flag 139)}{set(flag 60)}[1F 11 03][1D 0E 01 5A][1F 21 A8]" eob
 
 l_0xc5a05b: //42
     "@Before giving the Yogurt Dispenser to Electra"
-	"{wait}{window_closeall}{counter(43)}" call(l_0xc5a4ec) "[1F 11 03][1D 0E 01 8B][1F 21 A9]" eob
+    "{wait}{window_closeall}{counter(43)}" call(l_0xc5a4ec) "[1F 11 03][1D 0E 01 8B][1F 21 A9]" eob
 
 l_0xc5a07e: //43
     "@Before giving the banana to Mr. Spoon"
-	"{wait}{window_closeall}{counter(50)}" call(l_0xc5a4ec) call(l_0xc5a526) "[1D 0E 01 B7]{set(flag 150)}{set(flag 273)}{set(flag 16)}{set(flag 140)}{set(flag 91)}[1F 21 AA]" eob
+    "{wait}{window_closeall}{counter(50)}" call(l_0xc5a4ec) call(l_0xc5a526) "[1D 0E 01 B7]{set(flag 150)}{set(flag 273)}{set(flag 16)}{set(flag 140)}{set(flag 91)}[1F 21 AA]" eob
 
 l_0xc5a0b3: //44
     "@Deep Darkness, with the Hawk Eye"
-	"{wait}{window_closeall}{counter(53)}" call(l_0xc5a4ec) "[1F 11 02][1F 11 03][1D 0E 01 AF]{set(flag 218)}[1F 21 AB]" eob
+    "{wait}{window_closeall}{counter(53)}" call(l_0xc5a4ec) "[1F 11 02][1F 11 03][1D 0E 01 AF]{set(flag 218)}[1F 21 AB]" eob
 
 l_0xc5a0db: //45
     "@After beating Mani Mani"
-	"{wait}{window_closeall}{counter(42)}" call(l_0xc5a4ec) "{set(flag 59)}[1F 11 03][1F 21 9A]" eob
+    "{wait}{window_closeall}{counter(42)}" call(l_0xc5a4ec) "{set(flag 59)}[1F 11 03][1F 21 9A]" eob
 
 l_0xc5a0fe: //46
     "@After beating Frank?{wait}{window_closeall}{counter(12)}" call(l_0xc5a4ec) "{set(flag 64)}{set(flag 2)}[1F 66 02 11 15 88 C6 00][1F 21 AD]" eob
 
 l_0xc5a11a: //47
     "@Right before {name(3)} leaves Snow Wood"
-	"{wait}{window_closeall}{counter(30)}" call(l_0xc5a4ec) "[1F 11 03][1F 12 01][1F 11 08]{set(flag 212)}{set(flag 23)}{set(flag 88)}{set(flag 128)}[1D 0E 03 AC][1D 0E 03 24][1D 0E 03 4B][1F 21 B8]" eob
+    "{wait}{window_closeall}{counter(30)}" call(l_0xc5a4ec) "[1F 11 03][1F 12 01][1F 11 08]{set(flag 212)}{set(flag 23)}{set(flag 88)}{set(flag 128)}[1D 0E 03 AC][1D 0E 03 24][1D 0E 03 4B][1F 21 B8]" eob
 
 l_0xc5a154: //48
     "@Threed Hotel"
-	"{wait}{window_closeall}{counter(51)}" call(l_0xc5a4ec) "{set(flag 201)}{set(flag 202)}" call(l_0xc5a526) "[1D 0E 01 A3][1F 21 7A]" eob
+    "{wait}{window_closeall}{counter(51)}" call(l_0xc5a4ec) "{set(flag 201)}{set(flag 202)}" call(l_0xc5a526) "[1D 0E 01 A3][1F 21 7A]" eob
 
 l_0xc5a17d: //49
     "@Before Apple Kid gets kidnapped"
-	"{wait}{window_closeall}{counter(60)}" call(l_0xc5a4ec) call(l_0xc5a526) "{set(flag 219)}{set(flag 154)}{set(flag 102)}{set(flag 89)}{set(flag 155)}{set(flag 430)}[1D 0E 01 A4][1F 21 16]" eob
+    "{wait}{window_closeall}{counter(60)}" call(l_0xc5a4ec) call(l_0xc5a526) "{set(flag 219)}{set(flag 154)}{set(flag 102)}{set(flag 89)}{set(flag 155)}{set(flag 430)}[1D 0E 01 A4][1F 21 16]" eob
 
 l_0xc5a1ae: //50
     "@After beating Belch"
-	"{wait}{window_closeall}{counter(35)}" call(l_0xc5a4ec) "[1F 11 02][1F 11 03][1F 21 8F]" eob
+    "{wait}{window_closeall}{counter(35)}" call(l_0xc5a4ec) "[1F 11 02][1F 11 03][1F 21 8F]" eob
 
 l_0xc5a1cd: //51
     "@Scaraba Hotel"
-	"{wait}{window_closeall}{counter(60)}" call(l_0xc5a4ec) call(l_0xc5a526) "[1D 0E 03 04][1D 0E 03 05][1D 0E 03 06][1D 0E 03 07][1D 0E 03 A1][1F 21 8A]" eob
+    "{wait}{window_closeall}{counter(60)}" call(l_0xc5a4ec) call(l_0xc5a526) "[1D 0E 03 04][1D 0E 03 05][1D 0E 03 06][1D 0E 03 07][1D 0E 03 A1][1F 21 8A]" eob
 
 l_0xc5a1ff: //52
     "@Right before fighting Pokey and Giygas." next
-	"@Oh here, let me set your levels..." wait
-	counter(65)
-	call(l_0xc5a4ec) 
-	call(l_0xc5a526) 
-	call(l_0xc58659) 
-	"[1E 08 01 5A][1E 08 02 46][1E 08 03 46][1E 08 04 41][1F 21 D7]" eob
+    "@Oh here, let me set your levels..." wait
+    counter(65)
+    call(l_0xc5a4ec)
+    call(l_0xc5a526)
+    call(l_0xc58659)
+    "[1E 08 01 5A][1E 08 02 46][1E 08 03 46][1E 08 04 41][1F 21 D7]" eob
 
 l_0xc5a232: //53
     "@Before using Zombie Paper"
-	"{wait}{window_closeall}{counter(33)}" call(l_0xc5a4ec) "[1F 11 02][1F 11 03]{set(flag 69)}{unset(flag 49)}{set(flag 87)}[1D 0E 01 AE][1F 21 1C]" eob
+    "{wait}{window_closeall}{counter(33)}" call(l_0xc5a4ec) "[1F 11 02][1F 11 03]{set(flag 69)}{unset(flag 49)}{set(flag 87)}[1D 0E 01 AE][1F 21 1C]" eob
 
 l_0xc5a25e: //54
     "@Before getting Zombie Paper"
-	"{wait}{window_closeall}{counter(33)}" call(l_0xc5a4ec) "[1F 11 02][1F 11 03][1F 21 1C]" eob
+    "{wait}{window_closeall}{counter(33)}" call(l_0xc5a4ec) "[1F 11 02][1F 11 03][1F 21 1C]" eob
 
 l_0xc5a27a: //55
     "@Right before dropping in on the Lost Underworld"
-	"{wait}{window_closeall}{counter(61)}" call(l_0xc5a4ec) call(l_0xc5a526) "[1F 21 29]" eob
+    "{wait}{window_closeall}{counter(61)}" call(l_0xc5a4ec) call(l_0xc5a526) "[1F 21 29]" eob
 
 l_0xc5a29c: //56
-    "@Right before learning Teleport" 
+    "@Right before learning Teleport"
     "{wait}{window_closeall}{counter(43)}" call(l_0xc5a4ec) "[1F 11 03]{set(flag 554)}{set(flag 613)}{set(flag 614)}[1F 21 90]" eob
 
 l_0xc5a2c2: //57
     "@First entering Dungeon Man"
-	"{wait}{window_closeall}{counter(53)}" call(l_0xc5a4ec) "[1F 11 02][1F 11 03]{set(flag 24)}[1F 21 9F][1F 66 01 09 81 33 C9 00]" eob
+    "{wait}{window_closeall}{counter(53)}" call(l_0xc5a4ec) "[1F 11 02][1F 11 03]{set(flag 24)}[1F 21 9F][1F 66 01 09 81 33 C9 00]" eob
 
 l_0xc5a2ec: //58
     "@Before beating Monotoli?"
-	"{wait}{window_closeall}{counter(41)}" call(l_0xc5a4ec) "[1D 0E 02 B8][1F 11 02][1F 11 03][1F 21 50][1F 66 01 0B 5A 95 C8 00]" eob
+    "{wait}{window_closeall}{counter(41)}" call(l_0xc5a4ec) "[1D 0E 02 B8][1F 11 02][1F 11 03][1F 21 50][1F 66 01 0B 5A 95 C8 00]" eob
 
 l_0xc5a318: //59
-    "@Prayer reaches {name(1)}'s family" 
+    "@Prayer reaches {name(1)}'s family"
     "{wait}{window_closeall}{counter(65)}" call(l_0xc5a4ec) call(l_0xc5a526) "{set(flag 372)}" call(l_0xc7b9a1) "[1F E8 FF]" eob
 
 l_0xc5a342: //60
-    "@Prayer reaches the Runaway Five" 
+    "@Prayer reaches the Runaway Five"
     "{wait}{window_closeall}{counter(65)}" call(l_0xc5a4ec) call(l_0xc5a526) "{set(flag 372)}" call(l_0xc7ba2c) "[1F E8 FF]" eob
 
 l_0xc5a36c: //61
-    "@Prayer reaches {name(2)}'s family" 
+    "@Prayer reaches {name(2)}'s family"
     "{wait}{window_closeall}{counter(65)}" call(l_0xc5a4ec) call(l_0xc5a526) "{set(flag 372)}" call(l_0xc7bac7) "[1F E8 FF]" eob
 
 l_0xc5a396: //62
-    "@Prayer reaches {name(8)}" 
+    "@Prayer reaches {name(8)}"
     "{wait}{window_closeall}{counter(65)}" call(l_0xc5a4ec) call(l_0xc5a526) "{set(flag 372)}" call(l_0xc7bb38) "[1F E8 FF]" eob
 
 l_0xc5a3c0: //63
-    "@Prayer reaches Dalaam" 
+    "@Prayer reaches Dalaam"
     "{wait}{window_closeall}{counter(65)}" call(l_0xc5a4ec) call(l_0xc5a526) "{set(flag 372)}" call(l_0xc7bbf3) "[1F E8 FF]" eob
 
 l_0xc5a3ea: //64
-    "@Prayer reaches Frank Fly" 
+    "@Prayer reaches Frank Fly"
     "{wait}{window_closeall}{counter(65)}" call(l_0xc5a4ec) call(l_0xc5a526) "{set(flag 372)}" call(l_0xc7bc56) "[1F E8 FF]" eob
 
 l_0xc5a414: //65
-    "@Prayer reaches Saturn Valley" 
+    "@Prayer reaches Saturn Valley"
     "{wait}{window_closeall}{counter(65)}" call(l_0xc5a4ec) call(l_0xc5a526) "{set(flag 372)}" call(l_0xc7bc96) "[1F E8 FF]" eob
 
 l_0xc5a43e: //66
-	"@Before taking the Sky Runner to Summers"
-	"{wait}{window_closeall}{counter(44)}" call(l_0xc5a4ec) "[1F 11 03][1F 11 02]{set(flag 184)}{unset(flag 748)}[1F 21 7D]" eob
+    "@Before taking the Sky Runner to Summers"
+    "{wait}{window_closeall}{counter(44)}" call(l_0xc5a4ec) "[1F 11 03][1F 11 02]{set(flag 184)}{unset(flag 748)}[1F 21 7D]" eob
 
 l_0xc5a465: //67
     "@Summers, after the Magic Cake"
-	"{wait}{window_closeall}{counter(50)}" call(l_0xc5a4ec) call(l_0xc5a526) "{set(flag 150)}{set(flag 273)}{set(flag 16)}[1F 21 1F]" eob
+    "{wait}{window_closeall}{counter(50)}" call(l_0xc5a4ec) call(l_0xc5a526) "{set(flag 150)}{set(flag 273)}{set(flag 16)}[1F 21 1F]" eob
 
 l_0xc5a48b: //68
     "@After meeting Buzz Buzz"
-	"{wait}{window_closeall}{counter(11)}" call(l_0xc5a4ec) "[1F 11 05][1F 11 06][1F 21 73][1F 66 01 2B 01 75 C6 00]" eob
+    "{wait}{window_closeall}{counter(11)}" call(l_0xc5a4ec) "[1F 11 05][1F 11 06][1F 21 73][1F 66 01 2B 01 75 C6 00]" eob
 
 
 
@@ -1379,7 +1375,7 @@ l_0xc5a4b4: //69
 
 l_0xc5a4cd: //70
     "@Giygas defeated, everyone happy"
-	"{wait}{window_closeall}{counter(66)}" call(l_0xc5a4ec) "[1F 11 02][1F 21 D8]" eob
+    "{wait}{window_closeall}{counter(66)}" call(l_0xc5a4ec) "[1F 11 02][1F 21 D8]" eob
 
 l_0xc5a4ec:
     "[1F 41 0F]" call(l_0xc59082) call(l_0xc5a50a) "{set(flag 11)}" call(l_0xc58597) "[1D 0E 01 B1][1D 08 E8 03]" eob
@@ -1450,7 +1446,7 @@ l_0xc5e5ae:
 
 l_0xc5e5b5:
     "[18 02][1A 05 2C 04]" eob
-	
+
 ////////////////////////////////////////////////
 
 l_0xc5e456:
@@ -1464,7 +1460,7 @@ l_0xc5e499:
 
 l_0xc5e4c2:
     eob
-	
+
 //Imported from data_31
 l_0xc7b9a1:
     "{set(flag 11)}[1F EB FF 06]{unset(flag 522)}[1F 15 B8 01 F5 02 FF][1F 21 DD]{pause(120)}[1F E5 FF]{sound(18)}{pause(80)}[1F 15 91 00 CD 02 01][1F 61][1F E7 91 00][1F F3 91 00 03]{pause(60)}[1F F4 91 00][1F EA 91 00][1F 61][1F E7 91 00]{pause(120)}{sound(9)}{pause(30)}{sound(97)}{pause(20)}[1F E4 91 00 07]{pause(20)}[1F 15 92 00 CE 02 01][1F EA 91 00][1F 61]{pause(60)}[1F 15 28 00 CF 02 01][1F 61][1F E7 91 00][1F E7 92 00][1F E7 28 00]{pause(30)}" call(l_0xc9f442) "{set(flag 522)}[1F 61][1F EC FF 01]{unset(flag 11)}" eob
@@ -1486,11 +1482,11 @@ l_0xc7bc56:
 
 l_0xc7bc96:
     "{unset(flag 220)}{unset(flag 74)}{set(flag 11)}[1F EB FF 06]{unset(flag 522)}[1F 15 B8 01 F5 02 FF][1F 21 E5][1F E5 FF][1F 16 D9 02 03][1F F1 D9 02 0A 00]{pause(180)}[1F 17 E5 02 EA 02 04]{pause(180)}[1F F1 D9 02 08 00]{pause(9)}[1F 16 DF 02 03]{pause(1)}[1F F1 DF 02 08 00]{pause(120)}{pause(30)}[1F 17 D8 02 EB 02 01][1F 17 D7 02 ED 02 01][1F 61]{pause(30)}[1F 1A D9 02 03][1F 1A D7 02 03][1F 1A D8 02 03]{pause(60)}[1F 1B D9 02][1F 1B D7 02][1F 1B D8 02][1F F1 D9 02 F3 02][1F F1 D7 02 F3 02]{pause(3)}[1F F1 D8 02 F3 02]{pause(70)}[1F F1 D9 02 F4 02][1F F1 D8 02 EC 02][1F F1 DF 02 EE 02][1F 61][1F 15 AB 00 EF 02 01][1F 15 AB 00 F0 02 01][1F 15 AB 00 F1 02 01][1F 15 AB 00 F2 02 01][1F 61][1F F1 D9 02 E1 02]{pause(30)}[1F F1 D7 02 E1 02]{pause(40)}[1F F1 D8 02 E1 02]{pause(50)}" call(l_0xc9f66f) "{set(flag 522)}[1F 61][1F EC FF 01]{unset(flag 11)}{set(flag 220)}{set(flag 74)}" eob
-	
+
 //Imported from data_53
 l_0xc9c7fa:
     "[1F 12 02][1F 41 0F][1F 41 05]{set(flag 763)}{set(flag 295)}{set(flag 468)}{set(flag 469)}{set(flag 472)}{set(flag 473)}{set(flag 476)}{set(flag 513)}{set(flag 530)}{set(flag 749)}{set(flag 750)}{set(flag 805)}[1F 15 6A 00 79 02 01][1F 61]{pause(1)}[1F EB FF 06][1F 21 51]{pause(180)}[1F 15 B5 01 0B 03 FF][1F 21 C4][1F E6 FF 00]{pause(1)}[1F 1F B5 01 06][1F EC FF 01]{pause(1)}{set(flag 775)}{set(flag 11)}" eob
-	
+
 //Imported from data_54
 l_0xc9f442:
     "{window_open(1)}@(Suddenly," linebreak
@@ -1534,7 +1530,7 @@ l_0xc9f66f:
 //Imported from data_44
 l_0xc9162c:
     "{counter(1)}" goto(l_0xc9162e)
-	
+
 //Imported from data_45
 l_0xc9162e:
     "{ctoarg}[1D 19 00][1B 03 {e(l_0xc91674)}][19 10 00]{store_registers}[1D 0D 00 01 02][1B 02 {e(l_0xc9165a)}]{load_registers}[19 05 00 01 01]{swap}[1E 00 00 64][1E 04 00 64]" goto(l_0xc9165a)

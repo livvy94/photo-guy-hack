@@ -34,7 +34,7 @@ guarding1:
     newline //BATTLE ACTION 103
 	sound(25)
     "@{user} is guarding.[03]" eob
-	
+
 ROM[0xef84c6] = goto(guarding2)
 guarding2:
     newline //BATTLE ACTION 8
@@ -179,7 +179,7 @@ l_0xef6f8e:
 ROM[0xef70b1] = goto(l_0xef70b1)
 l_0xef70b1:
     newline
-    "@The power shield deflected the attack!" 
+    "@The power shield deflected the attack!"
 	sound(93)
 	pause(30)
 	"[03]"
@@ -235,7 +235,7 @@ ROM[0xef71f6] = goto(l_0xef71f6)
 l_0xef71f6:
     newline
     "@{user} can't move![03]" eob
-	
+
 //The next group is also lumped together...
 //l_0xef720c:
 //    newline
@@ -270,7 +270,7 @@ l_0xef71f6:
 
 
 
-	
+
 /////////////////////////////////////////////////////////////
 ROM[0xef7768] = goto(l_0xef7768)
 l_0xef7768:
@@ -320,7 +320,7 @@ l_0xef7830:
 ROM[0xef7a66] = goto(l_0xef7a66)
 l_0xef7a66:
     newline
-    "@{target}'s level is now {delta}!" 
+    "@{target}'s level is now {delta}!"
 	prompt
 	eob
 
@@ -384,7 +384,7 @@ ROM[0xef7b46] = goto(l_0xef7b46)
 l_0xef7b46:
     newline
     "@" call(l_0xef7ba0) "Maximum PP went up by {delta}!"
-	prompt 
+	prompt
 	eob
 
 ROM[0xef7b64] = goto(l_0xef7b64)
@@ -394,7 +394,7 @@ l_0xef7b64:
     "@{target} realized the power of" linebreak
     "[19 1F]{swap}  [1C 12 00]."
 	prompt
-	eob 
+	eob
 	goto(l_0xef7b83)
 
 ROM[0xef7b83] = goto(l_0xef7b83)
@@ -423,7 +423,7 @@ l_0xef7bbf:
 ROM[0xef7bdc] = goto(l_0xef7bdc)
 l_0xef7bdc:
     "{load_registers}" eob goto(l_0xef7c42)
-	
+
 ROM[0xef7c42] = goto(l_0xef7c42)
 l_0xef7c42:
     "[19 10 01]{swap}" newline
@@ -511,7 +511,7 @@ l_0xc7e748:
 
 l_0xc7e74e:
     "{store_registers}" call(l_0xc7e6d7) "{load_registers}" eob
-	
+
 //Imported from data_14
 l_0xc5e4c3:
     "[1D 19 02][1B 03 {e(l_0xc5e504)}][1A 01 {e(l_0xc5e584)} {e(l_0xc5e58b)} {e(l_0xc5e592)} {e(l_0xc5e599)} 00]{rtoarg}[1B 02 {e(l_0xc5e4f9)}][19 1B 02][1B 02 {e(l_0xc5e4c3)}][18 09 02][1B 02 {e(l_0xc5e4c3)}]" goto(l_0xc5e4f9)
@@ -522,7 +522,7 @@ l_0xc5e4f9:
 l_0xc5e504:
     "[19 10 01]{rtoarg}[1B 05][18 02][1B 06][1A 05 02 00][1B 06][18 09 02][1B 05]{window_switch(2)}{window_closetop}{window_switch(14)}[1B 06][1B 02 {e(literallyJustAnEOB)}]{swap}" eob goto(literallyJustAnEOB)
 
-	
+
 l_0xc5e584:
     "[18 02][1A 05 02 01]" eob
 
@@ -534,6 +534,6 @@ l_0xc5e592:
 
 l_0xc5e599:
     "[18 02][1A 05 02 04]" eob
-	
+
 literallyJustAnEOB:
 	eob

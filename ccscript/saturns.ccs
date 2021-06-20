@@ -1,6 +1,6 @@
 Saturn1:
   "@escaped! zoom. lucky me!" end
-  
+
 Saturn2:
   "@space ship." wait
   "splash ship." wait
@@ -33,7 +33,7 @@ SaturnJoinable:
 
 SaturnJoins:
   menu 2 {
-		"Yes": {
+    "Yes": {
       //music!
       "@(You join Mr. Saturn.)" //TODO: make it so he joins, as a temporary party member like Pokey. See if Pokey can be reprogrammed to be useful lmao
       end
@@ -41,7 +41,7 @@ SaturnJoins:
     "No": {
       "@but thou must!"
       goto(SaturnJoins)
-			end
-		}
+      end
+    }
   }
   end
