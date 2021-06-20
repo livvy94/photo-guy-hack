@@ -1,0 +1,539 @@
+command e(label) "{long label}"
+
+/////////////////////////////////////////////////////////////
+ROM[0xef75ab] = goto(l_0xef75ab)
+l_0xef75ab:
+    newline
+    "{sound(46)}@{delta} HP of damage![03]" eob
+ROM[0xef75c2] = goto(l_0xef75c2)
+l_0xef75c2:
+    newline
+    "{sound(30)}@{delta} HP of damage![03]" eob
+ROM[0xef75d9] = goto(l_0xef75d9)
+l_0xef75d9:
+    newline
+    "{sound(46)}@{delta} HP of damage![03]" eob
+ROM[0xef75f0] = goto(l_0xef75f0)
+l_0xef75f0:
+    newline
+    "{sound(30)}@{delta} HP of damage![03]" eob
+ROM[0xef7607] = goto(l_0xef7607)
+l_0xef7607:
+    newline
+    "{sound(47)}@{delta} HP of mortal damage to {target}![03]" eob
+
+/////////////////////////////////////////////////////////////
+ROM[0xef763c] = goto(l_0xef763c) //These two were from data_57
+ROM[0xef7655] = goto(l_0xef763c) //they seem to be identical...
+l_0xef763c:
+    newline
+    "{sound(35)}@{target} dodged swiftly![03]" eob
+
+ROM[0xef7f1e] = goto(guarding1)
+guarding1:
+    newline //BATTLE ACTION 103
+	sound(25)
+    "@{user} is guarding.[03]" eob
+	
+ROM[0xef84c6] = goto(guarding2)
+guarding2:
+    newline //BATTLE ACTION 8
+    "@{user} is guarding." eob
+
+//ROM[0xef7221] = 
+//    "@{user}[19 1F]{swap} tried" linebreak
+//    "  [1C 12 00]!{sound(87)}" next
+//    "@But it didn't work very well![03]" eob newline
+//    "@{target} is guarding![03]" eob
+
+ROM[0xef69a1] = goto(l_0xef69a1)
+l_0xef69a1:
+    newline
+    "@{target}'s HP are maxed out!"
+	sound(36)
+	"[03]" eob
+
+ROM[0xef69ba] = goto(l_0xef69ba)
+l_0xef69ba:
+    newline
+    "@{target} recovered {delta} HP!"
+	sound(36)
+	"[03]" eob
+
+ROM[0xef69d2] = goto(l_0xef69d2)
+l_0xef69d2:
+    newline
+    "@{target} recovered {delta} PP!"
+	sound(36)
+	"[03]" eob
+
+ROM[0xef6ac7] = goto(l_0xef6ac7)
+l_0xef6ac7:
+    newline
+    "@{target} was diamondized!"
+	sound(83)
+	"[03]" eob
+
+ROM[0xef6ae0] = goto(l_0xef6ae0)
+l_0xef6ae0:
+    newline
+    "@{target}'s body became numb!"
+	sound(83)
+	"[03]" eob
+
+ROM[0xef6afb] = goto(l_0xef6afb)
+l_0xef6afb:
+    newline
+    "@{target} felt somewhat nauseous..."
+	sound(83)
+	"[03]" eob
+
+ROM[0xef6b18] = goto(l_0xef6b18)
+l_0xef6b18:
+    newline
+    "@{target} got poisoned!"
+	sound(83)
+	"[03]" eob
+
+
+////////////////////////////////////////////////////////////
+ROM[0xef6e4a] = goto(l_0xef6e4a)
+l_0xef6e4a:
+    newline
+    "@{target}'s body returned to normal!{sound(37)}[03]" eob
+
+ROM[0xef6e67] = goto(l_0xef6e67)
+l_0xef6e67:
+    newline
+    "@{target}'s numbness is gone!{sound(37)}[03]" eob
+
+ROM[0xef6e81] = goto(l_0xef6e81)
+l_0xef6e81:
+    newline
+    "@{target} felt much better!{sound(37)}[03]" eob
+
+ROM[0xef6e97] = goto(l_0xef6e97)
+l_0xef6e97:
+    newline
+    "@The poison was removed from {target}'s body!{sound(37)}[03]" eob
+
+ROM[0xef6ebc] = goto(l_0xef6ebc)
+l_0xef6ebc:
+    newline
+    "@{target} got over the cold!{sound(37)}[03]" eob
+
+ROM[0xef6ed1] = goto(l_0xef6ed1)
+l_0xef6ed1:
+    newline
+    "@{target} finally stopped crying...{sound(37)}[03]" eob
+
+ROM[0xef6eed] = goto(l_0xef6eed)
+l_0xef6eed:
+    newline
+    "@{target}'s body again moved freely!{sound(37)}[03]" eob
+
+ROM[0xef6f0b] = goto(l_0xef6f0b)
+l_0xef6f0b:
+    newline
+    "@{target} was able to move!{sound(37)}[03]" eob
+
+ROM[0xef6f1e] = goto(l_0xef6f1e)
+l_0xef6f1e:
+    newline
+    "@{target} went back to normal!{sound(37)}[03]" eob
+
+ROM[0xef6f38] = goto(l_0xef6f38)
+l_0xef6f38:
+    newline
+    "@{target}'s sunstroke was cured!{sound(37)}[03]" eob
+
+ROM[0xef6f54] = goto(l_0xef6f54)
+l_0xef6f54:
+    newline
+    "@{target} woke up!{sound(37)}[03]" eob
+
+ROM[0xef6f64] = goto(l_0xef6f64)
+l_0xef6f64:
+    newline
+    "@{target} was able to concentrate!{sound(37)}[03]" eob
+
+ROM[0xef6f7c] = goto(l_0xef6f7c)
+l_0xef6f7c:
+    newline
+    "@{target} was revived!{sound(37)}[03]" eob
+
+ROM[0xef6f8e] = goto(l_0xef6f8e)
+l_0xef6f8e:
+    newline
+    "@It didn't work...[03]" eob
+
+
+//l_0xef707a:
+//    newline
+//    "@{target}'s psychic power shield became stronger![03]" eob
+
+//l_0xef7099:
+//    newline
+//    "@{target}'s shield disappeared![03]" eob
+
+ROM[0xef70b1] = goto(l_0xef70b1)
+l_0xef70b1:
+    newline
+    "@The power shield deflected the attack!" 
+	sound(93)
+	pause(30)
+	"[03]"
+	eob
+
+//This one seems to be multiple lines stuck together by mistake...
+//So, I'm going to skip over it.
+//
+//l_0xef70d2:
+//    newline
+//    "@The psychic power shield" linebreak
+//    "[19 1F]{swap}  deflected [1C 12 00]!{sound(93)}[03]" eob newline
+//    "@{target}'s psychic shield made[19 1F]{swap} [1C 12 00] disappear![03]" eob newline
+//    "@The effects of PSI on" linebreak
+//    "  {target} is gone!{sound(41)}[03]" eob
+
+ROM[0xef7142] = goto(l_0xef7142)
+l_0xef7142:
+    newline
+    "@[1C 01 4A] returned to his original form![03]" eob
+
+ROM[0xef7160] = goto(l_0xef7160)
+l_0xef7160:
+    newline
+    "@The Franklin Badge deflected the lightning!{sound(93)}[03]" eob
+
+ROM[0xef7186] = goto(l_0xef7186)
+l_0xef7186:
+    newline
+    "@{user} can't move![03]" eob
+
+ROM[0xef7192] = goto(l_0xef7192)
+l_0xef7192:
+    newline
+    "@{user}'s body is numb![03]" eob
+
+ROM[0xef71b4] = goto(l_0xef71b4)
+l_0xef71b4:
+    newline
+    "@{user} feels too sick to move...[03]" eob
+
+ROM[0xef71cc] = goto(l_0xef71cc)
+l_0xef71cc:
+    newline
+    "@{target} is poisoned![03]" eob
+
+ROM[0xef71df] = goto(l_0xef71df)
+l_0xef71df:
+    newline
+    "@{user} has fallen asleep![03]" eob
+
+ROM[0xef71f6] = goto(l_0xef71f6)
+l_0xef71f6:
+    newline
+    "@{user} can't move![03]" eob
+	
+//The next group is also lumped together...
+//l_0xef720c:
+//    newline
+//    "[1F 41 08][1B 02 {e(l_0xef721e)}]{sound(55)}" goto(l_0xef7221)
+//
+//l_0xef721e:
+//    "{sound(29)}" goto(l_0xef7221)
+//
+//l_0xef7221:
+//    "@{user}[19 1F]{swap} tried" linebreak
+//    "  [1C 12 00]!{sound(87)}" next
+//    "@But it didn't work very well![03]" eob newline
+//    "@{target} is" linebreak
+//    "  on guard![03]" eob
+//
+//
+//l_0xef727f:
+//    "[1D 21 03][09 03 {e(l_0xef72a0)} {e(l_0xef72b9)} {e(l_0xef72db)}]" newline
+//    "@{user} misses home.[03]" eob
+//
+//l_0xef72a0:
+//    newline
+//    "@{user} suddenly thought about his Mom.[03]" eob
+//
+//l_0xef72b9:
+//    newline
+//    "@{user} thought about eating some [1C 01 04] and started craving it.[03]" eob
+//
+//l_0xef72db:
+//    newline
+//    "@{user} lost all motivation.[03]" eob
+
+
+
+	
+/////////////////////////////////////////////////////////////
+ROM[0xef7768] = goto(l_0xef7768)
+l_0xef7768:
+    newline
+    "@{user} felt sick...[03]" eob
+ROM[0xef7787] = goto(l_0xef7787)
+l_0xef7787:
+    newline
+    "@{target} felt pain from the poison" next
+    "  and took {delta} HP damage.[03]" eob
+ROM[0xef77b1] = goto(l_0xef77b1)
+l_0xef77b1:
+    newline
+    "@{target} felt dizzy and weak...[03]" eob
+ROM[0xef77db] = goto(l_0xef77db)
+l_0xef77db:
+    newline
+    "@{target} sneezed![03]" eob
+ROM[0xef9a47] = goto(l_0xef9a47)
+l_0xef9a47:
+    newline
+    "{sound(25)}@{user} called for help...{sound(72)}[03]" eob
+ROM[0xef9a5e] = goto(l_0xef9a5e)
+l_0xef9a5e:
+    "{sound(25)}" newline
+    "@{user} sowed some seeds around itself!{sound(72)}[03]" eob
+ROM[0xef77fd] = goto(l_0xef77fd)
+l_0xef77fd:
+    newline
+    "@{target} joined the battle![03]" eob
+ROM[0xef7810] = goto(l_0xef7810)
+l_0xef7810:
+    newline
+    "@{target} started to grow![03]" eob
+ROM[0xef7824] = goto(l_0xef7824)
+l_0xef7824:
+    newline
+    "@But nobody came.[03]" eob //*puts on sunglasses* YEEEEAAAAAAAAHH
+ROM[0xef7830] = goto(l_0xef7830)
+l_0xef7830:
+    newline
+    "@But nothing grew.[03]" eob
+
+/////////////////////////////////////////////////////////////
+//TODO: Experiment with replacing the prompt commands with short pauses.
+//Alternately: What would happen if we just...made some of these not display any text?
+ROM[0xef7a66] = goto(l_0xef7a66)
+l_0xef7a66:
+    newline
+    "@{target}'s level is now {delta}!" 
+	prompt
+	eob
+
+ROM[0xef7a7d] = goto(l_0xef7a7d)
+l_0xef7a7d:
+    newline
+    "@" call(l_0xef7bbf) "Offense went up by {delta}!"
+	prompt
+	eob
+
+ROM[0xef7a97] = goto(l_0xef7a97)
+l_0xef7a97:
+    newline
+    "@" call(l_0xef7bbf) "Defense went up by {delta}!"
+	prompt
+	eob
+
+ROM[0xef7ab1] = goto(l_0xef7ab1)
+l_0xef7ab1:
+    //newline
+    //"@" call(l_0xef7bbf) "Speed went up by {delta}!"
+	//prompt
+	eob
+
+ROM[0xef7ac9] = goto(l_0xef7ac9)
+l_0xef7ac9:
+    //newline
+    //"@" call(l_0xef7bbf) "Guts went up by {delta}!"
+	//prompt
+	eob
+
+ROM[0xef7ae0] = goto(l_0xef7ae0)
+l_0xef7ae0:
+    //newline
+    //"@" call(l_0xef7bbf) "Vitality went up by {delta}!"
+	//prompt
+	eob
+
+ROM[0xef7afb] = goto(l_0xef7afb)
+l_0xef7afb:
+    //newline
+    //"@" call(l_0xef7bbf) "IQ went up by {delta}!"
+	//prompt
+	eob
+
+ROM[0xef7b11] = goto(l_0xef7b11)
+l_0xef7b11:
+    //newline
+    //"@" call(l_0xef7bbf) "Luck went up by {delta}!"
+	//prompt
+	eob
+
+ROM[0xef7b28] = goto(l_0xef7b28)
+l_0xef7b28:
+    newline
+    "@" call(l_0xef7b83) "Maximum HP went up by {delta}!"
+	prompt
+	eob
+
+ROM[0xef7b46] = goto(l_0xef7b46)
+l_0xef7b46:
+    newline
+    "@" call(l_0xef7ba0) "Maximum PP went up by {delta}!"
+	prompt 
+	eob
+
+ROM[0xef7b64] = goto(l_0xef7b64)
+l_0xef7b64:
+    newline
+	sound(103)
+    "@{target} realized the power of" linebreak
+    "[19 1F]{swap}  [1C 12 00]."
+	prompt
+	eob 
+	goto(l_0xef7b83)
+
+ROM[0xef7b83] = goto(l_0xef7b83)
+l_0xef7b83:
+    "{store_registers}[19 1E][18 07 14 00 00 00 00][1B 02 {e(l_0xef7b9d)}]Sweet!" linebreak
+    "  " goto(l_0xef7b9d)
+
+ROM[0xef7b9d] = goto(l_0xef7b9d)
+l_0xef7b9d:
+    "{load_registers}" eob goto(l_0xef7ba0)
+
+ROM[0xef7ba0] = goto(l_0xef7ba0)
+l_0xef7ba0:
+    "{store_registers}[19 1E][18 07 08 00 00 00 00][1B 02 {e(l_0xef7bbc)}]That rocks!" linebreak
+    "  " goto(l_0xef7bbc)
+
+ROM[0xef7bbc] = goto(l_0xef7bbc)
+l_0xef7bbc:
+    "{load_registers}" eob goto(l_0xef7bbf)
+
+ROM[0xef7bbf] = goto(l_0xef7bbf)
+l_0xef7bbf:
+    "{store_registers}[19 1E][18 07 03 00 00 00 00][1B 02 {e(l_0xef7bdc)}]Oh, baby!" linebreak
+    "  " goto(l_0xef7bdc)
+
+ROM[0xef7bdc] = goto(l_0xef7bdc)
+l_0xef7bdc:
+    "{load_registers}" eob goto(l_0xef7c42)
+	
+ROM[0xef7c42] = goto(l_0xef7c42)
+l_0xef7c42:
+    "[19 10 01]{swap}" newline
+    "@[1C 02 00] added{load_registers} the [1C 05 00] to" linebreak
+    "  {swap}[1C 02 00]'s stuff.{swap}[1D 0E 00 00]{sound(116)}{prompt}" eob goto(l_0xef7c73)
+
+ROM[0xef7c73] = goto(l_0xef7c73)
+l_0xef7c73:
+    "@But, " call(l_0xc7e6d7) " cannot carry anymore stuff.{prompt}" linebreak
+    goto(l_0xef7c89)
+
+ROM[0xef7c89] = goto(l_0xef7c89)
+l_0xef7c89:
+    "@Do you want to throw" linebreak
+    "  something away?{prompt}" linebreak
+    "[19 02]Yes[02]  [19 02]No[02][1C 07 02][11]{clearline}[09 02 {e(l_0xef7d0f)} {e(l_0xef7cb4)}]" goto(l_0xef7cb4)
+
+ROM[0xef7cb4] = goto(l_0xef7cb4)
+l_0xef7cb4:
+    "[19 1F]{swap}@Then, will you leave the [1C 05 00] behind?{prompt}" linebreak
+    "[19 02]Yes[02][19 02]No[02][1C 07 02][11]{clearline}[09 02 {e(l_0xef7cf8)} {e(l_0xef7ced)}]" goto(l_0xef7ced)
+
+ROM[0xef7ced] = goto(l_0xef7ced)
+l_0xef7ced:
+    "@Then,{prompt}" linebreak
+    goto(l_0xef7c89)
+
+//////////////////////////////
+//This one's from HyperBound's dump, and isn't found anywhere in mine
+ROM[0xef7bdf] = goto(l_0xef7bdf)
+l_0xef7bdf:
+    newline
+    "@The enemy left a present!{prompt}" linebreak
+    "{sound(16)}{pause(1)}@Inside the present," linebreak
+    "[19 1F]{swap}  there was a [1C 05 00]!{prompt}" linebreak
+    "[1D 03 FF][1B 02 {e(l_0xef7c73)}]{store_registers}" call(l_0xc7dc85) "[1B 03 {e(l_0xef7c42)}]{load_registers}{swap}@[1C 02 00]{swap} took it.[1D 0E 00 00]{sound(116)}{prompt}" eob
+//////////////////////////////
+
+ROM[0xef7cf8] = goto(l_0xef7cf8)
+l_0xef7cf8:
+    "@" call(l_0xc7e74e) " abandoned the [1C 05 00].{prompt}" eob
+
+ROM[0xef7d0f] = goto(l_0xef7d0f)
+l_0xef7d0f:
+    newline
+    "@What do you want to throw away?{prompt}" call(l_0xc5e4c3) newline
+    "[1B 02 {e(l_0xef7cb4)}]{store_registers}[19 19 00 00][1D 0B 00][1B 02 {e(l_0xef7dbe)}]{load_registers}[19 19 00 00]@So you want to throw away the [1C 05 00]?{prompt}" linebreak
+    "[19 02]Throw away[02][19 02]Don't do it[02][1C 07 02][11]{clearline}[09 02 {e(l_0xef7d83)} {e(l_0xef7cb4)}]" goto(l_0xef7cb4)
+
+ROM[0xef7d83] = goto(l_0xef7d83)
+l_0xef7d83:
+    "{load_registers}[1D 0F 00 00]{swap}@[1C 02 00]{swap} threw the [1C 05 00] away{prompt}" linebreak
+    "{swap}[19 1F]{swap}@and took the [1C 05 00].[1D 0E 00 00]{sound(116)}{pause(1)}[03]" eob goto(l_0xef7dbe)
+
+ROM[0xef7dbe] = goto(l_0xef7dbe)
+l_0xef7dbe:
+    "@That's too important to throw away.{prompt}" goto(l_0xef7d0f)
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+// DEPENDENCIES //
+//////////////////
+//Imported from data_33
+l_0xc7dc85:
+    "[1D 0D 00 01 02][1B 03 {e(literallyJustAnEOB)}]{load_registers}[1D 0D 00 01 03]" eob
+
+l_0xc7e6d7:
+    "[19 10 01]{swap}[1C 02 00]{counter(1)}" goto(l_0xc7e6e1)
+
+l_0xc7e6e1:
+    "{inc}{ctoarg}[1D 19 00][1B 03 {e(l_0xc7e70e)}][19 10 00][1D 0D 00 01 02][1B 03 {e(l_0xc7e70e)}][19 10 00][1D 0D 00 01 03][1B 03 {e(l_0xc7e70e)}]" goto(l_0xc7e6e1)
+
+l_0xc7e70e:
+    "{ctoarg}{swap}[09 05 {e(literallyJustAnEOB)} {e(literallyJustAnEOB)} {e(l_0xc7e72a)} {e(l_0xc7e735)} {e(l_0xc7e735)}]" eob
+
+
+l_0xc7e72a:
+    "[19 10 02]{swap} and [1C 02 00]" eob goto(l_0xc7e735)
+
+l_0xc7e735:
+    " and [19 10 01]{result_is(2)}[1B 03 {e(l_0xc7e748)}]his friends" eob goto(l_0xc7e748)
+
+l_0xc7e748:
+    "her friends" eob
+
+l_0xc7e74e:
+    "{store_registers}" call(l_0xc7e6d7) "{load_registers}" eob
+	
+//Imported from data_14
+l_0xc5e4c3:
+    "[1D 19 02][1B 03 {e(l_0xc5e504)}][1A 01 {e(l_0xc5e584)} {e(l_0xc5e58b)} {e(l_0xc5e592)} {e(l_0xc5e599)} 00]{rtoarg}[1B 02 {e(l_0xc5e4f9)}][19 1B 02][1B 02 {e(l_0xc5e4c3)}][18 09 02][1B 02 {e(l_0xc5e4c3)}]" goto(l_0xc5e4f9)
+
+l_0xc5e4f9:
+    "{window_switch(2)}{window_closetop}{window_switch(14)}{swap}" eob goto(l_0xc5e504)
+
+l_0xc5e504:
+    "[19 10 01]{rtoarg}[1B 05][18 02][1B 06][1A 05 02 00][1B 06][18 09 02][1B 05]{window_switch(2)}{window_closetop}{window_switch(14)}[1B 06][1B 02 {e(literallyJustAnEOB)}]{swap}" eob goto(literallyJustAnEOB)
+
+	
+l_0xc5e584:
+    "[18 02][1A 05 02 01]" eob
+
+l_0xc5e58b:
+    "[18 02][1A 05 02 02]" eob
+
+l_0xc5e592:
+    "[18 02][1A 05 02 03]" eob
+
+l_0xc5e599:
+    "[18 02][1A 05 02 04]" eob
+	
+literallyJustAnEOB:
+	eob

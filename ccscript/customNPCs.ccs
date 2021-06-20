@@ -1,0 +1,292 @@
+//import EbppMoreStuff
+import asm65816
+
+vinceChara:
+	//goto(oldtext.photo3_text) //DEBUG. DELETE THIS
+	"@<Work to exhaustion when you're young...>" next
+	"@Have you ever heard of a weird saying like this?" next
+	"@It's true...but it can be pretty brutal if you're just starting to learn something." next
+	"@When it's appropriate, I prefer this saying:" next
+	"@<Start small so you don't get overwhelmed and discouraged.>" next
+	"@What, that's not as catchy?" end
+
+Maxwell:
+if customFlags.maxwellConvo_2 goto(Maxwell_ConfusedChara)
+
+if not customFlags.maxwellConvo_1
+{
+	set(customFlags.maxwellConvo_1)
+	"@Oh, |{name(1)} and {name(3)}. |You startled me!" next
+	"@Are you here to work on chemistry homework?" next
+	"@Oh, just film. That's cool." end
+}
+else
+{
+	set(customFlags.maxwellConvo_2)
+	//set youKnowAboutSchoolPaper flag, changes later dialogue
+	"@It's for the school paper, right?" end
+}
+
+
+Maxwell_ConfusedChara:
+	"@Uh, what's with that look on your face?" next
+	"@It's like you've never developed film before." next
+	"@...Maybe you're just tired from staying up last night." next
+	"@Well, I'm no expert, but it probably has to do with those chemicals on the table there." next
+	"@I'm sure you'll feel better after you get warmed up." end
+
+SnowWoodBoy1:
+	"@I saw it...I saw a UFO last night." next
+	"@You can tell I'm frightened by my facial expression, can't you?" end //this sprite has a blank stare
+
+SnowWoodBoy2:
+	"@I don't believe in UFOs...but he looks pretty spooked." next
+	"@Maybe he's just been drinking too much coffee." end
+
+NotMaxwell:
+  "@It's the end of the day,{pause(15)} but you should stop by and say hi to Maxwell." next
+  "@It's great how dedicated he is, even with little Maxwell Jr. on the way." end
+
+thatweirddudedownstairs:
+	"@I wonder if the rumor is true" next
+    "@that the center of Stonehenge has an entrance leading someplace." next
+    "@Some day, we should check it out." end //TODO: change this?
+	
+ROM[0xc6b0fa] = goto(TessieWatcher)
+TessieWatcher:
+	"@I'm a birdwatcher." next
+	"@Some may say that birds don't thrive in this chilly climate," next
+	"  or in tents for that matter...|but I beg to differ." next
+	"@What? |No, I haven't seen anything strange." next
+	"  Why do you ask?" end
+
+PeelEncounter:
+    "@{user} swishes your way.[03]" eob //joke enemy
+	
+PeelDeath:
+	linebreak
+	"@{target} turned into compost!"
+	sound(33)
+	eob
+
+FirstBossEncounter:
+    "@{user} swooped out of the night sky![03]" eob
+	
+FirstBossDeath:
+	linebreak
+	"@{target} wobbled in midair and zipped away!"
+	sound(33)
+	eob
+
+//flag 1
+InTheTube:
+    healall
+	party_remove(3) //remove Jeff from the party; you'll be able to get him again if you go back with Mr. Saturn
+	unset(customFlags.shadowConcentrate)
+	window_open(1)
+	"@You can't hear or see anything." next
+	"@You almost can't even think." next
+	"@You can't remember how long it's been since the abduction." next
+	"@As time slips past, your mind start to wander..." next
+  window_clear
+  "@This had been your first year at Snow Wood." next
+  "@It was overwhelming at first, but you'd gotten into the swing of things." next
+  "@Summer vacation was a blast." next
+  "@The president stopped by your small town for some reason," next
+  "  and drove down Main Street in his fancy car." next
+  "@Everyone was standing on the side of the street, cheering." next
+  "@Your friends boosted you up to the top of the school building," next
+  "  and threw your camera up to you." next
+  "@Disaster almost struck, but you caught the camera strap at the last second!" next
+  "@You snapped a quick photo, and the very next day," next
+  "  it was on the front page of the Tribune." next
+  "@Everyone was so proud." next
+  "@Everyone was so excited." next
+  "@As your mind starts to relax, you feel something start to build up..." wait
+  goto(BranchEnd)
+	eob
+
+BranchStart:
+  //this is unused now
+  window_clear
+	"@What will you do?" wait
+	window_clear
+	pause(0x0C)
+	menu 1 {
+		"Try to touch it": {
+			window_clear
+			if customFlags.shadowConcentrate {
+				"@You reach out in the darkness, but it's too far away." next
+				goto(BranchStart)
+			}
+			"@You reach out in the darkness," next
+			"  but end up poking yourself in the face by mistake." wait
+			goto(BranchStart)
+			eob
+		}
+		"Concentrate on it": {
+			window_clear
+			if customFlags.shadowConcentrate {
+				"@You imagine something small, but with a distinct shape." next
+				"@You can't tell if it's part of you, or part of something else..." wait
+				goto(BranchStart)
+			}
+			set(customFlags.shadowConcentrate)
+			"@You try to imagine what the shadow looks like." next
+			"@Slowly, it takes form." wait
+			goto(BranchStart)
+			eob
+		}
+		"Concentrate on it a LOT": {
+			window_clear
+			if customFlags.shadowConcentrate {
+				"@As you picture whatever it is in your mind, it seems to get closer." next
+				"@It's right in front of you." next
+				"@You reach out until it feels like you're almost holding it in your hands." next
+				"@...Something is building up." wait
+				goto(BranchEnd)
+			}
+			"@You scrunch up your face and imagine at the thing as hard as you can." next
+			"@It seems to be getting closer..." next
+			text_blips(3) //disable the text blips
+			"@Oh." wait
+			window_closeall
+			sound(96)
+			//asmcall_long(BranchCrashTheGame)
+			eob
+		}
+	}
+	window_clear
+	pause(40)
+	"@.|.|." next //if the player presses the b button here, like in the halloween hack
+	"@haha nice one" wait
+	goto(BranchStart)
+
+BranchEnd:
+	window_closeall
+	//play some kind of short energy building music with the vinesauce game break sound
+	pause(20) //pause for however long it takes for the music to play
+	//fade to white if that's an easy thing to do?? look at the magicant part of the script dump
+	warp(144)
+	eob
+
+//BranchCrashTheGame:
+//	PLA
+//	RTL
+
+MagicantResearch:
+	"@It's a small screen displaying technical readouts and test data." next
+	"@Read it?" linebreak
+	menu 2 {
+		"Yes": {
+			window_clear
+			"  Documentation of psionic abilities latent in humans" next
+			"  Findings:" linebreak
+			"@Elemental affinities" next
+			"@Sources of personal confidence or comfort" next
+			"@Basic communication, physical manip. of objects" next
+			call(EnterPasscode)
+			if customFlags.saturnIsInYourParty {
+				call(SaturnHackin)
+				"@Physical manifestation of subconscious thoughts" next
+				"  Materialization possible in this dimension as well as others, or in subject's dreamstate" next
+				"  Would require a level of self-attunement impossible for humans to achieve" next
+				"  Has the potential to become unstable if used recklessly, " next
+				"  resulting in damage to the surrounding galactic sector" next
+				"  Humans must NEVER learn of this technique or attempt to naturally master it" next
+				"  -end of report-" wait
+			}
+			end
+		}
+		"No": {
+      if customFlags.saturnIsInYourParty {
+        goto(YesSaturnNo)
+      }
+      else {
+        goto(NoSaturnNo)
+      }
+			end
+		}
+	}
+	end
+
+YesSaturnNo:
+  "@Mr. Saturn looks expectantly at you." end
+
+NoSaturnNo:
+  "@You get the feeling that something's missing." end
+
+EnterPasscode:
+  window_clear
+  "  THE FOLLOWING RESEARCH IS CLASSIFIED." next
+  "  INPUT PASSCODE:" wait
+  eob
+
+SaturnHackin:
+  window_clear
+  "@(Mr. Saturn hops onto the keyboard and starts typing furiously.)" next
+  "@(He appears to be gaining access to whatever's behind this extra layer of security.)" next
+	"@(The screen clears itself, and more words appear.)" wait
+	window_clear
+  eob
+
+GirlDescription:
+  //TODO: Draw a map with a bed, and the girl in it as an overlaid sprite.
+  "@A human girl lies in this bed, idly singing to herself." next
+  "@You get the feeling that you're her only hope of getting back to the Earth." next
+  "@Take her along?" linebreak //battles are more fun with more party members!
+  menu 2 {
+		"Yes": {
+      //music!
+      "@She joins you." //todo: make it so Poo joins the party here
+      end
+      }
+    "No": {
+      "@She drifts back to sleep."
+			end
+		}
+  }
+  end
+
+GirlResearch:
+	"@It's a small screen displaying technical readouts and test data." next
+	"@Read it?" linebreak
+	menu 2 {
+		"Yes": {
+			window_clear
+			"  Documentation of the human form" next
+      "  Findings:" next
+			"@Using this subject, we have extrapolated and documented" next
+      "  the human form and all of its weaknesses." next
+			call(EnterPasscode)
+			if customFlags.saturnIsInYourParty {
+				call(SaturnHackin)
+        "  Subject was fed a variety of signals, and transformed to show each possible variation in turn." next
+        "  Physically, humans are of little threat, at least in small numbers." next
+        "  Their vocalizations are annoying." next
+        "  In all prior experiments with Earthling wildlife," next
+        "  the base signal stabilizes" next
+        "  and the subject instinctively reassumes its base form." next
+        "  However, this subject reverted to one of the forms from the test instead." next
+        "  The subject's mind seems to be relaxed by this instead of irritated." next
+        "  Earthlings are such sloppy beings." next
+				"  -end of report-" wait
+			}
+			end
+		}
+		"No": {
+      if customFlags.saturnIsInYourParty {
+        goto(YesSaturnNo)
+      }
+      else {
+        goto(NoSaturnNo)
+      }
+			end
+		}
+	}
+	end
+
+WarpZone:
+  "@Welcome to glorious 0, 0!" next
+  window_clear
+  "@...|There isn't anywhere else for you to go yet. {pause(40)}Gotta make more maps." end

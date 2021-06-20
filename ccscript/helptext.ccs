@@ -1,0 +1,15 @@
+cameraHelpText: 
+	"@It's your first camera." next
+	"@<Pentax Spotmatic> is engraved on the front." next
+	"@Your professor says that this model is really good for learning." end
+
+filmHelpText: 
+	"@You just finished taking these photos yesterday." next
+	"@To develop them, you'll need to go to the chemistry lab." end
+
+developedFilmHelpText:
+	"@What do you mean this isn't a darkroom??" end
+
+ATMCard: 
+	goto(debugmenu.l_0xc58000)
+	"@It's the ATM Card, you know how it works." end

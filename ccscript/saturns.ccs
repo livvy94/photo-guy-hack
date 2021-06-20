@@ -1,0 +1,47 @@
+Saturn1:
+  "@escaped! zoom. lucky me!" end
+  
+Saturn2:
+  "@space ship." wait
+  "splash ship." wait
+  "starry sea." end //shoutouts to clover&sealife
+
+Saturn3:
+  "@we all are mr. saturn. ding!" next
+  "@very far from mr. saturn..." end
+
+Saturn4:
+"so many creepy bugs!" next
+"you are happy bugs." end
+
+Saturn5:
+"shh! secret home" next
+"down here," linebreak
+"safe, safe." end
+
+Saturn6:
+"help us build pod" next
+"i, mr saturn, can steal warp engine" next
+"fromwhere? somewhere." next
+"you find exposition." next
+"ding!" end
+
+
+SaturnJoinable:
+  "@you learn psi? zoom." next
+  "@go at me. kay-o?" newline
+
+SaturnJoins:
+  menu 2 {
+		"Yes": {
+      //music!
+      "@(You join Mr. Saturn.)" //TODO: make it so he joins, as a temporary party member like Pokey. See if Pokey can be reprogrammed to be useful lmao
+      end
+      }
+    "No": {
+      "@but thou must!"
+      goto(SaturnJoins)
+			end
+		}
+  }
+  end

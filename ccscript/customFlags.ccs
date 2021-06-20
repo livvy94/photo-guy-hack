@@ -1,0 +1,10 @@
+define jeffVisible = flag 0x15d
+define maxwellConvo_1 = flag 0x1F
+define maxwellConvo_2 = flag 0x20
+define darkroom = flag 0x1D
+define photo1_viewed = flag 0x19 
+define photo2_viewed = flag 0x1A
+define photo3_viewed = flag 0x1B
+define shadowConcentrate = flag 0x1C
+define saturnIsInYourParty = flag 0x1D
+define bossFight1Finished = flag 0x1E

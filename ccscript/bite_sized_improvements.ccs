@@ -1,0 +1,16 @@
+command e(label) "{long label}"
+
+ROM[0xc7D33e] = goto(StopBuggingMeDad) //Shared by HyperBound on June 6th, 2017
+StopBuggingMeDad:
+    eob
+	
+ROM[0xc7c588] = goto(ImTalkingToMyselfJeez) //These two jointly disable "Who are you talking to?"
+ROM[0xc6bef9] = goto(noResponse)
+ImTalkingToMyselfJeez:
+	"[06 94 02 {e(noResponse)}]" 
+	window_closeall 
+	eob
+noResponse:
+    "@(There's no response.)" end //I wouldn't have included this, but the above block is dependent on it being here.
+
+ROM[0xC422E4] = "[09]" //Disable the Attract Mode

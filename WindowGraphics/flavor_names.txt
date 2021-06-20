@@ -1,0 +1,5 @@
+Plain flavor
+Apple flavor
+Blueberry flavor
+Honey flavor
+Chocolate flavor

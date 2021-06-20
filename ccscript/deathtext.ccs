@@ -1,0 +1,47 @@
+ROM[0xc7de7d] = goto(stuffs)
+// DON'T TOUCH THIS ^^^
+
+
+
+command e(label) "{long label}"
+
+stuffs:
+	call(0xc7de11) call(0xc69082) window_open(1) call(0xc7dfa4) "@[1C 02 00]!" next
+    "@It looks like you got your head handed to you." next
+    "@So, how about giving it another shot?" linebreak
+    
+    menu {
+    
+			"Yes": goto(saidyes)
+			
+			default "No": goto(ifno)
+		
+		}
+
+saidyes:
+	"@[1C 02 00] decided to return after summoning all the courage and energy he had." next
+    "@Good luck!" wait
+	window_closeall
+	set(flag 475)
+    eob
+
+ifno:
+	"@Are you sure?" next
+    "@The next time you start your adventure," next
+    "@you'll begin where you last saved." next
+    "@Is that okay?" linebreak
+    
+    menu {
+			
+			"No": goto(saidno)
+			
+			default "Yes": goto(saidno)
+			
+		}
+
+saidno:
+	"@It must have all just been a bad dream." next
+    "@See you, [1C 02 00]!" wait
+	window_closeall
+	unset(flag 475)
+    eob
