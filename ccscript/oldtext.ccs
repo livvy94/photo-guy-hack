@@ -5,6 +5,8 @@ command e(label) "{long label}"
 newgame_location(7264,1898)
 newgame_startup(init)
 
+ROM[0xEF12C2] = byte 0 //disable tileset animations for Summers, which I use for the UFO tileset
+
 init: 
     music_stop //is this needed?
     set(customFlags.jeffVisible)

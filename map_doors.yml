@@ -1,9 +1,9 @@
 0:
   0:
   - Type: door
-    Destination X: 319
+    Destination X: 300
     Event Flag: 0
-    Destination Y: 1165
+    Destination Y: 1150
     X: 0
     Y: 0
     Style: 0
