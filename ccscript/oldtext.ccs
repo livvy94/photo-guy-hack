@@ -20,11 +20,11 @@ init:
     
     //equip all characters
     //XX = character, YY is the inventory slot
+    //TODO: make the camera not droppable
     "[1F 83 01 02]" //Equip main character with the Camera item
-  //TODO: make the camera not droppable
-    //[1F 83 XX YY]
-    //[1F 83 XX YY]
-    //[1F 83 XX YY]
+    //"[1F 83 02 YY]"
+    //"[1F 83 03 YY]"
+    //"[1F 83 04 YY]"
     
     givemoney(40)
     
@@ -142,7 +142,7 @@ photo3_text:
         take(3, 143) //ditto, just in case the Player gave it to Jeff
         save
         "@All right, let's head to Lake Tess!" next
-        "@I've got all of your equipment here, and plenty of extra rolls of film." next
+        "@I've got all of your equipment, and plenty of extra rolls of film." next
         "@By the way, if you need to run back for any reason," next
         "  like, if you forgot something," next
         "  don't forget to hold down the Y Button!" wait //that's right, this game has the run button patch!

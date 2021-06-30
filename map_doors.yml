@@ -1,9 +1,14 @@
 0:
   0:
-  - Type: object
-    X: 21
-    Y: 17
-    Text Pointer: $c87b33
+  - Type: door
+    Destination X: 319
+    Event Flag: 0
+    Destination Y: 1165
+    X: 0
+    Y: 0
+    Style: 0
+    Text Pointer: $0
+    Direction: down
   1:
   - Type: door
     Destination X: 784
@@ -12794,39 +12799,102 @@
   5: null
   6: null
   7: null
-  8:
-  - Type: door
-    Destination X: 306
-    Event Flag: 0
-    Destination Y: 1166
-    X: 26
-    Y: 13
-    Style: 0
-    Text Pointer: $0
-    Direction: left
+  8: null
   9:
-  - Type: door
-    Destination X: 281
-    Event Flag: 0
-    Destination Y: 1166
-    X: 19
-    Y: 13
-    Style: 0
-    Text Pointer: $0
-    Direction: down
-  10:
   - Type: door
     Destination X: 0
     Event Flag: 0
     Destination Y: 0
+    X: 19
+    Y: 13
+    Style: 0
+    Text Pointer: $0
+    Direction: left
+  10:
+  - Type: door
+    Destination X: 354
+    Event Flag: 0
+    Destination Y: 1162
     X: 10
     Y: 13
     Style: 0
     Text Pointer: $0
+    Direction: right
+  11:
+  - Type: door
+    Destination X: 329
+    Event Flag: 0
+    Destination Y: 1165
+    X: 1
+    Y: 9
+    Style: 0
+    Text Pointer: $0
+    Direction: left
+  - Type: door
+    Destination X: 418
+    Event Flag: 0
+    Destination Y: 1166
+    X: 31
+    Y: 9
+    Style: 0
+    Text Pointer: $0
     Direction: down
-  11: null
+  - Type: door
+    Destination X: 0
+    Event Flag: 0
+    Destination Y: 0
+    X: 25
+    Y: 7
+    Style: 0
+    Text Pointer: $0
+    Direction: down
+  - Type: door
+    Destination X: 0
+    Event Flag: 0
+    Destination Y: 0
+    X: 26
+    Y: 7
+    Style: 0
+    Text Pointer: $0
+    Direction: down
   12: null
-  13: null
+  13:
+  - Type: door
+    Destination X: 382
+    Event Flag: 0
+    Destination Y: 1162
+    X: 1
+    Y: 13
+    Style: 0
+    Text Pointer: $0
+    Direction: down
+  - Type: door
+    Destination X: 0
+    Event Flag: 0
+    Destination Y: 0
+    X: 15
+    Y: 9
+    Style: 0
+    Text Pointer: $0
+    Direction: down
+  - Type: door
+    Destination X: 0
+    Event Flag: 0
+    Destination Y: 0
+    X: 14
+    Y: 9
+    Style: 0
+    Text Pointer: $0
+    Direction: down
+  - Type: door
+    Destination X: 0
+    Event Flag: 0
+    Destination Y: 0
+    X: 28
+    Y: 13
+    Style: 0
+    Text Pointer: $0
+    Direction: down
   14: null
   15: null
   16: null

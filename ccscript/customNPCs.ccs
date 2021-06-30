@@ -5,7 +5,8 @@ vinceChara:
   //goto(oldtext.photo3_text) //DEBUG. DELETE THIS
   "@<Work to exhaustion when you're young...>" next
   "@Have you ever heard of a weird saying like this?" next
-  "@It's true...but it can be pretty brutal if you're just starting to learn something." next
+  "@It's true..." next
+  "  but it can be rough if you're just starting to learn something." next
   "@When it's appropriate, I prefer this saying:" next
   "@<Start small so you don't get overwhelmed and discouraged.>" next
   "@What, that's not as catchy?" end
