@@ -175,7 +175,7 @@ BranchEnd:
 //  PLA
 //  RTL
 
-MagicantResearch:
+MagicantResearch: //TODO: Set up debug NPCs to loop through this text to make sure it's paced okay
   "@It's a small screen displaying technical readouts and test data." next
   "@Read it?" linebreak
   menu 2 {
