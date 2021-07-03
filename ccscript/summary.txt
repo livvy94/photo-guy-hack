@@ -1,4 +1,4 @@
-C:/Users/vince/Dropbox/00 Romhacking/Earthbound/00 Photo Guy Hack/PhotoGuy.sfc
+C:/Users/Vince/Dropbox/00 Romhacking/Earthbound/00 Photo Guy Hack/PhotoGuy.sfc
 CCScript Compilation Summary
 ============================
 

@@ -1,9 +1,9 @@
 0:
   0:
   - Type: door
-    Destination X: 300
+    Destination X: 367
     Event Flag: 0
-    Destination Y: 1150
+    Destination Y: 1163
     X: 0
     Y: 0
     Style: 0
@@ -12799,7 +12799,16 @@
   5: null
   6: null
   7: null
-  8: null
+  8:
+  - Type: door
+    Destination X: 308
+    Event Flag: 0
+    Destination Y: 1166
+    X: 30
+    Y: 13
+    Style: 0
+    Text Pointer: $0
+    Direction: down
   9:
   - Type: door
     Destination X: 0
@@ -12843,15 +12852,6 @@
     Destination X: 0
     Event Flag: 0
     Destination Y: 0
-    X: 25
-    Y: 7
-    Style: 0
-    Text Pointer: $0
-    Direction: down
-  - Type: door
-    Destination X: 0
-    Event Flag: 0
-    Destination Y: 0
     X: 26
     Y: 7
     Style: 0
@@ -12873,15 +12873,6 @@
     Event Flag: 0
     Destination Y: 0
     X: 15
-    Y: 9
-    Style: 0
-    Text Pointer: $0
-    Direction: down
-  - Type: door
-    Destination X: 0
-    Event Flag: 0
-    Destination Y: 0
-    X: 14
     Y: 9
     Style: 0
     Text Pointer: $0
