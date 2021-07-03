@@ -7030,10 +7030,10 @@
 781:
   Direction: down
   Event Flag: 0x0
-  Movement: 8
+  Movement: 10
   Show Sprite: always
-  Sprite: 236
-  Text Pointer 1: $c60be3
+  Sprite: 100
+  Text Pointer 1: customNPCs.YouResearch
   Text Pointer 2: $0
   Type: object
 782:
@@ -11377,7 +11377,7 @@
 1264:
   Direction: down
   Event Flag: 0x0
-  Movement: 8
+  Movement: 10
   Show Sprite: always
   Sprite: 225
   Text Pointer 1: customNPCs.WarpZone

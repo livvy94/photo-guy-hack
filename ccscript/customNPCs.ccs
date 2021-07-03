@@ -175,6 +175,28 @@ BranchEnd:
 //  PLA
 //  RTL
 
+YouResearch:
+  //the sprite is 100, and the NPC config table entry is 781
+  //For animation, I'm trying movement code 10, the same as the telephone in the Moonside hotel
+  "@It's a small screen displaying technical readouts and test data." next
+  "@Read it?" linebreak
+  menu 2 {
+    "Yes": {
+      window_clear
+      "  Test of psionic stress on average human" next
+      "  Findings:" linebreak
+      "@The subject reacted as expected." next
+      "@Nervous system was stimulated in the usual way." next
+      "@Blood pressure rapidly dropped, but the subject survived." next
+      "@Condition stable. Awaiting further data." next
+      "  -end of report-" wait
+    }
+    "No": {
+      "@..."
+    }
+  }
+  end
+
 MagicantResearch: //TODO: Set up debug NPCs to loop through this text to make sure it's paced okay
   "@It's a small screen displaying technical readouts and test data." next
   "@Read it?" linebreak
