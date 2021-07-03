@@ -189,7 +189,7 @@ YouResearch:
       "@Nervous system was stimulated in the usual way." next
       "@Blood pressure rapidly dropped, but the subject survived." next
       "@Condition stable. Awaiting further data." next
-      "  -end of report-" wait
+      "  -end of report-"
     }
     "No": {
       "@..."

@@ -12811,9 +12811,9 @@
     Direction: down
   9:
   - Type: door
-    Destination X: 0
+    Destination X: 285
     Event Flag: 0
-    Destination Y: 0
+    Destination Y: 1166
     X: 19
     Y: 13
     Style: 0
