@@ -1,0 +1,5 @@
+import asm65816
+
+ROM[0xC2E90F] = LDA_i (0x000C) // 0x000E & ~2 // Grey
+ROM[0xC2E92C] = LDA_i (0x0004) // 0x0006 & ~2 // Green
+ROM[0xC2E944] = LDA_i (0x0004) // 0x0006 & ~2 // Red
