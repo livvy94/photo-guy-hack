@@ -1,0 +1,300 @@
+import asm65816
+import asmref
+
+// File menu rewrite
+// By jtolmar and Catador
+
+// Replaces the file setup code with "NewMenu" below.
+// It's written with a boatload of macros so it should be easy enough to edit.
+// The version in this file has a new difficulty menu added  as an example.
+// You can delete the "_showDifficultyMenu" block to get back to normal behavior.
+// Or keep it if you wanted a difficulty menu.
+
+// What flag should the difficulty menu set? (Change it here if you're using it.)
+define flag_hardmode = flag 0x534
+
+NewMenu: {
+  // Standard EB style function intro
+  REP (0x31)
+  PHD
+  TDC
+  ADC_i(0xffce) // Allocate 0x30 stack space (TODO: how much stack?)
+  TCD
+  // Your menu code here
+_useGoodSettings:
+  LDA_i(1) //Fast, please!
+  save_game_setting_byte(SETTING_TEXT_SPEED)
+  LDA_i(1) //Stereo, please!
+  save_game_setting_byte(SETTING_SOUND)
+  
+_showFlavorMenu:
+  prepare_menu(50, WindowFlavorSelect)
+  // The text is long and wraps, so start at line 2
+  add_option(1, WindowFlavorPlain)
+  add_option(2, WindowFlavorMint)
+  add_option(3, WindowFlavorStrawberry)
+  add_option(4, WindowFlavorBanana)
+  add_option(5, WindowFlavorPeanut)
+  set_window_asm_on_highlight(SetFlavor)
+  load_game_setting_byte(SETTING_FLAVOR)
+  show_menu(1)
+  handle_cancelled_menu(50, _fail)
+  save_game_setting_byte(SETTING_FLAVOR)
+
+  // Stop editing here
+  // Save game
+  LDA_a(0x7EB4A1) // Load current save slot
+  AND_i(0xFF)
+  DEC
+  JSL(0xEF0A4D) // Save game
+  
+  // Return
+  LDA_i(1)
+  PLD
+  RTL
+  
+_fail: // Return failure (call if player cancels out of first menu)
+  LDA_i(0)
+  PLD
+  RTL
+}
+
+WindowFlavorSelect: "Pick a flavor![00]"
+WindowFlavorPlain: "Plain[00]"
+WindowFlavorMint: "Apple[00]"
+WindowFlavorStrawberry: "Blueberry[00]"
+WindowFlavorBanana: "Honey[00]"
+WindowFlavorPeanut: "Chocolate[00]"
+
+DifficultySelect: "Please select difficulty.[00]"
+DifficultyNormal: "Normal[00]"
+DifficultyHard: "Hard[00]"
+
+PlayCreepySound:
+  sound(114)
+  eob
+
+// Existing function pointer, sets current window flavor to A
+define SetFlavor = 0xC1EC8F
+
+// Existing settings in the game settings struct
+// https://github.com/Herringway/ebsrc/blob/0c5423f35b2045e1ffc809584af7ae8d562e438b/src/structs.asm#L61
+define SETTING_TEXT_SPEED = 193
+define SETTING_SOUND = 194
+define SETTING_FLAVOR = 472
+
+// Begin preparing a menu using this window and title.
+// window - window num (window_configuration_table.yml)
+// title - ccscript label, but null-terminated (ends in "[00]" rather than eob)
+command prepare_menu(windowNum, title) {
+  JSL(0xC3E4D4) // Who knows. The original always calls this silly function.
+  // Create window
+  // https://github.com/Herringway/ebsrc/blob/master/src/text/create_window_redirect.asm
+  LDA_i(windowNum)
+  JSL(0xC1DD47)
+  // Title it
+  // https://github.com/Herringway/ebsrc/blob/master/src/text/display_config_menu_title.asm
+  load_pointer(title)
+  LDA_i(0x100) // Max length. Could do 0xFFFF, but this way a missing [00] will explode less
+  JSL_RTS_C1(0xC10EFC)
+}
+
+// Adds an option to the current menu.
+// y - How many lines of text down to display. Starts at 0, but that's probably
+//     your title, so consider starting at 1.
+// label - ccscript label, but null-terminated (ends in "[00]" rather than eob)
+command add_option(y, label) {
+  STZ_d(0x12) // On-select callback. Null out for normal case
+  STZ_d(0x14)
+  load_pointer(label)
+	LDX_i(y) // Y position
+	LDA_i(0) // X position
+  JSL_RTS_C1(0xC114B1)
+}
+
+// Adds an option to the current menu.
+// y - How many lines of text down to display. Starts at 0, but that's probably
+//     your title, so consider starting at 1.
+// label - ccscript label, but null-terminated (ends in "[00]" rather than eob)
+// callback - ccscript label, called when option is highlighted. Normal ccscript
+//     that should end in eob. You probably don't want to display text with it,
+//     but sound effects work.
+command add_option_ccscript_on_highlight(y, label, callback) {
+  LDA_i(short [0] callback)
+  STA_d(0x12)
+  LDA_i(short [1] callback)
+  STA_d(0x14)
+  load_pointer(label)
+	LDX_i(y) // Y position
+	LDA_i(0) // X position
+  JSL_RTS_C1(0xC114B1)
+}
+
+// Sets an assembly pointer that will be called every time the player moves the
+// cursor in the current window. The command will be called with the option num
+// in the A register.
+command set_window_asm_on_highlight(pointer) {
+  load_pointer(pointer)
+	JSL_RTS_C1(0xC11F5A) // Call pointer with A=index on cursor move
+}
+
+// Loads the index'th game setting into A
+command load_game_setting_byte(index) {
+  LDX_i(index)
+  LDA_x(0x97F5) // Location of saved game state struct
+  AND_i(0xFF)
+}
+
+// Loads the event flag to A. (2=on, 1-off)
+command load_event_flag(flagNum) {
+  LDA_i(flagNum)
+  // https://github.com/Herringway/ebsrc/blob/master/src/text/get_event_flag.asm
+  JSL(0xC21628)
+  INC // Converts 1-0 flags to 2-1 menu positions
+}
+
+// Show the menu that we've built up.
+// The cursor position will be set to whatever is in A, unless A=0, in which
+// case it will be set to defaultCursorPos.
+// defaultCursorPos - default 
+// return - selected position in A, or 0 if the user pressed B
+command show_menu(defaultCursorPos) {
+  // Check if we need the default cursor position
+  CMP_i(0x0)
+  BNE(3)
+  LDA_i(defaultCursorPos)
+  // Shows the menu
+  DEC
+  JSL_RTS_C1(0xC11887)
+  // Runs input loop
+  STZ_a(0x7E5E6E) // Unknown
+  LDA_i(1) // Unknown mode select
+  JSL_RTS_C1(0xC1196A)
+}
+
+// Jumps to label if the player cancelled out of the last menu (AKA if A=0)
+command handle_cancelled_menu(windowNum, label) {
+  CMP_i(0)
+  BNE_a(_end)
+  close_window(windowNum)
+  JMP(label)
+_end:
+}
+
+// Saves A to the index'th game setting
+command save_game_setting_byte(index) {
+  LDX_i(index)
+  SEP(0x20) // 8-bit mode
+  STA_x(0x97F5) // Location of saved game state struct
+  REP(0x20) // 8-bit mode
+}
+
+// Saves A to the provided event flag (2=on, 1-off)
+command save_event_flag(flagNum) {
+  TAX
+  DEX // Convert 2-1 menu position to 1-0 flag option
+  LDA_i(flagNum)
+  //https://github.com/Herringway/ebsrc/blob/master/src/text/set_event_flag.asm
+  JSL(0xC2165E)
+}
+
+command close_window(windowNum) {
+  // https://github.com/Herringway/ebsrc/blob/master/src/text/close_window.asm
+  LDA_i(windowNum)
+  JSL(0xC3E521)
+}
+
+// ---------- Internals
+// You can stop here if you're just using it.
+
+// Moves the provided label into 0x0E/0x10, which is where EB functions
+// usually expect to receive pointers.
+command load_pointer(label) {
+  LDA_i(short [0] label) // Low two bytes
+  STA_d(0x0E)
+  LDA_i(short [1] label) // High byte
+  STA_d(0x10)
+}
+
+// Catador's stack trickery to JSL into a function with RTS.
+// Takes the address of an arbitrary RTL in the desired bank, plus the routine
+// you wanted to call.
+command JSL_RTS(bank_rtl, routine) {
+  PHK // Push program bank (for RTL)
+  PER (6) // Push PC+6 (for RTL)
+  // Push pointer to one byte before an RTL in bank of routine (for routine RTS)
+  PEA (bank_rtl)
+  // Long jump to routine (The routine will eventually reach an RTS, which will
+  // then make the program execution continue from the 'bank_rtl' address, which
+  // should be an RTL, which will then make the program execution continue from
+  // here. Whew!)
+  JML (routine)
+}
+
+command JSL_RTS_C1(routine) {
+  JSL_RTS(0xC10002, routine)
+}
+
+// ---- Hijacks (how this actually gets run)
+// File menu code reference
+// https://github.com/Herringway/ebsrc/blob/master/src/intro/file_select_menu_loop.asm
+// https://earthbound-rom-explorerr.herokuapp.com/address/$c1f805
+// The text mode setup is here:
+/*
+$c1f8b9 EMPTY_FILE_SELECTED:           JSL $c1f3c2   ; setup text speed menu
+$c1f8bd UNKNOWN13:                     LDA #$0000
+$c1f8c0                                JSL $c1f497   ; display/wait for text speed
+$c1f8c4                                CMP #$0000    ; success?
+$c1f8c7                                BNE UNKNOWN14 ; if success, go to next menu
+$c1f8c9                                LDA #$0018    ; if cancelled, close window
+$c1f8cc                                JSL $c3e521
+$c1f8d0                                JMP $f80d     ; and return to top
+...much later
+$c1f8fb CHANGE_TO_NAMING_SCREEN_MUSIC: LDA #$0002    ; we'll end up resuming here
+*/
+// NewMenu above replaces everything except the return to top, so:
+ROM[0xc1f8b9] = {
+  JSL(NewMenu) // c1f8b9
+  CMP_i(0)     // c1f8bd
+  BEQ(3)       // c1f8c0
+  JMP(0xf8fb)  // c1f8c2 ; completed whole menu, go to naming screen
+  JMP(0xf80d)  // c1f8c5 ; user cancelled, return to top of function
+  // Unreachable instruction here, which we'll use for a springboard to some
+  // other code we need. See next hijack for explanation.
+  JMP(0xf8b3)  // c1f8c8 ; jump to "MENU_OTHER_SELECTED"
+}
+
+// If the player cancels out of naming, it takes them to flavor select.
+// That's a problem for us, since flavor select is now in a different function.
+// We want to instead send them to MENU_OTHER_SELECTED, which clears all windows
+// and reloads (it's used normally if you complete the setup menu).
+/*
+Annoyingly there's really no room around this BRA, and we need to travel further
+back than a BRA can go.
+$c1f933                                BRA UNKNOWN16 ; called on name cancel
+...So instead we're going to send them to 0xc1f8c8, which we added above.
+*/
+ROM[0xc1f933] = BRA(-0x6D) // Manually computed jump distance.
+
+// Setup menu
+/*
+$c1f872 MENU_SETUP_SELECTED:           JSL $c1f3c2
+$c1f876 UNKNOWN7:                      LDA #$0000
+$c1f879                                JSL $c1f497
+$c1f87d                                CMP #$0000
+$c1f880                                BNE MENU_SETUP_SELECTED2
+$c1f882                                LDA #$0018
+$c1f885                                JSL $c3e521
+$c1f889                                BRA VALID_FILE_SELECTED
+...elsewhere
+$c1f824 VALID_FILE_SELECTED:           JSR $f07e ; cancel out
+$c1f8b3 MENU_OTHER_SELECTED:           JSR $008e ; on success
+*/
+ROM[0xc1f872] = {
+  JSL(NewMenu)
+  CMP_i(0)
+  BEQ(3)
+  JMP(0xf8b3) // completed whole menu, go to menu other
+  JMP(0xf824) // user cancelled, return to valid file selected
+}
+
