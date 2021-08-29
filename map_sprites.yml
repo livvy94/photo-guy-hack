@@ -5580,45 +5580,33 @@
     Y: 128
     NPC ID: 783
   12: null
-  13:
-  - X: 120
-    Y: 176
-    NPC ID: 792
-  - X: 240
-    Y: 192
-    NPC ID: 760
-  14:
-  - X: 192
-    Y: 48
-    NPC ID: 788
+  13: null
+  14: null
+  15:
   - X: 208
-    Y: 56
-    NPC ID: 775
-  - X: 128
-    Y: 72
-    NPC ID: 763
-  - X: 112
-    Y: 80
-    NPC ID: 762
-  - X: 176
-    Y: 80
-    NPC ID: 774
-  - X: 88
-    Y: 112
-    NPC ID: 761
-  - X: 208
-    Y: 112
+    Y: 216
     NPC ID: 764
-  - X: 144
-    Y: 120
-    NPC ID: 777
-  - X: 32
-    Y: 224
-    NPC ID: 793
+  - X: 194
+    Y: 222
+    NPC ID: 775
+  - X: 178
+    Y: 208
+    NPC ID: 774
+  - X: 164
+    Y: 211
+    NPC ID: 763
   - X: 152
-    Y: 224
-    NPC ID: 796
-  15: null
+    Y: 218
+    NPC ID: 762
+  - X: 141
+    Y: 209
+    NPC ID: 761
+  - X: 128
+    Y: 212
+    NPC ID: 760
+  - X: 106
+    Y: 215
+    NPC ID: 792
   16: null
   17:
   - X: 48
@@ -5768,7 +5756,19 @@
     NPC ID: 779
   13: null
   14: null
-  15: null
+  15:
+  - X: 201
+    Y: 26
+    NPC ID: 796
+  - X: 147
+    Y: 28
+    NPC ID: 793
+  - X: 100
+    Y: 30
+    NPC ID: 788
+  - X: 60
+    Y: 29
+    NPC ID: 777
   16: null
   17: null
   18: null

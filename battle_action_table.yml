@@ -1313,7 +1313,7 @@
   Direction: party
   PP Cost: 0
   Target: none
-  Text Address: oldtext.txtProtracter
+  Text Address: oldtext.txtFilmUse
 188:
   Action type: item
   Code Address: $c29033

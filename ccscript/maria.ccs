@@ -23,7 +23,8 @@ ShimmeringForm:
   end
 
 BadEndingMariaDidntJoin:
-  "@As the years go by, you never shake the feeling that there was something you missed." wait
+  "@As the years go by..." next
+  "  You never shake the feeling that there was something you missed." wait
   //sad music
   //roll credits
   eob
@@ -38,30 +39,47 @@ GoodEndingGeorge:
   //You enter the cabin and Maria's body, the shimmering form, reunites with her spirit next to George.
   //I have no idea if this conflicts with what happens in CogDis... I don't really mind if it does, though. This is its own continuity.
   "@Thank you for properly reuniting me with my wife Maria." next
-  "@As you’ve probably gathered, we were both abducted in the same way you were and experimented on." next
-  "@We were eventually given the responsibility of raising an alien child named Giegue." next
-  "@They were using us to study the human spirit, and how it affected the child’s upbringing." next
+  if customFlags.jeffInParty
+  {
+    "@As you've probably gathered," next
+    "  we were both abducted, the same as you two." next
+  }
+  else
+  {
+    "@As I'm sure you've gathered," next
+    "  we were both abducted, the same as you." next
+  }
+  "@We were eventually given the responsibility" next
+  "  of raising an alien child named Giegue." next
+  "@They were using us to study the human spirit," next
+  "  and how it affected the child's upbringing." next
   "@After several years, I found a way to escape back to Earth," next
   "  but Maria had gotten attached to young Giegue." next
   "@She was concerned about how human society might react to them..." next
-  "  ...how we would have had to hide for the rest of our lives..." next
+  "  ...how we would have had to hide away for the rest of our lives..." next
   "@So she stayed behind." next
   "@After my departure, the aliens grew to view her with contempt" next
   "  as Giegue exhibited more and more unfamiliar human traits." next
-  "@And they’re still out there, angry at me for escaping with the secret of PSI." next
-  "@Using the same technique she used to project her mind here and communicate with me," next
-  "  she learned of their plans to retaliate and invade the Earth 20 years from now," next
-  "  and the ways they planned to turn Giegue against us..."
+  "@And they're still out there..." next
+  "@Angry at me for escaping with the secret of PSI." next
+  "@With the same technique she used" next
+  "  to project her mind here and communicate with me," next
+  "  she learned of their plans to retaliate" next
+  "  and invade the Earth 20 years from now..." next
+  "  ...and the ways they planned to turn Giegue against us..." next
   "@The most terrible of these is no longer possible, thanks to you." next
-  "@There is little chance of humanity’s survival...but we have a plan to weaken their willingness to fight." next
-  "@It will be a long journey, and they will undoubtedly try to thwart us at every turn..." next
+  "@There is little chance of humanity's survival..." next
+  "  but we have a plan to weaken their willingness to fight." next
+  "@It will be a long journey," next
+  "  and they will undoubtedly try to thwart us at every turn..." next
   "@However...would you like to accompany us?" newline
   menu 2 {
     "Of course!": {
       window_clear
-      "@Thank you again for everything you’ve done." next
+      "@Thank you again for everything you've done." next
       "@You look young enough to be in college, is that correct?" next
-      "@Feel free to return to your dorm and pack supplies, clothing, extra film..." next
+      "@Feel free to return to your dorm" next
+      "  and pack supplies, clothing, extra film..." next
       "@This will certainly be a trip to remember." wait
       //happy ending theme
       //roll credits
@@ -69,9 +87,10 @@ GoodEndingGeorge:
       end
       }
     "No": {
-      "@That’s understandable. This all must be so overwhelming." next
+      "@That's understandable. This all must be so overwhelming." next
       "@Still, keep us in your thoughts." next
-      "@If the invasion comes and things become unbearable, you’re more than welcome to fight alongside us." wait
+      "@If the invasion comes and things become unbearable," next
+      "  you're more than welcome to fight alongside us." wait
       //pensive credits theme
       //roll credits
       end

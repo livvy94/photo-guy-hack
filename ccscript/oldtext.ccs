@@ -10,14 +10,13 @@ ROM[0xEF12C2] = byte 0 //disable tileset animations for Summers, which I use for
 init: 
     music_stop //is this needed?
     set(customFlags.jeffVisible)
+    unset(customFlags.jeffInParty)
     unset(customFlags.maxwellConvo_1)
     unset(customFlags.maxwellConvo_2)
-    unset(customFlags.darkroom)
     unset(customFlags.photo1_viewed)
     unset(customFlags.photo2_viewed)
     unset(customFlags.photo3_viewed)
     unset(customFlags.bossFight1Finished)
-    unset(customFlags.shadowConcentrate)
     unset(customFlags.saturnIsInYourParty)
     
     //equip all characters
@@ -50,7 +49,7 @@ txtChemicals:
     }
     else
     {
-        goto(txtProtracter)
+        goto(txtFilmUse)
     }
     eob
     
@@ -69,9 +68,9 @@ txtFilmGet:
         set(customFlags.darkroom) //Use this to keep the player from ruining the exposed film!!
         eob
     }
-    else goto(txtProtracter)
+    else goto(txtFilmUse)
 
-txtProtracter:
+txtFilmUse:
     //"@It's the film!" next
     if customFlags.photo3_viewed
     {
@@ -166,9 +165,20 @@ JeffJoinText:
     "@Let's go to the chemistry lab and develop them!" next
     "@It's the weekend, so I've got plenty of time to spare." wait
     
-    "[1F F2 03 00 2F 00][18 04][10 60][1F 1E FF 04 06][1F 02 16][1F 00 00 0B][10 78][10 78][10 78][10 3C][1F 03][18 01 01]"
-    "@[1C 02 03] joined you.[14][1F 11 03][18 04]"
+    sprite2_do_mc(3, 0x2F)
+    window_closeall
+    pause(0x60)
+    hide_sprite(0x4FF, 6) // 0x4FF is an NPC number i guess
+    sound(0x16)
+    music(0xB)
+    pause(120) pause(120) pause(120) pause(60)
+    music_resume
+    //window_open(1)
+    //"@{name(3)} joined you." prompt
+    party_add(3)
+    window_closeall
     unset(customFlags.jeffVisible)
+    set(customFlags.jeffInParty)
     eob
 
 ////////////////////////////////////////////////////////////////////
@@ -216,7 +226,7 @@ WarpToAliens:
     music_effect(3)
     fadeToBlack()
     pause(30)
-    goto(customNPCs.InTheTube)
+    goto(abduction.InTheTube)
   eob
 
 SpriteAppear:
@@ -225,6 +235,8 @@ SpriteAppear:
   mov_pause (2)
   mov_jmlmov (0xC3A2AA) //assign movement code 8, "stand there and do nothing"
 }
+
+
     
 BuzzBuzzLight:
     "[1F EA C5 00]" //unknown, but C5 00 refers to a sprite entry
@@ -236,16 +248,21 @@ BuzzBuzzLight:
 command adr24(a) "[{byte[0] a} {byte[1] a} {byte[2] a}]"
 command adr32(a) "[{byte[0] a} {byte[1] a} {byte[2] a} 00]"
 
+command wait_movement "[1F 61]"
+
 command fadeToBlack()
 {
-    "[1F 15 6A 00 79 02 01][1F 61]" //copied from data_20
+    sprite2_spawn(106, 633, 1)
+    wait_movement
 }
 
-command give2(item, failLabel) //Give an item to the party. Takes into account the inventory being full!
+command give2(item, failLabel)
 {
-    "[1d 03 ff]"
-    "[1b 02]" adr24(failLabel) "[00]"
-    "[1d 0e 00]" item
+    //Give an item to the party.
+    //Takes into account the inventory being full!
+    "[1D 03 FF]"
+    "[1B 02]" adr24(failLabel) "[00]"
+    "[1D 0E 00]" item
     call(0xc7dccf)
     "[13]"
     //Usage example:
@@ -263,25 +280,29 @@ command give2(item, failLabel) //Give an item to the party. Takes into account t
 
 command item_use_npc(item, fail_label) //A command for using Key Items on an NPC
 {
-        "[1b 00][19 19 00 00][1b 04][0b {byte[0] item}]"
-        "[1b 02]" adr32(fail_label)
-        //Usage example:
-        //--------------
-        //guy_pointer1:
-        //"@Can I see your backstage pass, sir?" end
-        //
-        //guy_pointer2:
-        //item_use_npc(125, guy_pointer2_wrongitem)
-        //"@Thank you for showing me your pass, sir." next
-        //"@Please go on ahead." end
-        //
-        //guy_pointer2_wrongitem:
-        //"@This isn't a backstage pass." end
+  "[1B 00][19 19 00 00][1B 04][0B {byte[0] item}]"
+  "[1B 02]" adr32(fail_label)
+  
+  //Usage example:
+  //--------------
+  //guy_pointer1:
+  //"@Can I see your backstage pass, sir?" end
+  //
+  //guy_pointer2:
+  //item_use_npc(125, guy_pointer2_wrongitem)
+  //"@Thank you for showing me your pass, sir." next
+  //"@Please go on ahead." end
+  //
+  //guy_pointer2_wrongitem:
+  //"@This isn't a backstage pass." end
 }
 
 
 
 command npc_do_mc(tpt,move) "[1F F1 {short tpt} {short move}]"
+
+command sprite2_do_mc(sprite, move) "[1F F2 {short sprite} {short move}]"
+
 
 // Movement code creation commands
 command movs_init_alt(speed, style) //Used in movecode_walk
@@ -369,7 +390,17 @@ command party_walk(movecode_num, sprite)
 //eob
 
 
+//char_look_at - created by jake_the_shrimp and phoenixbound
+//Usage: get_dir_from_char(1, TO_CHAR, 2) to get the direction from Ness to Paula in the party
+//You can read it in English, "from character 1 TO_CHARACTER 2"
 
-command char_look_at(char, sprite) //Created by jake_the_shrimp
-{ "[19 22 {byte char} 01 {short sprite}][1F 13 {byte char} 00]" }
+command get_dir_from_char(char, to_type, obj) "[19 22 {byte char} {byte to_type} {short obj}]"
+    define TO_CHAR = 1
+    define TO_NPC = 2
+    define TO_SPRITE2 = 3
+
 //Basically, use char_look_at(partymember,partymember2)
+command char_look_at(char, sprite) {
+    get_dir_from_char(char, TO_CHAR, sprite)
+    char_direction(char, 0)
+}

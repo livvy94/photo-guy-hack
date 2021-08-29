@@ -12806,7 +12806,7 @@
     Destination Y: 1166
     X: 30
     Y: 13
-    Style: 0
+    Style: 10
     Text Pointer: $0
     Direction: down
   9:
@@ -12816,7 +12816,7 @@
     Destination Y: 1166
     X: 19
     Y: 13
-    Style: 0
+    Style: 1
     Text Pointer: $0
     Direction: left
   10:
@@ -12826,7 +12826,7 @@
     Destination Y: 1162
     X: 10
     Y: 13
-    Style: 0
+    Style: 1
     Text Pointer: $0
     Direction: right
   11:
@@ -12836,7 +12836,7 @@
     Destination Y: 1165
     X: 1
     Y: 9
-    Style: 0
+    Style: 1
     Text Pointer: $0
     Direction: left
   - Type: door
@@ -12845,7 +12845,7 @@
     Destination Y: 1166
     X: 31
     Y: 9
-    Style: 0
+    Style: 1
     Text Pointer: $0
     Direction: down
   - Type: door
@@ -12854,7 +12854,7 @@
     Destination Y: 0
     X: 26
     Y: 7
-    Style: 0
+    Style: 1
     Text Pointer: $0
     Direction: down
   12: null
@@ -12865,7 +12865,7 @@
     Destination Y: 1162
     X: 1
     Y: 13
-    Style: 0
+    Style: 1
     Text Pointer: $0
     Direction: down
   - Type: door
@@ -12874,7 +12874,7 @@
     Destination Y: 0
     X: 15
     Y: 9
-    Style: 0
+    Style: 1
     Text Pointer: $0
     Direction: down
   - Type: door
@@ -12883,7 +12883,7 @@
     Destination Y: 0
     X: 28
     Y: 13
-    Style: 0
+    Style: 1
     Text Pointer: $0
     Direction: down
   14: null

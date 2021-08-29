@@ -1,0 +1,141 @@
+ResearchIntroText:
+  "@It's a small screen displaying technical readouts and test data." next
+  "  Read it?" linebreak
+  eob
+
+YouResearch:
+  //the sprite is 100, and the NPC config table entry is 781
+  //TODO: make a movement code that flips through each frame quickly
+  call(ResearchIntroText)
+  menu 2 {
+    "Yes": {
+      window_clear
+      "  Test of psionic stress on average human" next
+      "  Findings:" next
+      "@The subject reacted as expected." next
+      "@Nervous system was stimulated in the usual way." next
+      "@Blood pressure rapidly dropped, but the subject survived." next
+      "@Condition stable. Awaiting further data." next
+      "  -end of report-"
+    }
+    "No": {
+      "@..."
+    }
+  }
+  end
+
+MagicantResearch:
+  call(ResearchIntroText)
+  menu 2 {
+    "Yes": {
+      window_clear
+      "  Documentation of psionic abilities latent in humans" next
+      "  Findings:" next
+      "@Elemental affinities" next
+      "@Sources of personal confidence or comfort" next
+      "@Basic communication, physical manip. of objects" next
+      call(EnterPasscode)
+      if customFlags.saturnIsInYourParty {
+        call(SaturnHackin)
+        "@Physical manifestation of subconscious thoughts" next
+        "  Materialization possible in this dimension as well as others," next
+        "  or in subject's dreamstate" next
+        "  This would require a level of self-attunement" next
+        "  that is impossible for humans to achieve" next
+        "  Potential to become unstable if used recklessly," next
+        "  resulting in eventual damage to the surrounding galactic sector" next
+        "  Humans must NEVER learn of this technique" next
+        "  or attempt to naturally master it" next
+        "  -end of report-" wait
+      }
+      end
+    }
+    "No": {
+      if customFlags.saturnIsInYourParty {
+        call(YesSaturnNo)
+      }
+      else {
+        call(NoSaturnNo)
+      }
+      end
+    }
+  }
+  end
+
+GirlDescription:
+  //TODO: Draw a map with a bed, and the girl in it as an overlaid sprite.
+  "@A human girl lies in this bed, eyes shut, singing to herself." next
+  "@You get the feeling that you're her only hope of getting back to Earth." next
+  "@Take her along?" linebreak //battles are more fun with more party members!
+  menu 2 {
+    "Yes": {
+      //music!
+      "@She joins you." //todo: make it so Poo joins the party here
+      end
+      }
+    "No": {
+      "@She drifts back to sleep."
+      end
+    }
+  }
+  end
+
+GirlResearch:
+  call(ResearchIntroText)
+  menu 2 {
+    "Yes": {
+      window_clear
+      "  Documentation of the human form" next
+      "  Findings:" next
+      "@Using this subject, we have extrapolated the human form" next
+      "  and documented all of its weaknesses." next
+      call(EnterPasscode)
+      if customFlags.saturnIsInYourParty {
+        call(SaturnHackin)
+        "  Subject was fed a variety of signals," next
+        "  and transformed to show each possible variation in turn." next
+        "  Physically, humans are of little threat, at least in small numbers." next
+        "  Their vocalizations are annoying." next
+        "  In all prior experiments with Earthling wildlife," next
+        "  the base signal stabilizes" next
+        "  and the subject instinctively reassumes its base form. However..." next
+        "  This subject reverted to one of the forms from the test instead." next
+        "  The subject's mind seems to be relaxed by this instead of irritated." next
+        "  Earthlings are such sloppy beings." next
+        "  -end of report-" wait
+      }
+      end
+    }
+    "No": {
+      if customFlags.saturnIsInYourParty {
+        goto(YesSaturnNo)
+      }
+      else {
+        goto(NoSaturnNo)
+      }
+      end
+    }
+  }
+  end
+
+EnterPasscode:
+  window_clear
+  "  THE FOLLOWING RESEARCH IS CLASSIFIED." next
+  "  INPUT PASSCODE:" wait
+  eob
+
+SaturnHackin:
+  window_clear
+  "@(Mr. Saturn hops onto the keyboard and starts typing furiously.)" next
+  "@(He appears to be gaining access to whatever's " next
+  "  behind this extra layer of security.)" next
+  "@(The screen clears itself, and more words appear.)" wait
+  window_clear
+  eob
+
+YesSaturnNo:
+  "@Mr. Saturn looks expectantly at you." eob
+
+NoSaturnNo:
+  "@You get the feeling that something's missing." eob
+

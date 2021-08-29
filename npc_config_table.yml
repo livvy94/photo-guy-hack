@@ -7033,7 +7033,7 @@
   Movement: 10
   Show Sprite: always
   Sprite: 100
-  Text Pointer 1: customNPCs.YouResearch
+  Text Pointer 1: lore.YouResearch
   Text Pointer 2: $0
   Type: object
 782:

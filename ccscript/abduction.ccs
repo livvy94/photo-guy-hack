@@ -1,0 +1,40 @@
+//flag 1
+InTheTube:
+  healall
+  unset(customFlags.jeffInParty)
+  party_remove(3) //remove Jeff from the party; you'll be able to get him again if you go back with Mr. Saturn
+  window_open(1)
+  "@You can't hear or see anything." next
+  "@You almost can't even think." next
+  "@You can't remember how long it's been since the abduction." next
+  "@As time slips past, your mind start to wander..." next
+  window_clear
+  "@This had been your first year at Snow Wood." next
+  "@It was overwhelming at first, but you'd gotten into the swing of things." next
+  "@Summer vacation was a blast." next
+  "@The president stopped by your small town for some reason," next
+  "  and drove down Main Street in his fancy car." next
+  "@Everyone was standing on the side of the street, cheering." next
+  "@Your friends boosted you up to the top of the school building," next
+  "  and threw your camera up to you." next
+  "@Disaster almost struck, but you caught the camera strap at the last second!" next
+  "@You snapped a quick photo, and the very next day," next
+  "  it was on the front page of the Tribune." next
+  "@Everyone was so proud." next
+  "@Everyone was so excited." next
+  "@As your mind starts to relax, you feel something start to build up..." wait
+  music(50) //play glass breaking sound effect
+  window_closeall
+  pause(120)
+  pause(120)
+  pause(120)
+  pause(120)
+  pause(120) 
+  pause(120) 
+  pause(120) 
+  pause(120) 
+  pause(120)
+  pause(120)
+  pause(120)
+  warp(144) //fade to white
+  eob

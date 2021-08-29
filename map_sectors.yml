@@ -26949,7 +26949,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2246:
   Item: 0
   Palette: 0
@@ -27333,7 +27333,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2278:
   Item: 0
   Palette: 0
@@ -27705,7 +27705,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2309:
   Item: 0
   Palette: 0
@@ -27717,7 +27717,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2310:
   Item: 0
   Palette: 0
@@ -27749,10 +27749,10 @@
   Town Map Y: 0
   Town Map Arrow: none
   Music: 10
-  Setting: none
+  Setting: indoors
   Town Map Image: none
   Town Map: none
-  Teleport: enabled
+  Teleport: disabled
   Tileset: 7
 2313:
   Item: 0
@@ -27761,7 +27761,7 @@
   Town Map Y: 0
   Town Map Arrow: none
   Music: 10
-  Setting: none
+  Setting: indoors
   Town Map Image: none
   Town Map: none
   Teleport: disabled
@@ -27773,10 +27773,10 @@
   Town Map Y: 0
   Town Map Arrow: none
   Music: 10
-  Setting: none
+  Setting: indoors
   Town Map Image: none
   Town Map: none
-  Teleport: enabled
+  Teleport: disabled
   Tileset: 7
 2315:
   Item: 0
@@ -27788,7 +27788,7 @@
   Setting: none
   Town Map Image: none
   Town Map: none
-  Teleport: enabled
+  Teleport: disabled
   Tileset: 7
 2316:
   Item: 0
@@ -27800,7 +27800,7 @@
   Setting: none
   Town Map Image: none
   Town Map: none
-  Teleport: enabled
+  Teleport: disabled
   Tileset: 7
 2317:
   Item: 0
@@ -27812,7 +27812,7 @@
   Setting: none
   Town Map Image: none
   Town Map: none
-  Teleport: enabled
+  Teleport: disabled
   Tileset: 7
 2318:
   Item: 0
@@ -27849,7 +27849,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2321:
   Item: 0
   Palette: 0
@@ -28089,7 +28089,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2341:
   Item: 0
   Palette: 0
@@ -28101,7 +28101,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2342:
   Item: 0
   Palette: 0
@@ -28233,7 +28233,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2353:
   Item: 0
   Palette: 0
@@ -28473,7 +28473,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2373:
   Item: 0
   Palette: 0
@@ -28485,7 +28485,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2374:
   Item: 0
   Palette: 0
@@ -28617,7 +28617,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2385:
   Item: 0
   Palette: 0
@@ -28857,7 +28857,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2405:
   Item: 0
   Palette: 0
@@ -28869,7 +28869,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2406:
   Item: 0
   Palette: 0
@@ -29001,7 +29001,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2417:
   Item: 0
   Palette: 0
@@ -29205,7 +29205,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2434:
   Item: 0
   Palette: 0
@@ -29217,7 +29217,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2435:
   Item: 0
   Palette: 0
@@ -29229,7 +29229,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2436:
   Item: 0
   Palette: 0
@@ -29241,7 +29241,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2437:
   Item: 0
   Palette: 0
@@ -29253,7 +29253,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2438:
   Item: 0
   Palette: 0
@@ -29265,7 +29265,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2439:
   Item: 0
   Palette: 0
@@ -29277,7 +29277,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2440:
   Item: 0
   Palette: 0
@@ -29289,7 +29289,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2441:
   Item: 0
   Palette: 0
@@ -29301,7 +29301,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2442:
   Item: 0
   Palette: 0
@@ -29313,7 +29313,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2443:
   Item: 0
   Palette: 0
@@ -29325,7 +29325,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2444:
   Item: 0
   Palette: 0
@@ -29337,7 +29337,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2445:
   Item: 0
   Palette: 0
@@ -29349,7 +29349,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2446:
   Item: 0
   Palette: 0
@@ -29361,7 +29361,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2447:
   Item: 0
   Palette: 0
@@ -29373,7 +29373,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2448:
   Item: 0
   Palette: 0
@@ -29385,7 +29385,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2449:
   Item: 0
   Palette: 0
@@ -29589,7 +29589,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2466:
   Item: 0
   Palette: 0
@@ -29601,7 +29601,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2467:
   Item: 0
   Palette: 0
@@ -29613,7 +29613,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2468:
   Item: 0
   Palette: 0
@@ -29625,7 +29625,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2469:
   Item: 0
   Palette: 0
@@ -29637,7 +29637,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2470:
   Item: 0
   Palette: 0
@@ -29649,7 +29649,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2471:
   Item: 0
   Palette: 0
@@ -29661,7 +29661,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2472:
   Item: 0
   Palette: 0
@@ -29673,7 +29673,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2473:
   Item: 0
   Palette: 0
@@ -29685,7 +29685,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2474:
   Item: 0
   Palette: 0
@@ -29697,7 +29697,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2475:
   Item: 0
   Palette: 0
@@ -29709,7 +29709,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2476:
   Item: 0
   Palette: 0
@@ -29721,7 +29721,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2477:
   Item: 0
   Palette: 0
@@ -29733,7 +29733,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2478:
   Item: 0
   Palette: 0
@@ -29745,7 +29745,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2479:
   Item: 0
   Palette: 0
@@ -29757,7 +29757,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2480:
   Item: 0
   Palette: 0
@@ -29769,31 +29769,31 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2481:
   Item: 0
   Palette: 0
   Town Map X: 0
   Town Map Y: 0
   Town Map Arrow: none
-  Music: 11
+  Music: 10
   Setting: none
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2482:
   Item: 0
   Palette: 0
   Town Map X: 0
   Town Map Y: 0
   Town Map Arrow: none
-  Music: 11
+  Music: 10
   Setting: none
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2483:
   Item: 0
   Palette: 0
@@ -29973,7 +29973,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2498:
   Item: 0
   Palette: 0
@@ -29985,7 +29985,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2499:
   Item: 0
   Palette: 0
@@ -29997,7 +29997,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2500:
   Item: 0
   Palette: 0
@@ -30009,7 +30009,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2501:
   Item: 0
   Palette: 0
@@ -30021,7 +30021,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2502:
   Item: 0
   Palette: 0
@@ -30033,7 +30033,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2503:
   Item: 0
   Palette: 0
@@ -30045,7 +30045,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2504:
   Item: 0
   Palette: 0
@@ -30057,7 +30057,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2505:
   Item: 0
   Palette: 0
@@ -30069,7 +30069,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2506:
   Item: 0
   Palette: 0
@@ -30081,7 +30081,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2507:
   Item: 0
   Palette: 0
@@ -30093,7 +30093,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2508:
   Item: 0
   Palette: 0
@@ -30105,7 +30105,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2509:
   Item: 0
   Palette: 0
@@ -30117,7 +30117,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2510:
   Item: 0
   Palette: 0
@@ -30129,7 +30129,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2511:
   Item: 0
   Palette: 0
@@ -30141,7 +30141,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2512:
   Item: 0
   Palette: 0
@@ -30153,19 +30153,19 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2513:
   Item: 0
   Palette: 0
   Town Map X: 0
   Town Map Y: 0
   Town Map Arrow: none
-  Music: 11
+  Music: 10
   Setting: none
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2514:
   Item: 0
   Palette: 0
@@ -30357,7 +30357,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2530:
   Item: 0
   Palette: 0
@@ -30369,7 +30369,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2531:
   Item: 0
   Palette: 0
@@ -30381,7 +30381,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2532:
   Item: 0
   Palette: 0
@@ -30393,7 +30393,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2533:
   Item: 0
   Palette: 0
@@ -30405,7 +30405,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2534:
   Item: 0
   Palette: 0
@@ -30417,7 +30417,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2535:
   Item: 0
   Palette: 0
@@ -30429,7 +30429,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2536:
   Item: 0
   Palette: 0
@@ -30441,7 +30441,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2537:
   Item: 0
   Palette: 0
@@ -30453,7 +30453,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2538:
   Item: 0
   Palette: 0
@@ -30465,7 +30465,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2539:
   Item: 0
   Palette: 0
@@ -30477,7 +30477,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2540:
   Item: 0
   Palette: 0
@@ -30489,7 +30489,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2541:
   Item: 0
   Palette: 0
@@ -30501,7 +30501,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2542:
   Item: 0
   Palette: 0
@@ -30513,7 +30513,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2543:
   Item: 0
   Palette: 0
@@ -30525,7 +30525,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2544:
   Item: 0
   Palette: 0
@@ -30537,7 +30537,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: enabled
-  Tileset: 8
+  Tileset: 7
 2545:
   Item: 0
   Palette: 1
