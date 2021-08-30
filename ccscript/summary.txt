@@ -6,9 +6,9 @@ CCScript Compilation Summary
 Compilation statistics
 =================================================================
 Compilation start:           $f10000
-Compilation end:             $f28574
-Total compiled size:         99700 bytes
-Fragmented space:            49 bytes
+Compilation end:             $f2854e
+Total compiled size:         99662 bytes
+Fragmented space:            84 bytes
 -----------------------------------------------------------------
 
 
@@ -17,21 +17,21 @@ Module information
 Name                         Address     Size
 -----------------------------------------------------------------
 abduction                    $f27b14      947    bytes
-asm65816                     $f1ffcf      0      bytes
-ASMRef                       $f1ffcf      0      bytes
-asm_run                      $f1ff7d      46     bytes
+asm65816                     $f1ffac      0      bytes
+ASMRef                       $f1ffac      0      bytes
+asm_run                      $f1ff5a      46     bytes
 battle_text_abridgements     $f25561      2716   bytes
-bite_sized_improvements      $f1ffab      36     bytes
-customFlags                  $f1ffcf      0      bytes
-customNPCs                   $f1f891      1772   bytes
+bite_sized_improvements      $f1ff88      36     bytes
+customFlags                  $f1ffac      0      bytes
+customNPCs                   $f1f891      1737   bytes
 deathtext                    $f27ec7      481    bytes
 debugmenu                    $f20000      15536  bytes
 EbppDisassembly              $f24909      3160   bytes
-EbppMoreStuff                $f1ffcf      0      bytes
+EbppMoreStuff                $f1ffac      0      bytes
 EBPP_Disassembly_HardwareCompatible_v1_1$f23cb0      3161   bytes
-file_menu_rewrite            $f2826b      435    bytes
-helptext                     $f2841e      342    bytes
-InvertSwirl1                 $f1ffcf      0      bytes
+file_menu_rewrite            $f2826b      397    bytes
+helptext                     $f283f8      342    bytes
+InvertSwirl1                 $f1ffac      0      bytes
 lore                         $f25ffd      2549   bytes
 maria                        $f269f2      2419   bytes
 oldtext                      $f27365      1967   bytes
@@ -39,9 +39,9 @@ pack_2A_princessAndTheClock  $f1b6fa      16791  bytes
 Pack_32_SQ8Lite_Pads         $f10000      24795  bytes
 pack_34_glass_breaking_sfx   $f160db      22047  bytes
 saturns                      $f280a8      451    bytes
-stdarg                       $f1ffcf      0      bytes
-std                          $f1ffcf      0      bytes
-asmref                       $f1ffcf      0      bytes
+stdarg                       $f1ffac      0      bytes
+std                          $f1ffac      0      bytes
+asmref                       $f1ffac      0      bytes
 -----------------------------------------------------------------
 
 
@@ -70,9 +70,9 @@ Name                         Address
 Labels in module asm_run
 Name                         Address
 -----------------------------------------------------------------
-burned_status                $f1ff7d
-button_check                 $f1ff92
-run_status                   $f1ffa1
+burned_status                $f1ff5a
+button_check                 $f1ff6f
+run_status                   $f1ff7e
 -----------------------------------------------------------------
 
 
@@ -176,9 +176,9 @@ literallyJustAnEOB           $f25ffc
 Labels in module bite_sized_improvements
 Name                         Address
 -----------------------------------------------------------------
-ImTalkingToMyselfJeez        $f1ffac
-StopBuggingMeDad             $f1ffab
-noResponse                   $f1ffb6
+ImTalkingToMyselfJeez        $f1ff89
+StopBuggingMeDad             $f1ff88
+noResponse                   $f1ff93
 -----------------------------------------------------------------
 
 
@@ -191,18 +191,18 @@ Name                         Address
 Labels in module customNPCs
 Name                         Address
 -----------------------------------------------------------------
-FirstBossDeath               $f1fee8
-FirstBossEncounter           $f1fec5
-Maxwell                      $f1f9f0
-Maxwell_ConfusedChara        $f1fab1
-NotMaxwell                   $f1fca6
-PeelDeath                    $f1fea8
-PeelEncounter                $f1fe91
-SnowWoodBoy1                 $f1fbd5
-SnowWoodBoy2                 $f1fc3c
-TessieWatcher                $f1fdc3
-WarpZone                     $f1ff13
-thatweirddudedownstairs      $f1fd3c
+FirstBossDeath               $f1fec5
+FirstBossEncounter           $f1fea2
+Maxwell                      $f1f9cd
+Maxwell_ConfusedChara        $f1fa8e
+NotMaxwell                   $f1fc83
+PeelDeath                    $f1fe85
+PeelEncounter                $f1fe6e
+SnowWoodBoy1                 $f1fbb2
+SnowWoodBoy2                 $f1fc19
+TessieWatcher                $f1fda0
+WarpZone                     $f1fef0
+thatweirddudedownstairs      $f1fd19
 vinceChara                   $f1f891
 -----------------------------------------------------------------
 
@@ -832,11 +832,8 @@ l_0xEE9E20                   $f248d4
 Labels in module file_menu_rewrite
 Name                         Address
 -----------------------------------------------------------------
-DifficultyHard               $f28415
-DifficultyNormal             $f2840e
-DifficultySelect             $f283f4
 NewMenu                      $f2826b
-PlayCreepySound              $f2841a
+PlayCreepySound              $f283f4
 WindowFlavorBanana           $f283e4
 WindowFlavorMint             $f283d4
 WindowFlavorPeanut           $f283ea
@@ -849,10 +846,10 @@ WindowFlavorStrawberry       $f283da
 Labels in module helptext
 Name                         Address
 -----------------------------------------------------------------
-ATMCard                      $f28543
-cameraHelpText               $f2841e
-developedFilmHelpText        $f28518
-filmHelpText                 $f284aa
+ATMCard                      $f2851d
+cameraHelpText               $f283f8
+developedFilmHelpText        $f284f2
+filmHelpText                 $f28484
 -----------------------------------------------------------------
 
 

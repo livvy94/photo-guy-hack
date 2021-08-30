@@ -26,7 +26,7 @@ _useGoodSettings:
   save_game_setting_byte(SETTING_TEXT_SPEED)
   LDA_i(1) //Stereo, please!
   save_game_setting_byte(SETTING_SOUND)
-  
+
 _showFlavorMenu:
   prepare_menu(50, WindowFlavorSelect)
   // The text is long and wraps, so start at line 2
@@ -38,8 +38,18 @@ _showFlavorMenu:
   set_window_asm_on_highlight(SetFlavor)
   load_game_setting_byte(SETTING_FLAVOR)
   show_menu(1)
-  handle_cancelled_menu(50, _fail)
+  handle_cancelled_menu(50, _fail) //The _fail thing is what the first menu shown needs to have
   save_game_setting_byte(SETTING_FLAVOR)
+
+//_showDifficultyMenu:
+//  close_window(25) // We're reusing this, so close it first to get it on top
+//  prepare_menu(25, DifficultySelect)
+//  add_option(1, DifficultyNormal)
+//  add_option_ccscript_on_highlight(2, DifficultyHard, PlayCreepySound)
+//  load_event_flag(flag_hardmode)
+//  show_menu(1)
+//  handle_cancelled_menu(25, _showFlavorMenu)
+//  save_event_flag(flag_hardmode)
 
   // Stop editing here
   // Save game
@@ -65,10 +75,6 @@ WindowFlavorMint: "Apple[00]"
 WindowFlavorStrawberry: "Blueberry[00]"
 WindowFlavorBanana: "Honey[00]"
 WindowFlavorPeanut: "Chocolate[00]"
-
-DifficultySelect: "Please select difficulty.[00]"
-DifficultyNormal: "Normal[00]"
-DifficultyHard: "Hard[00]"
 
 PlayCreepySound:
   sound(114)
