@@ -1,8 +1,11 @@
 //import EbppMoreStuff
-import asm65816
 
 vinceChara:
   //goto(oldtext.photo3_text) //DEBUG. DELETE THIS
+  music_stop
+  "  DIALOG TEST" wait
+  oldtext.fadeToBlack()
+  goto(abduction.InTheTube)
   "@<Work to exhaustion when you're young...>" next
   "@Have you ever heard of a weird saying like this?" next
   "@It's true..." next
@@ -32,7 +35,8 @@ Maxwell_ConfusedChara:
   "@Uh, what's with that look on your face?" next
   "@It's like you've never developed film before." next
   "@...Maybe you're just tired from staying up last night." next
-  "@Well, I'm no expert, but it probably has to do with those chemicals on the table there." next
+  "@Well, I'm no expert..." next
+  "  ...but it probably has to do with those chemicals on the table there." next
   "@I'm sure you'll feel better after you get warmed up." end
 
 SnowWoodBoy1:
