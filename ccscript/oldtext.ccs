@@ -11,6 +11,7 @@ import "instruments/pack_2A_princessAndTheClock.ccs"
 import "instruments/Pack_32_SQ8Lite_Pads.ccs"
 import "instruments/pack_34_glass_breaking_sfx.ccs"
 import "instruments/Pack28_TravellingWaters.ccs"
+import "instruments/Pack_4A_doordebug.ccs"
 command e(label) "{long label}"
 
 newgame_location(7264,1898)
@@ -215,7 +216,7 @@ BossFight1:
         hotspot_on(2, 39, WarpToAliens) //turn on the next hotspot...
         
         hide_sprite(209, 9) //hides the boss sparkle by making it disappear with fancy vertical lines
-    set(customFlags.bossFight1Finished) //stop it from appearing again if the player runs up and then back down
+        set(customFlags.bossFight1Finished) //stop it from appearing again if the player runs up and then back down
     
         window_open(1)
         "@That was a close one!" next
@@ -227,10 +228,15 @@ BossFight1:
         window_closeall
         music(49) //cover of RUN!! from Cave Story
     }
+    else
+    {
+      "@What are you doing!?!" newline
+      "  Let's get out of here!!" wait
+    }
     eob
 
 WarpToAliens:
-    create_tpt_movaddr(198, SpriteAppear, 1) //198 is the meteor
+    //create_tpt_movaddr(198, SpriteAppear, 1) //198 is the meteor
     music_switching_on //it was switched off so I can play fitting music while you run away
     sound(54)
     call(BuzzBuzzLight)
@@ -240,15 +246,13 @@ WarpToAliens:
     goto(abduction.InTheTube)
   eob
 
-SpriteAppear:
-{
-  mov_setxy (797, 3131) //the coordinates the sprite should appear
-  mov_pause (2)
-  mov_jmlmov (0xC3A2AA) //assign movement code 8, "stand there and do nothing"
-}
+//SpriteAppear:
+//{
+//  mov_setxy (797, 3131) //the coordinates the sprite should appear
+//  mov_pause (2)
+//  mov_jmlmov (0xC3A2AA) //assign movement code 8, "stand there and do nothing"
+//}
 
-
-    
 BuzzBuzzLight:
     "[1F EA C5 00]" //unknown, but C5 00 refers to a sprite entry
     "[1F 15 6A 00 36 00 01]" //sprite2_spawn(sprite,move,style)
@@ -316,82 +320,82 @@ command sprite2_do_mc(sprite, move) "[1F F2 {short sprite} {short move}]"
 
 
 // Movement code creation commands
-command movs_init_alt(speed, style) //Used in movecode_walk
-{
-  mov_jslmov_short(0xC3AAAA, 0x01F6)
-  mov_jslasm(0xC0A685) "[{short speed}]"
-  mov_tablewrite(5, byte style)
-}
+//command movs_init_alt(speed, style) //Used in movecode_walk
+//{
+//  mov_jslmov_short(0xC3AAAA, 0x01F6)
+//  mov_jslasm(0xC0A685) "[{short speed}]"
+//  mov_tablewrite(5, byte style)
+//}
 
-command movecode_walk(mc_num, speed, destX, destY)
-{
-  _mc: {
-    movs_init_alt(speed, 2)
-    movs_walker(destX, destY)
-    mov_jslasm(0xC46E46)
-    movs_go
-    mov_halt
-  }
-  mov_link(mc_num, _mc)
-}
+//command movecode_walk(mc_num, speed, destX, destY)
+//{
+//  _mc: {
+//    movs_init_alt(speed, 2)
+//    movs_walker(destX, destY)
+//    mov_jslasm(0xC46E46)
+//    movs_go
+//    mov_halt
+//  }
+//  mov_link(mc_num, _mc)
+//}
 
-command movecode_run(mc_num, speed, destX, destY)
-{
-  _mc: {
-    movs_init(speed, 2)
-    movs_walker(destX, destY)
-    mov_jslasm(0xC46E46)
-    movs_go
-    mov_halt
-  }
-  mov_link(mc_num, _mc)
-}
+//command movecode_run(mc_num, speed, destX, destY)
+//{
+//  _mc: {
+//    movs_init(speed, 2)
+//    movs_walker(destX, destY)
+//    mov_jslasm(0xC46E46)
+//    movs_go
+//    mov_halt
+//  }
+//  mov_link(mc_num, _mc)
+//}
 
-command movecode_appear(mc_num, x, y)
-{
-  _mc:
-  {
-    mov_setxy(x,y)
-    mov_pause(2)
-    mov_jmlmov(0xC3A2AA)
-  }
-  mov_link(mc_num, _mc)
-}
+//command movecode_appear(mc_num, x, y)
+//{
+//  _mc:
+//  {
+//    mov_setxy(x,y)
+//    mov_pause(2)
+//    mov_jmlmov(0xC3A2AA)
+//  }
+//  mov_link(mc_num, _mc)
+//}
 
-command movecode_party_walk(movecode_num, speed, x1, y1, x2, y2) //Command for moving the party around the screen and having the camera follow
-{
-  _mc:
-  {
-    mov_setx(x1)
-    mov_sety(y1)
-    "[23 39 A0]"
-    "[25 C8 9F]"
-    "[3B FF]"
-    "[08 E1 8B C4]"
-    mov_jslasm(0xC0A685) "[{short speed}]"
-    mov_loadtmp(0)
-    mov_jslmov_short(0xC3AA1E, 0x01F6) //1A 1E AA
-    mov_tablewrite(5, 1)
-    movs_walker(x2, y2)
-    mov_jslasm(0xC46E46)
-    movs_go
-    mov_halt
-  }
-  mov_link(movecode_num, _mc)
-}
+//command movecode_party_walk(movecode_num, speed, x1, y1, x2, y2) //Command for moving the party around the screen and having the camera follow
+//{
+//  _mc:
+//  {
+//    mov_setx(x1)
+//    mov_sety(y1)
+//    "[23 39 A0]"
+//    "[25 C8 9F]"
+//    "[3B FF]"
+//    "[08 E1 8B C4]"
+//    mov_jslasm(0xC0A685) "[{short speed}]"
+//    mov_loadtmp(0)
+//    mov_jslmov_short(0xC3AA1E, 0x01F6) //1A 1E AA
+//    mov_tablewrite(5, 1)
+//    movs_walker(x2, y2)
+//    mov_jslasm(0xC46E46)
+//    movs_go
+//    mov_halt
+//  }
+//  mov_link(movecode_num, _mc)
+//}
 
 command sprite2_spawn(sprite,move,style) "[1F 15 {short sprite} {short move} {byte style}]"
 
-command party_walk(movecode_num, sprite)
-{
-  sprite2_spawn(sprite, movecode_num, 1)
-  pause(1)
-  "[1f ef {short sprite}]"
-  "[1f e8 ff]"
-  "[1f 61]"
-  "[1f ed]"
-  "[1f e5 ff]"
-}
+//command party_walk(movecode_num, sprite)
+//{
+//  sprite2_spawn(sprite, movecode_num, 1)
+//  pause(1)
+//  "[1f ef {short sprite}]"
+//  "[1f e8 ff]"
+//  "[1f 61]"
+//  "[1f ed]"
+//  "[1f e5 ff]"
+//}
 //Usage:
 //movecode_party_walk(223, 0x100, 8136, 1096, 8100, 1096) //Creates the movecode, reference it later
 //text_block:

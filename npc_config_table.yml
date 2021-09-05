@@ -76,7 +76,7 @@
   Movement: 606
   Show Sprite: always
   Sprite: 52
-  Text Pointer 1: $c74e89
+  Text Pointer 1: debug.debugLady
   Text Pointer 2: $0
   Type: person
 9:
@@ -1782,8 +1782,8 @@
   Type: object
 198:
   Direction: down
-  Event Flag: 0x18
-  Movement: 10
+  Event Flag: 0x1F
+  Movement: 704
   Show Sprite: always
   Sprite: 197
   Text Pointer 1: $0
@@ -11380,7 +11380,7 @@
   Movement: 10
   Show Sprite: always
   Sprite: 225
-  Text Pointer 1: customNPCs.WarpZone
+  Text Pointer 1: debug.WarpZone
   Text Pointer 2: $0
   Type: object
 1265:

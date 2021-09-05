@@ -1,12 +1,39 @@
 0:
   0:
   - Type: door
-    Destination X: 367
+    Destination X: 26
     Event Flag: 0
-    Destination Y: 1163
+    Destination Y: 2
     X: 0
     Y: 0
-    Style: 0
+    Style: 6
+    Text Pointer: $0
+    Direction: down
+  - Type: door
+    Destination X: 2
+    Event Flag: 0
+    Destination Y: 2
+    X: 8
+    Y: 0
+    Style: 5
+    Text Pointer: $0
+    Direction: down
+  - Type: door
+    Destination X: 18
+    Event Flag: 0
+    Destination Y: 2
+    X: 24
+    Y: 0
+    Style: 3
+    Text Pointer: $0
+    Direction: down
+  - Type: door
+    Destination X: 10
+    Event Flag: 0
+    Destination Y: 2
+    X: 16
+    Y: 0
+    Style: 4
     Text Pointer: $0
     Direction: down
   1:
@@ -12806,7 +12833,7 @@
     Destination Y: 1166
     X: 30
     Y: 13
-    Style: 10
+    Style: 1
     Text Pointer: $0
     Direction: down
   9:

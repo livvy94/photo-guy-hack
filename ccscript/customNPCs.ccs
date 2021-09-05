@@ -3,9 +3,9 @@
 vinceChara:
   //goto(oldtext.photo3_text) //DEBUG. DELETE THIS
   music_stop
-  "  DIALOG TEST" wait
-  oldtext.fadeToBlack()
-  goto(abduction.InTheTube)
+  goto(debug.warpToDebugRoom)
+  //oldtext.fadeToBlack()
+  //goto(abduction.InTheTube)
   "@<Work to exhaustion when you're young...>" next
   "@Have you ever heard of a weird saying like this?" next
   "@It's true..." next
@@ -81,8 +81,3 @@ FirstBossDeath:
   "@{target} wobbled in midair and zipped away!"
   sound(33)
   eob
-
-WarpZone:
-  "@Welcome to glorious 0, 0!" next
-  window_clear
-  "@...|There isn't anywhere else for you to go yet. {pause(40)}Gotta make more maps." end

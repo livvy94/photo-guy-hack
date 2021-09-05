@@ -1,0 +1,69 @@
+warpToDebugRoom:
+  "  Warping to Debug Room..." eventFlagSound
+  party_add(2)
+  party_add(3)
+  pause(30)
+  warp(0)
+  eob
+  
+debugLady:
+  "@'Ello, dearies!" wait
+  window_closeall
+  window_open(19)
+  menu {
+    "First Boss": {goto(wFirstBoss)}
+    "Spaceship": {goto(warpToSpaceship)}
+    "Sound": {goto(soundTest)}
+  }
+  eob
+
+wFirstBoss: //the map editor has a character limit on warp labels... what
+  music_stop
+  "  Warping to first boss..." eventFlagSound
+  party_add(2)
+  party_add(3)
+  pause(30)
+  warp(233)
+  eob
+
+warpToSpaceship:
+  music_stop
+  "  Warping to the spaceship..." eventFlagSound
+  party_remove(2)
+  party_remove(3)
+  party_remove(4)
+  pause(30)
+  warp(232)
+  eob
+  
+soundTest:
+  menu {
+    "Music": { goto(musicTestMenu) }
+    "Sounds": { goto(sfxTestMenu) }
+  }
+  eob
+
+command eventFlagSound sound(85)
+
+musicTestMenu:
+  music_stop
+  window_clear
+  "  Song Table number:" newline
+  input(3)
+  music(0)
+  prompt
+  goto(musicTestMenu)
+  eob
+
+sfxTestMenu:
+  window_clear
+  input(3)
+  sound(0)
+  goto(sfxTestMenu)
+  eob
+  
+WarpZone:
+  "@Welcome to glorious 0, 0!" next
+  window_clear
+  "@...|There isn't anywhere else for you to go yet. {pause(40)}Gotta make more maps." wait
+  eob

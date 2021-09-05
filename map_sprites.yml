@@ -3,8 +3,11 @@
   - X: 245
     Y: 203
     NPC ID: 1254
-  - X: 23
-    Y: 22
+  - X: 112
+    Y: 36
+    NPC ID: 8
+  - X: 50
+    Y: 52
     NPC ID: 1264
   1:
   - X: 48
@@ -1772,7 +1775,10 @@
   0: null
   1: null
   2: null
-  3: null
+  3:
+  - X: 30
+    Y: 59
+    NPC ID: 198
   4: null
   5: null
   6: null
