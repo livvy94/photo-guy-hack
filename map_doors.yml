@@ -36,6 +36,15 @@
     Style: 4
     Text Pointer: $0
     Direction: down
+  - Type: door
+    Destination X: 249
+    Event Flag: 0
+    Destination Y: 1145
+    X: 5
+    Y: 9
+    Style: 0
+    Text Pointer: $0
+    Direction: down
   1:
   - Type: door
     Destination X: 784
@@ -12585,7 +12594,25 @@
   8: null
   9: null
   10: null
-  11: null
+  11:
+  - Type: door
+    Destination X: 0
+    Event Flag: 0
+    Destination Y: 0
+    X: 27
+    Y: 1
+    Style: 1
+    Text Pointer: $0
+    Direction: right
+  - Type: door
+    Destination X: 431
+    Event Flag: 0
+    Destination Y: 1162
+    X: 1
+    Y: 15
+    Style: 1
+    Text Pointer: $0
+    Direction: down
   12: null
   13: null
   14: null
@@ -12835,7 +12862,7 @@
     Y: 13
     Style: 1
     Text Pointer: $0
-    Direction: down
+    Direction: right
   9:
   - Type: door
     Destination X: 285
@@ -12848,19 +12875,19 @@
     Direction: left
   10:
   - Type: door
-    Destination X: 354
+    Destination X: 377
     Event Flag: 0
-    Destination Y: 1162
+    Destination Y: 1160
     X: 10
     Y: 13
     Style: 1
     Text Pointer: $0
-    Direction: right
+    Direction: down
   11:
   - Type: door
-    Destination X: 329
+    Destination X: 443
     Event Flag: 0
-    Destination Y: 1165
+    Destination Y: 1166
     X: 1
     Y: 9
     Style: 1
@@ -12874,16 +12901,16 @@
     Y: 9
     Style: 1
     Text Pointer: $0
-    Direction: down
+    Direction: right
   - Type: door
-    Destination X: 0
+    Destination X: 329
     Event Flag: 0
-    Destination Y: 0
-    X: 26
+    Destination Y: 1166
+    X: 25
     Y: 7
     Style: 1
     Text Pointer: $0
-    Direction: down
+    Direction: left
   12: null
   13:
   - Type: door
@@ -12894,25 +12921,25 @@
     Y: 13
     Style: 1
     Text Pointer: $0
-    Direction: down
+    Direction: left
   - Type: door
-    Destination X: 0
+    Destination X: 353
     Event Flag: 0
-    Destination Y: 0
-    X: 15
+    Destination Y: 1134
+    X: 14
     Y: 9
     Style: 1
     Text Pointer: $0
-    Direction: down
+    Direction: right
   - Type: door
-    Destination X: 0
+    Destination X: 354
     Event Flag: 0
-    Destination Y: 0
+    Destination Y: 1162
     X: 28
     Y: 13
     Style: 1
     Text Pointer: $0
-    Direction: down
+    Direction: right
   14: null
   15: null
   16: null
@@ -13308,35 +13335,8 @@
   10: null
   11: null
   12: null
-  13:
-  - Type: door
-    Destination X: 1012
-    Event Flag: 0
-    Destination Y: 237
-    X: 19
-    Y: 19
-    Style: 1
-    Text Pointer: $0
-    Direction: left
-  14:
-  - Type: door
-    Destination X: 1016
-    Event Flag: 0
-    Destination Y: 858
-    X: 10
-    Y: 20
-    Style: 1
-    Text Pointer: $c9b10b
-    Direction: left
-  - Type: door
-    Destination X: 49
-    Event Flag: 0
-    Destination Y: 1043
-    X: 9
-    Y: 21
-    Style: 1
-    Text Pointer: $c9b10b
-    Direction: down
+  13: null
+  14: null
   15: null
   16: null
   17:

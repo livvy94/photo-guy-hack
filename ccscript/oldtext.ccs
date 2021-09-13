@@ -208,7 +208,7 @@ BossFight1:
         window_clear
         "@Um...{pause(30)}It's coming this way...!" wait //TODO: Maybe rewrite this, it's kinda generic
         battle(448) //BOSS FIGHT
-        music_stop //stop the map's default music from resuming
+        music_stop //after the fight is over, prevent the map's default music from resuming
         music_switching_off //make it so it won't start again and I can play a specific song later
         healall
         set(customFlags.bossFight1Finished)
@@ -224,9 +224,9 @@ BossFight1:
         window_closeall
         pause(60)
         window_open(1)
-        "@Oh no. |RUN!" wait
+        "@Oh no. {pause(30)}RUN!" wait
         window_closeall
-        music(49) //cover of RUN!! from Cave Story
+        music(49) //cover of "RUN!!" from Cave Story
     }
     else
     {
@@ -236,11 +236,10 @@ BossFight1:
     eob
 
 WarpToAliens:
-    //create_tpt_movaddr(198, SpriteAppear, 1) //198 is the meteor
     music_switching_on //it was switched off so I can play fitting music while you run away
     sound(54)
-    call(BuzzBuzzLight)
-    music_effect(3)
+    call(BuzzBuzzLight) //looks like a tractor beam from a UFO!
+    music_effect(3) //fade out the music
     fadeToBlack()
     pause(30)
     goto(abduction.InTheTube)

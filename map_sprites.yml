@@ -5093,8 +5093,11 @@
   9: null
   10: null
   11:
-  - X: 248
-    Y: 232
+  - X: 81
+    Y: 236
+    NPC ID: 781
+  - X: 193
+    Y: 227
     NPC ID: 794
   12: null
   13: null
@@ -5236,10 +5239,7 @@
   8: null
   9: null
   10: null
-  11:
-  - X: 144
-    Y: 80
-    NPC ID: 778
+  11: null
   12: null
   13: null
   14: null

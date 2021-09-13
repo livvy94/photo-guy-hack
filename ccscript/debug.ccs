@@ -1,8 +1,9 @@
 warpToDebugRoom:
-  "  Warping to Debug Room..." eventFlagSound
+  "  Warping to Debug Room..."
   party_add(2)
   party_add(3)
-  pause(30)
+  tryToStopMusicGlitchPlease
+  eventFlagSound
   warp(0)
   eob
   
@@ -19,23 +20,30 @@ debugLady:
 
 wFirstBoss: //the map editor has a character limit on warp labels... what
   music_stop
-  "  Warping to first boss..." eventFlagSound
+  "  Warping to first boss..."
+  tryToStopMusicGlitchPlease
+  eventFlagSound
   party_add(2)
   party_add(3)
-  pause(30)
   warp(233)
   eob
 
 warpToSpaceship:
   music_stop
-  "  Warping to the spaceship..." eventFlagSound
+  "  Warping to the spaceship..."
+  tryToStopMusicGlitchPlease
+  eventFlagSound
   party_remove(2)
   party_remove(3)
   party_remove(4)
-  pause(30)
   warp(232)
   eob
-  
+
+command tryToStopMusicGlitchPlease
+  music(2) //this song has an [F6] in it
+  pause(10)
+  eob
+
 soundTest:
   menu {
     "Music": { goto(musicTestMenu) }
@@ -51,15 +59,12 @@ musicTestMenu:
   "  Song Table number:" newline
   input(3)
   music(0)
-  prompt
-  goto(musicTestMenu)
   eob
 
 sfxTestMenu:
   window_clear
   input(3)
   sound(0)
-  goto(sfxTestMenu)
   eob
   
 WarpZone:
