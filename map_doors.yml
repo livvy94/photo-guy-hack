@@ -12596,18 +12596,18 @@
   10: null
   11:
   - Type: door
-    Destination X: 0
+    Destination X: 338
     Event Flag: 0
-    Destination Y: 0
+    Destination Y: 1185
     X: 27
     Y: 1
     Style: 1
     Text Pointer: $0
     Direction: right
   - Type: door
-    Destination X: 431
+    Destination X: 378
     Event Flag: 0
-    Destination Y: 1162
+    Destination Y: 1160
     X: 1
     Y: 15
     Style: 1
@@ -12875,9 +12875,9 @@
     Direction: left
   10:
   - Type: door
-    Destination X: 377
+    Destination X: 431
     Event Flag: 0
-    Destination Y: 1160
+    Destination Y: 1162
     X: 10
     Y: 13
     Style: 1
@@ -12903,9 +12903,9 @@
     Text Pointer: $0
     Direction: right
   - Type: door
-    Destination X: 329
+    Destination X: 352
     Event Flag: 0
-    Destination Y: 1166
+    Destination Y: 1134
     X: 25
     Y: 7
     Style: 1
@@ -12923,9 +12923,9 @@
     Text Pointer: $0
     Direction: left
   - Type: door
-    Destination X: 353
+    Destination X: 329
     Event Flag: 0
-    Destination Y: 1134
+    Destination Y: 1166
     X: 14
     Y: 9
     Style: 1
@@ -13332,7 +13332,10 @@
   7: null
   8: null
   9: null
-  10: null
+  10:
+  - Type: rope
+    X: 18
+    Y: 0
   11: null
   12: null
   13: null
@@ -13666,7 +13669,10 @@
   7: null
   8: null
   9: null
-  10: null
+  10:
+  - Type: rope
+    X: 18
+    Y: 24
   11: null
   12: null
   13: null
