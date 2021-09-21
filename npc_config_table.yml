@@ -5427,10 +5427,10 @@
   Type: person
 603:
   Direction: up
-  Event Flag: 0x0
+  Event Flag: 0x1F
   Movement: 606
-  Show Sprite: always
-  Sprite: 70
+  Show Sprite: when event flag set
+  Sprite: 4
   Text Pointer 1: $c6c52e
   Text Pointer 2: $0
   Type: person

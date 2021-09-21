@@ -12,6 +12,7 @@ import "instruments/Pack_32_SQ8Lite_Pads.ccs"
 import "instruments/pack_34_glass_breaking_sfx.ccs"
 import "instruments/Pack28_TravellingWaters.ccs"
 import "instruments/Pack_4A_doordebug.ccs"
+import "instruments/pack_9C_famicomDetectiveClub.ccs"
 command e(label) "{long label}"
 
 newgame_location(7264,1898)
@@ -22,6 +23,7 @@ ROM[0xEF12C2] = byte 0 //disable tileset animations for Summers, which I use for
 init: 
     music_stop //is this needed?
     set(customFlags.jeffVisible)
+    set(customFlags.mariaSparkleVisible)
     unset(customFlags.jeffInParty)
     unset(customFlags.maxwellConvo_1)
     unset(customFlags.maxwellConvo_2)
@@ -34,7 +36,8 @@ init:
     //equip all characters
     //XX = character, YY is the inventory slot
     //TODO: make the camera not droppable
-    "[1F 83 01 02]" //Equip main character with the Camera item
+    //"[1F 83 01 02]" //Equip main character with the Camera item
+    equip_char_with_item(1, 2) //Equip main character with the Camera item
     //"[1F 83 02 YY]"
     //"[1F 83 03 YY]"
     //"[1F 83 04 YY]"
@@ -291,6 +294,15 @@ command give2(item, failLabel)
     //"@Make some room in your bag and come back later." end
 }
 
+command equip_char_with_item(char, inventory_slot)
+{
+    //equip all characters
+    //XX = character, YY is the inventory slot
+    "[1F 83 {byte char} {byte inventory_slot}]"
+    //"[1F 83 02 YY]"
+    //"[1F 83 03 YY]"
+    //"[1F 83 04 YY]"
+}
 
 command item_use_npc(item, fail_label) //A command for using Key Items on an NPC
 {

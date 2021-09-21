@@ -8,3 +8,4 @@ define photo3_viewed = flag 0x1B
 define darkroom = flag 0x1C
 define saturnIsInYourParty = flag 0x1D
 define bossFight1Finished = flag 0x1E
+define mariaSparkleVisible = flag 0x1F //entry #603 in the NPC Config Table

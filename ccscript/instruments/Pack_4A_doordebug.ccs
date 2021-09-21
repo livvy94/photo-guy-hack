@@ -20,13 +20,13 @@ short 0x6C68 //To ARAM offset 6C68
 //PATCHES
 short 42 //Copy the next 42 bytes
 short 0x6E9C //To ARAM offset 6E9C
-"[1A 00 00 7F 02 A3]"
-"[1B 00 00 7F 02 A3]"
-"[1C 00 00 7F 02 A3]"
-"[1D 00 00 7F 02 A3]"
-"[1E 00 00 7F 02 A3]"
-"[1F 00 00 7F 02 A3]"
-"[20 00 00 7F 02 A3]"
+"[1A 00 00 7F 04 00]"
+"[1B 00 00 7F 04 00]"
+"[1C 00 00 7F 04 00]"
+"[1D 00 00 7F 04 00]"
+"[1E 00 00 7F 04 00]"
+"[1F 00 00 7F 04 00]"
+"[20 00 00 7F 04 00]"
 
 //BRR FILES
 short 18567 //Copy the next 18567 bytes
