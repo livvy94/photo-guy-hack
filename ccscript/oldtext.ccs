@@ -7,6 +7,7 @@ import "tweaks/deathtext.ccs"
 import "tweaks/debugmenu.ccs"
 import "tweaks/file_menu_rewrite.ccs"
 import "tweaks/InvertSwirl1.ccs"
+import "tweaks/custom_windows_standalone.ccs"
 import "instruments/pack_2A_princessAndTheClock.ccs"
 import "instruments/Pack_32_SQ8Lite_Pads.ccs"
 import "instruments/pack_34_glass_breaking_sfx.ccs"
@@ -20,7 +21,10 @@ newgame_startup(init)
 
 ROM[0xEF12C2] = byte 0 //disable tileset animations for Summers, which I use for the UFO tileset
 
-init: 
+init:
+    CustomWindow_open(CustomWindow0, 1, 1, 30, 26)
+    "@Testing" wait
+    window_closeall
     music_stop //is this needed?
     set(customFlags.jeffVisible)
     set(customFlags.mariaSparkleVisible)
@@ -32,7 +36,7 @@ init:
     unset(customFlags.photo3_viewed)
     unset(customFlags.bossFight1Finished)
     unset(customFlags.saturnIsInYourParty)
-    
+
     //equip all characters
     //XX = character, YY is the inventory slot
     //TODO: make the camera not droppable
@@ -41,9 +45,9 @@ init:
     //"[1F 83 02 YY]"
     //"[1F 83 03 YY]"
     //"[1F 83 04 YY]"
-    
+
     givemoney(40)
-    
+
     set(0x8174)
     set(0x17)
     hotspot_on(1,43,hotspotTest)
@@ -67,7 +71,7 @@ txtChemicals:
         goto(txtFilmUse)
     }
     eob
-    
+
 
 txtFilmGet:
     if not customFlags.darkroom
@@ -79,7 +83,7 @@ txtFilmGet:
         //"[]"
         "@You removed the film from the canister and started using the chemicals." next
         "@You got the {itemname(143)}!{sound(102)}" wait
-        
+
         set(customFlags.darkroom) //Use this to keep the player from ruining the exposed film!!
         eob
     }
@@ -91,7 +95,7 @@ txtFilmUse:
     {
         "  (Display this string when all of the photos are developed.)" wait
     }
-    
+
     if not customFlags.photo1_viewed
     {
         set(customFlags.photo1_viewed)
@@ -122,7 +126,7 @@ photo3_text:
     "@There's a boy and a girl walking downhill, holding hands." next
     "@The girl is holding a skateboard." next
         "@Wait a second..." next
-        
+
         char_look_at(1, 3) //Turn Ness to face Jeff
         window_clear
         "@Hey, let me take a closer look at that shot. " next
@@ -138,7 +142,7 @@ photo3_text:
         "@But you two should try to get more pictures!" next
         set(flag 0x58) //Enables leaving Snow Wood?
         "@You'd probably get in the paper again!" wait
-    
+
         //CUTSCENE TIME!
         window_closeall
         fadeToBlack()
@@ -146,7 +150,7 @@ photo3_text:
         unset(flag 335) //Me from the future: What the heck are these flags and why aren't they labeled? Are these copied from a ccscript dump or something? fsjfksd
         set(flag 544)
         unset(flag 11) //re-enable enemy spawns
-        
+
         "[1F 15 6A 00 FD 02 01]" //generate active sprite
         "[1F 61]" //movement code trigger
         pause(180)
@@ -168,7 +172,7 @@ photo3_text:
 portfolioText:
     "@You put it in your portfolio." eob
 
-JeffJoinText: 
+JeffJoinText:
     window_closeall
     show_sprite_float(1279, FLOAT_EXCLAIM) //! bubble
     pause(60)
@@ -179,7 +183,7 @@ JeffJoinText:
     "@You seemed really excited on the phone about those photographs." next
     "@Let's go to the chemistry lab and develop them!" next
     "@It's the weekend, so I've got plenty of time to spare." wait
-    
+
     sprite2_do_mc(3, 0x2F)
     window_closeall
     pause(0x60)
@@ -200,7 +204,7 @@ JeffJoinText:
 //Warp to the alien ship is teleport destination #144
 
 BossFight1:
-    //Hotspots used here: 
+    //Hotspots used here:
     //Abduction location is hotspot 39
     if not customFlags.bossFight1Finished
     {
@@ -217,10 +221,10 @@ BossFight1:
         set(customFlags.bossFight1Finished)
         //disable enemy encounters
         hotspot_on(2, 39, WarpToAliens) //turn on the next hotspot...
-        
+
         hide_sprite(209, 9) //hides the boss sparkle by making it disappear with fancy vertical lines
         set(customFlags.bossFight1Finished) //stop it from appearing again if the player runs up and then back down
-    
+
         window_open(1)
         "@That was a close one!" next
         "@We should probably head back..." wait
@@ -308,7 +312,7 @@ command item_use_npc(item, fail_label) //A command for using Key Items on an NPC
 {
   "[1B 00][19 19 00 00][1B 04][0B {byte[0] item}]"
   "[1B 02]" adr32(fail_label)
-  
+
   //Usage example:
   //--------------
   //guy_pointer1:

@@ -12596,9 +12596,9 @@
   10: null
   11:
   - Type: door
-    Destination X: 338
+    Destination X: 257
     Event Flag: 0
-    Destination Y: 1185
+    Destination Y: 1199
     X: 27
     Y: 1
     Style: 1
@@ -12881,6 +12881,15 @@
     X: 10
     Y: 13
     Style: 1
+    Text Pointer: $0
+    Direction: down
+  - Type: door
+    Destination X: 373
+    Event Flag: 0
+    Destination Y: 1184
+    X: 18
+    Y: 28
+    Style: 0
     Text Pointer: $0
     Direction: down
   - Type: rope
@@ -13351,32 +13360,128 @@
     Text Pointer: $c9b10b
     Direction: down
   7: null
-  8: null
-  9: null
-  10:
+  8:
   - Type: door
-    Destination X: 0
+    Destination X: 378
     Event Flag: 0
-    Destination Y: 0
-    X: 18
-    Y: 0
+    Destination Y: 1122
+    X: 0
+    Y: 14
     Style: 0
     Text Pointer: $0
     Direction: down
+  9: null
+  10:
+  - Type: rope
+    X: 18
+    Y: 0
+  - Type: rope
+    X: 18
+    Y: 1
+  - Type: rope
+    X: 18
+    Y: 2
+  - Type: rope
+    X: 18
+    Y: 3
+  - Type: rope
+    X: 18
+    Y: 4
+  - Type: rope
+    X: 18
+    Y: 5
+  - Type: rope
+    X: 18
+    Y: 6
+  - Type: rope
+    X: 18
+    Y: 7
+  - Type: rope
+    X: 18
+    Y: 8
+  - Type: rope
+    X: 18
+    Y: 9
+  - Type: rope
+    X: 18
+    Y: 10
+  - Type: rope
+    X: 18
+    Y: 11
+  - Type: rope
+    X: 18
+    Y: 12
+  - Type: rope
+    X: 18
+    Y: 13
+  - Type: rope
+    X: 18
+    Y: 14
+  - Type: rope
+    X: 18
+    Y: 15
+  - Type: rope
+    X: 18
+    Y: 16
+  - Type: rope
+    X: 18
+    Y: 17
+  - Type: rope
+    X: 18
+    Y: 18
+  - Type: rope
+    X: 18
+    Y: 19
+  - Type: rope
+    X: 18
+    Y: 20
+  - Type: rope
+    X: 18
+    Y: 21
+  - Type: rope
+    X: 18
+    Y: 22
+  - Type: rope
+    X: 18
+    Y: 23
+  - Type: rope
+    X: 18
+    Y: 24
+  - Type: rope
+    X: 18
+    Y: 25
+  - Type: rope
+    X: 18
+    Y: 26
+  - Type: rope
+    X: 18
+    Y: 27
+  - Type: rope
+    X: 18
+    Y: 28
+  - Type: rope
+    X: 18
+    Y: 29
+  - Type: rope
+    X: 18
+    Y: 30
+  - Type: rope
+    X: 18
+    Y: 31
   11:
   - Type: door
-    Destination X: 0
+    Destination X: 338
     Event Flag: 0
-    Destination Y: 0
+    Destination Y: 1181
     X: 20
     Y: 2
     Style: 0
     Text Pointer: $0
     Direction: down
   - Type: door
-    Destination X: 0
+    Destination X: 338
     Event Flag: 0
-    Destination Y: 0
+    Destination Y: 1181
     X: 21
     Y: 2
     Style: 0
@@ -13718,6 +13823,78 @@
   - Type: rope
     X: 18
     Y: 24
+  - Type: rope
+    X: 18
+    Y: 0
+  - Type: rope
+    X: 18
+    Y: 1
+  - Type: rope
+    X: 18
+    Y: 2
+  - Type: rope
+    X: 18
+    Y: 3
+  - Type: rope
+    X: 18
+    Y: 4
+  - Type: rope
+    X: 18
+    Y: 5
+  - Type: rope
+    X: 18
+    Y: 6
+  - Type: rope
+    X: 18
+    Y: 7
+  - Type: rope
+    X: 18
+    Y: 8
+  - Type: rope
+    X: 18
+    Y: 9
+  - Type: rope
+    X: 18
+    Y: 10
+  - Type: rope
+    X: 18
+    Y: 11
+  - Type: rope
+    X: 18
+    Y: 12
+  - Type: rope
+    X: 18
+    Y: 13
+  - Type: rope
+    X: 18
+    Y: 14
+  - Type: rope
+    X: 18
+    Y: 15
+  - Type: rope
+    X: 18
+    Y: 16
+  - Type: rope
+    X: 18
+    Y: 17
+  - Type: rope
+    X: 18
+    Y: 18
+  - Type: rope
+    X: 18
+    Y: 19
+  - Type: rope
+    X: 18
+    Y: 20
+  - Type: rope
+    X: 18
+    Y: 21
+  - Type: rope
+    X: 18
+    Y: 22
+  - Type: rope
+    X: 18
+    Y: 23
   11: null
   12: null
   13: null

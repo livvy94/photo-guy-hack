@@ -74,10 +74,10 @@ PeelDeath:
   eob
 
 FirstBossEncounter:
-    "@{user} swooped out of the night sky![03]" eob
+    "@A {user} swooped out of the night sky![03]" eob
 
 FirstBossDeath:
   linebreak
-  "@{target} wobbled in midair and zipped away!"
+  "@The {target} wobbled in midair and zipped away!"
   sound(33)
   eob

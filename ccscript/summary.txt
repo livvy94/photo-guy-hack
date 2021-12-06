@@ -8,7 +8,7 @@ Compilation statistics
 Compilation start:           $f10000
 Compilation end:             $f37e47
 Total compiled size:         163399 bytes
-Fragmented space:            4783 bytes
+Fragmented space:            4095 bytes
 -----------------------------------------------------------------
 
 
@@ -16,34 +16,37 @@ Module information
 =================================================================
 Name                         Address     Size
 -----------------------------------------------------------------
-abduction                    $f2e3e0      947    bytes
-customFlags                  $f1ff47      0      bytes
-customNPCs                   $f2dd71      1647   bytes
-debug                        $f2e793      465    bytes
-helptext                     $f2ecb4      342    bytes
+abduction                    $f2e3fc      947    bytes
+customFlags                  $f1ffea      0      bytes
+customNPCs                   $f2dd87      1653   bytes
+debug                        $f2e7af      465    bytes
+helptext                     $f2ee6f      342    bytes
 lore                         $f1e9ac      2549   bytes
 maria                        $f1f3a1      2419   bytes
-oldtext                      $f2d5a2      1999   bytes
-saturns                      $f2e964      451    bytes
-stdarg                       $f1ff47      0      bytes
-std                          $f1ff47      0      bytes
+oldtext                      $f2d5a2      2021   bytes
+saturns                      $f2e980      451    bytes
+stdarg                       $f1ffea      0      bytes
+std                          $f1ffea      0      bytes
 EBPP_Disassembly_HardwareCompatible_v1_1$f1d2b7      3161   bytes
-EbppMoreStuff                $f1ff47      0      bytes
-asm_run                      $f1fef5      46     bytes
+EbppMoreStuff                $f1ffea      0      bytes
+asm_run                      $f2efc5      46     bytes
 battle_text_abridgements     $f1df10      2716   bytes
-bite_sized_improvements      $f1ff23      36     bytes
+bite_sized_improvements      $f2eff3      36     bytes
 deathtext                    $f1fd14      481    bytes
 debugmenu                    $f34197      15536  bytes
-file_menu_rewrite            $f2eb27      397    bytes
-InvertSwirl1                 $f1ff47      0      bytes
+file_menu_rewrite            $f2ece2      397    bytes
+InvertSwirl1                 $f1ffea      0      bytes
+custom_windows_standalone    $f1ff75      117    bytes
 pack_2A_princessAndTheClock  $f30000      16791  bytes
 Pack_32_SQ8Lite_Pads         $f171dc      24795  bytes
 pack_34_glass_breaking_sfx   $f28f67      17979  bytes
 Pack28_TravellingWaters      $f248db      18060  bytes
 Pack_4A_doordebug            $f20000      18651  bytes
 pack_9C_famicomDetectiveClub $f10000      29148  bytes
-asm65816                     $f1ff47      0      bytes
-asmref                       $f1ff47      0      bytes
+asm65816                     $f1ffea      0      bytes
+ccexpand                     $f2eb43      415    bytes
+cc_asmcall                   $f1fef5      128    bytes
+asmref                       $f1ffea      0      bytes
 -----------------------------------------------------------------
 
 
@@ -53,7 +56,7 @@ Label locations
 Labels in module abduction
 Name                         Address
 -----------------------------------------------------------------
-InTheTube                    $f2e3e0
+InTheTube                    $f2e3fc
 -----------------------------------------------------------------
 
 
@@ -66,42 +69,42 @@ Name                         Address
 Labels in module customNPCs
 Name                         Address
 -----------------------------------------------------------------
-FirstBossDeath               $f2e3b5
-FirstBossEncounter           $f2e392
-Maxwell                      $f2deb5
-Maxwell_ConfusedChara        $f2df76
-NotMaxwell                   $f2e173
-PeelDeath                    $f2e375
-PeelEncounter                $f2e35e
-SnowWoodBoy1                 $f2e0a2
-SnowWoodBoy2                 $f2e109
-TessieWatcher                $f2e290
-thatweirddudedownstairs      $f2e209
-vinceChara                   $f2dd71
+FirstBossDeath               $f2e3cd
+FirstBossEncounter           $f2e3a8
+Maxwell                      $f2decb
+Maxwell_ConfusedChara        $f2df8c
+NotMaxwell                   $f2e189
+PeelDeath                    $f2e38b
+PeelEncounter                $f2e374
+SnowWoodBoy1                 $f2e0b8
+SnowWoodBoy2                 $f2e11f
+TessieWatcher                $f2e2a6
+thatweirddudedownstairs      $f2e21f
+vinceChara                   $f2dd87
 -----------------------------------------------------------------
 
 
 Labels in module debug
 Name                         Address
 -----------------------------------------------------------------
-WarpZone                     $f2e8fa
-debugLady                    $f2e7be
-musicTestMenu                $f2e8cb
-sfxTestMenu                  $f2e8ef
-soundTest                    $f2e891
-wFirstBoss                   $f2e82c
-warpToDebugRoom              $f2e793
-warpToSpaceship              $f2e85a
+WarpZone                     $f2e916
+debugLady                    $f2e7da
+musicTestMenu                $f2e8e7
+sfxTestMenu                  $f2e90b
+soundTest                    $f2e8ad
+wFirstBoss                   $f2e848
+warpToDebugRoom              $f2e7af
+warpToSpaceship              $f2e876
 -----------------------------------------------------------------
 
 
 Labels in module helptext
 Name                         Address
 -----------------------------------------------------------------
-ATMCard                      $f2edd9
-cameraHelpText               $f2ecb4
-developedFilmHelpText        $f2edae
-filmHelpText                 $f2ed40
+ATMCard                      $f2ef94
+cameraHelpText               $f2ee6f
+developedFilmHelpText        $f2ef69
+filmHelpText                 $f2eefb
 -----------------------------------------------------------------
 
 
@@ -135,32 +138,32 @@ ShimmeringForm               $f1f431
 Labels in module oldtext
 Name                         Address
 -----------------------------------------------------------------
-BossFight1                   $f2dc2a
-BuzzBuzzLight                $f2dd63
-JeffJoinText                 $f2db34
-WarpToAliens                 $f2dd45
-hotspotTest                  $f2d5de
+BossFight1                   $f2dc40
+BuzzBuzzLight                $f2dd79
+JeffJoinText                 $f2db4a
+WarpToAliens                 $f2dd5b
+hotspotTest                  $f2d5f4
 init                         $f2d5a2
-photo2_text                  $f2d76c
-photo3_text                  $f2d7c9
-portfolioText                $f2db15
-txtChemicals                 $f2d5e9
-txtFilmGet                   $f2d605
-txtFilmUse                   $f2d685
+photo2_text                  $f2d782
+photo3_text                  $f2d7df
+portfolioText                $f2db2b
+txtChemicals                 $f2d5ff
+txtFilmGet                   $f2d61b
+txtFilmUse                   $f2d69b
 -----------------------------------------------------------------
 
 
 Labels in module saturns
 Name                         Address
 -----------------------------------------------------------------
-Saturn1                      $f2e964
-Saturn2                      $f2e97f
-Saturn3                      $f2e9a6
-Saturn4                      $f2e9e3
-Saturn5                      $f2ea0e
-Saturn6                      $f2ea38
-SaturnJoinable               $f2eaa4
-SaturnJoins                  $f2eacd
+Saturn1                      $f2e980
+Saturn2                      $f2e99b
+Saturn3                      $f2e9c2
+Saturn4                      $f2e9ff
+Saturn5                      $f2ea2a
+Saturn6                      $f2ea54
+SaturnJoinable               $f2eac0
+SaturnJoins                  $f2eae9
 -----------------------------------------------------------------
 
 
@@ -330,9 +333,9 @@ Name                         Address
 Labels in module asm_run
 Name                         Address
 -----------------------------------------------------------------
-burned_status                $f1fef5
-button_check                 $f1ff0a
-run_status                   $f1ff19
+burned_status                $f2efc5
+button_check                 $f2efda
+run_status                   $f2efe9
 -----------------------------------------------------------------
 
 
@@ -436,9 +439,9 @@ literallyJustAnEOB           $f1e9ab
 Labels in module bite_sized_improvements
 Name                         Address
 -----------------------------------------------------------------
-ImTalkingToMyselfJeez        $f1ff24
-StopBuggingMeDad             $f1ff23
-noResponse                   $f1ff2e
+ImTalkingToMyselfJeez        $f2eff4
+StopBuggingMeDad             $f2eff3
+noResponse                   $f2effe
 -----------------------------------------------------------------
 
 
@@ -771,20 +774,29 @@ teleportFXtest               $f35874
 Labels in module file_menu_rewrite
 Name                         Address
 -----------------------------------------------------------------
-NewMenu                      $f2eb27
-PlayCreepySound              $f2ecb0
-WindowFlavorBanana           $f2eca0
-WindowFlavorMint             $f2ec90
-WindowFlavorPeanut           $f2eca6
-WindowFlavorPlain            $f2ec8a
-WindowFlavorSelect           $f2ec7b
-WindowFlavorStrawberry       $f2ec96
+NewMenu                      $f2ece2
+PlayCreepySound              $f2ee6b
+WindowFlavorBanana           $f2ee5b
+WindowFlavorMint             $f2ee4b
+WindowFlavorPeanut           $f2ee61
+WindowFlavorPlain            $f2ee45
+WindowFlavorSelect           $f2ee36
+WindowFlavorStrawberry       $f2ee51
 -----------------------------------------------------------------
 
 
 Labels in module InvertSwirl1
 Name                         Address
 -----------------------------------------------------------------
+-----------------------------------------------------------------
+
+
+Labels in module custom_windows_standalone
+Name                         Address
+-----------------------------------------------------------------
+ASM_CustomWindow_open        $f1ff80
+ASM_CustomWindow_setupWindow $f1ff9d
+CustomWindowList             $f1ff75
 -----------------------------------------------------------------
 
 
@@ -833,6 +845,43 @@ famicomDetectiveClub         $f10000
 Labels in module asm65816
 Name                         Address
 -----------------------------------------------------------------
+-----------------------------------------------------------------
+
+
+Labels in module ccexpand
+Name                         Address
+-----------------------------------------------------------------
+CodeTable                    $f2eb43
+DoNothing                    $f2ece1
+Original1A00                 $f2ec9b
+Original1A01                 $f2eca2
+Original1A04                 $f2eca9
+Original1A05                 $f2ecb0
+Original1A06                 $f2ecb7
+Original1A07                 $f2ecbe
+Original1A08                 $f2ecc5
+Original1A09                 $f2eccc
+Original1A0A                 $f2ecd3
+Original1A0B                 $f2ecda
+R_Get_Argument_Memory        $f2ec37
+R_Get_Secondary_Memory       $f2ec45
+R_Get_Secondary_Memory_In_A  $f2ec73
+R_Get_Working_Memory         $f2ec3e
+R_Increment_Secondary_Memory $f2ec6c
+R_Read_Parameter_Bytes       $f2ebcb
+R_Set_06_To_Argument_If_Zero $f2ec29
+R_Set_Argument_Memory        $f2ec55
+R_Set_Secondary_Memory       $f2ec63
+R_Set_Secondary_Memory_To_A  $f2ec7a
+R_Set_Working_Memory         $f2ec5c
+TableJumpUsing7E00BC         $f2ec81
+-----------------------------------------------------------------
+
+
+Labels in module cc_asmcall
+Name                         Address
+-----------------------------------------------------------------
+CC_code_AsmCall              $f1fef5
 -----------------------------------------------------------------
 
 
