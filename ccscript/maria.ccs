@@ -1,23 +1,23 @@
 //spoilers lmao
 
 Box:
-  "@This appears to be a small, texturless, floating box." next
+  "@This appears to be a small, textureless, floating box." next
   "@What it's for is anybody's guess." end
 
 Bookshelf:
   "@This appears to be a completely normal bookshelf." end
 
-ShimmeringForm:
+ShimmeringForm: //entry #603 in the NPC Config Table
   "@There's something here." next
   "@Reach out to it?" linebreak
   menu 2 {
     "Yes": {
-      "@You feel it approach." //todo: make it so Paula joins the party
-      end
+      "@You feel it approach." wait //todo: make it so Paula joins the party
+      party_add(2)
+      unset(customFlags.mariaSparkleVisible)
       }
     "No": {
-      "@The shimmering form cowers in the dim light."
-      end
+      "@The shimmering form cowers in the dim light." wait
     }
   }
   end

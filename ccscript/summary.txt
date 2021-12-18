@@ -8,7 +8,7 @@ Compilation statistics
 Compilation start:           $f10000
 Compilation end:             $f37e47
 Total compiled size:         163399 bytes
-Fragmented space:            4095 bytes
+Fragmented space:            4090 bytes
 -----------------------------------------------------------------
 
 
@@ -17,36 +17,36 @@ Module information
 Name                         Address     Size
 -----------------------------------------------------------------
 abduction                    $f2e3fc      947    bytes
-customFlags                  $f1ffea      0      bytes
+customFlags                  $f1ffef      0      bytes
 customNPCs                   $f2dd87      1653   bytes
 debug                        $f2e7af      465    bytes
 helptext                     $f2ee6f      342    bytes
 lore                         $f1e9ac      2549   bytes
-maria                        $f1f3a1      2419   bytes
+maria                        $f1f3a1      2424   bytes
 oldtext                      $f2d5a2      2021   bytes
 saturns                      $f2e980      451    bytes
-stdarg                       $f1ffea      0      bytes
-std                          $f1ffea      0      bytes
+stdarg                       $f1ffef      0      bytes
+std                          $f1ffef      0      bytes
 EBPP_Disassembly_HardwareCompatible_v1_1$f1d2b7      3161   bytes
-EbppMoreStuff                $f1ffea      0      bytes
+EbppMoreStuff                $f1ffef      0      bytes
 asm_run                      $f2efc5      46     bytes
 battle_text_abridgements     $f1df10      2716   bytes
 bite_sized_improvements      $f2eff3      36     bytes
-deathtext                    $f1fd14      481    bytes
+deathtext                    $f1fd19      481    bytes
 debugmenu                    $f34197      15536  bytes
 file_menu_rewrite            $f2ece2      397    bytes
-InvertSwirl1                 $f1ffea      0      bytes
-custom_windows_standalone    $f1ff75      117    bytes
+InvertSwirl1                 $f1ffef      0      bytes
+custom_windows_standalone    $f1ff7a      117    bytes
 pack_2A_princessAndTheClock  $f30000      16791  bytes
 Pack_32_SQ8Lite_Pads         $f171dc      24795  bytes
 pack_34_glass_breaking_sfx   $f28f67      17979  bytes
 Pack28_TravellingWaters      $f248db      18060  bytes
 Pack_4A_doordebug            $f20000      18651  bytes
 pack_9C_famicomDetectiveClub $f10000      29148  bytes
-asm65816                     $f1ffea      0      bytes
+asm65816                     $f1ffef      0      bytes
 ccexpand                     $f2eb43      415    bytes
-cc_asmcall                   $f1fef5      128    bytes
-asmref                       $f1ffea      0      bytes
+cc_asmcall                   $f1fefa      128    bytes
+asmref                       $f1ffef      0      bytes
 -----------------------------------------------------------------
 
 
@@ -126,12 +126,12 @@ YouResearch                  $f1e9fb
 Labels in module maria
 Name                         Address
 -----------------------------------------------------------------
-BadEndingMariaDidntJoin      $f1f4cf
-Bookshelf                    $f1f3fd
+BadEndingMariaDidntJoin      $f1f4d4
+Bookshelf                    $f1f3fe
 Box                          $f1f3a1
-GoodEndingGeorge             $f1f58f
-MariaBeckons                 $f1f52b
-ShimmeringForm               $f1f431
+GoodEndingGeorge             $f1f594
+MariaBeckons                 $f1f530
+ShimmeringForm               $f1f432
 -----------------------------------------------------------------
 
 
@@ -448,10 +448,10 @@ noResponse                   $f2effe
 Labels in module deathtext
 Name                         Address
 -----------------------------------------------------------------
-NewDeathText                 $f1fd14
-ifno                         $f1fe15
-saidno                       $f1feb6
-saidyes                      $f1fdb8
+NewDeathText                 $f1fd19
+ifno                         $f1fe1a
+saidno                       $f1febb
+saidyes                      $f1fdbd
 -----------------------------------------------------------------
 
 
@@ -794,9 +794,9 @@ Name                         Address
 Labels in module custom_windows_standalone
 Name                         Address
 -----------------------------------------------------------------
-ASM_CustomWindow_open        $f1ff80
-ASM_CustomWindow_setupWindow $f1ff9d
-CustomWindowList             $f1ff75
+ASM_CustomWindow_open        $f1ff85
+ASM_CustomWindow_setupWindow $f1ffa2
+CustomWindowList             $f1ff7a
 -----------------------------------------------------------------
 
 
@@ -881,7 +881,7 @@ TableJumpUsing7E00BC         $f2ec81
 Labels in module cc_asmcall
 Name                         Address
 -----------------------------------------------------------------
-CC_code_AsmCall              $f1fef5
+CC_code_AsmCall              $f1fefa
 -----------------------------------------------------------------
 
 
