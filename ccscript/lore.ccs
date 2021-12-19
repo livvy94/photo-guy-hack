@@ -70,7 +70,7 @@ GirlDescription:
   menu 2 {
     "Yes": {
       //music!
-      "@She joins you." //todo: make it so Poo joins the party here
+      "@She joins you." //todo: make it so character 4 joins the party here
       end
       }
     "No": {
@@ -129,7 +129,7 @@ SaturnHackin:
   "@(Mr. Saturn hops onto the keyboard and starts typing furiously.)" next
   "@(He appears to be gaining access to whatever's " next
   "  behind this extra layer of security.)" next
-  "@(The screen clears itself, and more words appear.)" wait
+  "@(The screen clears itself, |and more words appear.)" wait
   window_clear
   eob
 

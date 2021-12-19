@@ -8,13 +8,6 @@ import "tweaks/debugmenu.ccs"
 import "tweaks/file_menu_rewrite.ccs"
 import "tweaks/InvertSwirl1.ccs"
 import "tweaks/custom_windows_standalone.ccs"
-import "instruments/pack_2A_princessAndTheClock.ccs"
-import "instruments/Pack_32_SQ8Lite_Pads.ccs"
-import "instruments/pack_34_glass_breaking_sfx.ccs"
-import "instruments/Pack28_TravellingWaters.ccs"
-import "instruments/Pack_4A_doordebug.ccs"
-import "instruments/pack_9C_famicomDetectiveClub.ccs"
-command e(label) "{long label}"
 
 newgame_location(7264,1898)
 newgame_startup(init)
@@ -22,97 +15,97 @@ newgame_startup(init)
 ROM[0xEF12C2] = byte 0 //disable tileset animations for Summers, which I use for the UFO tileset
 
 init:
-    CustomWindow_open(CustomWindow0, 1, 1, 30, 26)
-    "@Testing" wait
-    window_closeall
-    music_stop //is this needed?
-    set(customFlags.jeffVisible)
-    set(customFlags.mariaSparkleVisible)
-    unset(customFlags.jeffInParty)
-    unset(customFlags.maxwellConvo_1)
-    unset(customFlags.maxwellConvo_2)
-    unset(customFlags.photo1_viewed)
-    unset(customFlags.photo2_viewed)
-    unset(customFlags.photo3_viewed)
-    unset(customFlags.bossFight1Finished)
-    unset(customFlags.saturnIsInYourParty)
-
-    //equip all characters
-    //XX = character, YY is the inventory slot
-    //TODO: make the camera not droppable
-    //"[1F 83 01 02]" //Equip main character with the Camera item
-    equip_char_with_item(1, 2) //Equip main character with the Camera item
-    //"[1F 83 02 YY]"
-    //"[1F 83 03 YY]"
-    //"[1F 83 04 YY]"
-
-    givemoney(40)
-
-    set(0x8174)
-    set(0x17)
-    hotspot_on(1,43,hotspotTest)
-    music_resume
-    save
-    eob
+  music_stop
+  customFlags.initialize
+  helpers.equip_char_with_item(1, 2) //Equip main character with the Camera item
+  givemoney(40)
+  hotspot_on(1,43,hotspotTest)
+  save
+  music_resume
+  eob
 
 hotspotTest:
-        window_open(1)
-        call(JeffJoinText)
-        window_closeall
-        eob
+  window_open(1)
+  call(JeffJoinText)
+  window_closeall
+  eob
+
+JeffJoinText:
+  window_closeall
+  show_sprite_float(1279, FLOAT_EXCLAIM) //! bubble
+  pause(60)
+  hide_sprite_float(1279)
+  pause(10)
+  window_open(1)
+  "@Hey, {name(1)}!" next
+  "@You seemed really excited on the phone about those photographs." next
+  "@Let's go to the chemistry lab and develop them!" next
+  "@It's the weekend, so I've got plenty of time to spare." wait
+
+  helpers.sprite2_do_mc(3, 0x2F)
+  window_closeall
+  pause(0x60)
+  hide_sprite(0x4FF, 6) //hide the Jeff NPC sprite
+  sound(0x16)
+  music(0xB)
+  pause(120) pause(120) pause(120) pause(60)
+  music_resume
+  party_add(3)
+  window_closeall
+  unset(customFlags.jeffVisible)
+  set(customFlags.jeffInParty)
+  eob
 
 txtChemicals:
-    if not hasitem(1, 143)
-    {
-        goto(helptext.filmHelpText)
-    }
-    else
-    {
-        goto(txtFilmUse)
-    }
-    eob
-
+  if not hasitem(1, 143)
+  {
+      goto(helptext.filmHelpText)
+  }
+  else
+  {
+      goto(txtFilmUse)
+  }
+  eob
 
 txtFilmGet:
-    if not customFlags.darkroom
-    {
-        //Palette swap the room like in Magicant?
-        take(1, 140) //remove the canister from his inventory
-        give(1, 143) //give him the film
-        //Tint the screen
-        //"[]"
-        "@You removed the film from the canister and started using the chemicals." next
-        "@You got the {itemname(143)}!{sound(102)}" wait
-
-        set(customFlags.darkroom) //Use this to keep the player from ruining the exposed film!!
-        eob
-    }
-    else goto(txtFilmUse)
+  if not customFlags.darkroom
+  {
+    //TODO: Palette swap the room like in Magicant
+    take(1, 140) //remove the canister from his inventory
+    give(1, 143) //give him the film
+    //Tint the screen
+    "@You removed the film from the canister and started using the chemicals." next
+    "@You got the {itemname(143)}!{sound(102)}" wait
+    
+    set(customFlags.darkroom) //Use this to keep the player from ruining the exposed film!!
+    eob
+  }
+  else goto(txtFilmUse)
 
 txtFilmUse:
-    //"@It's the film!" next
-    if customFlags.photo3_viewed
-    {
-        "  (Display this string when all of the photos are developed.)" wait
-    }
+  //"@It's the film!" next
+  if customFlags.photo3_viewed
+  {
+    "  (Display this string when all of the photos are developed.)" wait
+  }
 
-    if not customFlags.photo1_viewed
-    {
-        set(customFlags.photo1_viewed)
-        "@You dipped the film in the chemicals." next
-        "@Well, let's see here..." next
-        "@It's a picture of the bell tower early in the morning." next //https://photos.app.goo.gl/3gmnwdSqYyp1oMgg7 TODO: arrange these and include them in the ZIP after the game is done
-        call(portfolioText) end
-    }
-    else goto(photo2_text)
-    eob
+  if not customFlags.photo1_viewed
+  {
+    set(customFlags.photo1_viewed)
+    "@You dipped the film in the chemicals." next
+    "@Well, let's see here..." next
+    "@It's a picture of the bell tower early in the morning." next //https://photos.app.goo.gl/3gmnwdSqYyp1oMgg7 TODO: arrange these and include them in the ZIP after the game is done
+    call(portfolioText) end
+  }
+  else goto(photo2_text)
+  eob
 
 photo2_text:
     if not customFlags.photo2_viewed
     {
-        set(customFlags.photo2_viewed)
-        "@It's a photo you took of your friends waiting for the bus." next //https://photos.app.goo.gl/fMqyBm2AoeQZdFTE6
-        call(portfolioText) end
+      set(customFlags.photo2_viewed)
+      "@It's a photo you took of your friends waiting for the bus." next //https://photos.app.goo.gl/fMqyBm2AoeQZdFTE6
+      call(portfolioText) end
     }
     else goto(photo3_text)
     eob
@@ -120,317 +113,104 @@ photo2_text:
 photo3_text:
     if not customFlags.photo3_viewed
     {
-        set(customFlags.photo3_viewed)
-        unset(customFlags.darkroom)
-        "@It's a photo taken at the top of Pavilion Hill at sunset." next //https://photos.app.goo.gl/AZ1eA8NmEEtmJdnk7
-    "@There's a boy and a girl walking downhill, holding hands." next
-    "@The girl is holding a skateboard." next
-        "@Wait a second..." next
-
-        char_look_at(1, 3) //Turn Ness to face Jeff
-        window_clear
-        "@Hey, let me take a closer look at that shot. " next
-        "@Is that...a UFO above those trees!?" next
-        char_look_at(1, 594) //Turn Ness to face Maxwell
-        char_look_at(3, 594) //Turn Jeff to face Maxwell
-        sprite_direction(594, 3) //Actually turn Maxwell's sprite
-        window_clear
-        "@Whoa, that looks amazing!" next
-        music_effect(3)
-        "@I overheard some other students talking about flying saucers earlier." next
-        "@Say, I know it's against curfew..." next
-        "@But you two should try to get more pictures!" next
-        set(flag 0x58) //Enables leaving Snow Wood?
-        "@You'd probably get in the paper again!" wait
-
-        //CUTSCENE TIME!
-        window_closeall
-        fadeToBlack()
-        pause(120)
-        unset(flag 335) //Me from the future: What the heck are these flags and why aren't they labeled? Are these copied from a ccscript dump or something? fsjfksd
-        set(flag 544)
-        unset(flag 11) //re-enable enemy spawns
-
-        "[1F 15 6A 00 FD 02 01]" //generate active sprite
-        "[1F 61]" //movement code trigger
-        pause(180)
-        warp(1)
-        "[1F E5 FF]" //lock player movement
-        pause(1)
-        window_open(1)
-        take(1, 143) //get rid of the film
-        take(3, 143) //ditto, just in case the Player gave it to Jeff
-        save
-        "@All right, let's head to Lake Tess!" next
-        "@I've got all of your equipment, and plenty of extra rolls of film." next
-        "@By the way, if you need to run back for any reason," next
-        "  like, if you forgot something," next
-        "  don't forget to hold down the Y Button!" wait //that's right, this game has the run button patch!
+      set(customFlags.photo3_viewed)
+      unset(customFlags.darkroom)
+      "@It's a photo taken at the top of Pavilion Hill at sunset." next //https://photos.app.goo.gl/AZ1eA8NmEEtmJdnk7
+      "@There's a boy and a girl walking downhill, holding hands." next
+      "@The girl is holding a skateboard." next
+      "@Wait a second..." next
+  
+      helpers.char_look_at(1, 3) //Turn Ness to face Jeff
+      window_clear
+      "@Hey, let me take a closer look at that shot. " next
+      "@Is that...a UFO above those trees!?" next
+      helpers.char_look_at(1, 594) //Turn Ness to face Maxwell
+      helpers.char_look_at(3, 594) //Turn Jeff to face Maxwell
+      sprite_direction(594, 3) //Actually turn Maxwell's sprite
+      window_clear
+      "@Whoa, that looks amazing!" next
+      music_effect(3)
+      "@I overheard some other students talking about flying saucers earlier." next
+      "@Say, I know it's against curfew..." next
+      "@But you two should try to get more pictures!" next
+      set(flag 88) //Enables leaving Snow Wood? What does this do? Official flag name is "FLG_ITEM_GAUS"
+      "@You'd probably get in the paper again!" wait
+  
+      //CUTSCENE TIME!
+      window_closeall
+      unset(flag 335) //disable Tony crouching sprite
+      unset(customFlags.disable_enemies)
+      helpers.fade_out
+      pause(120)
+      helpers.later_that_night
+      warp(1) //warp to the outside of Snow Wood. This also fades out the "Later that night..." text
+      "[1F E5 FF]" //freeze character FF's movement. What is this doing here? Can it be removed?
+      pause(1)
+      window_open(1)
+      take(1, 143) //get rid of the film
+      take(3, 143) //ditto, just in case the Player gave it to Jeff
+      save
+      "@All right, let's head to Lake Tess!" next
+      "@I've got all of your equipment, and plenty of extra rolls of film." next
+      "@By the way, if you need to run back for any reason," next
+      "  like, if you forgot something," next
+      "  don't forget to hold down the Y Button!" wait //that's right, this game has the run button patch!
     }
     eob
 
 portfolioText:
-    "@You put it in your portfolio." eob
-
-JeffJoinText:
-    window_closeall
-    show_sprite_float(1279, FLOAT_EXCLAIM) //! bubble
-    pause(60)
-    hide_sprite_float(1279)
-    pause(10)
-    window_open(1)
-    "@Hey, {name(1)}!" next
-    "@You seemed really excited on the phone about those photographs." next
-    "@Let's go to the chemistry lab and develop them!" next
-    "@It's the weekend, so I've got plenty of time to spare." wait
-
-    sprite2_do_mc(3, 0x2F)
-    window_closeall
-    pause(0x60)
-    hide_sprite(0x4FF, 6) // 0x4FF is an NPC number i guess
-    sound(0x16)
-    music(0xB)
-    pause(120) pause(120) pause(120) pause(60)
-    music_resume
-    //window_open(1)
-    //"@{name(3)} joined you." prompt
-    party_add(3)
-    window_closeall
-    unset(customFlags.jeffVisible)
-    set(customFlags.jeffInParty)
-    eob
+  "@You put it in your portfolio." eob
 
 ////////////////////////////////////////////////////////////////////
 //Warp to the alien ship is teleport destination #144
 
 BossFight1:
-    //Hotspots used here:
-    //Abduction location is hotspot 39
-    if not customFlags.bossFight1Finished
-    {
-        window_open(1)
-        music_effect(3) //slowly fade out the music
-        "@Whoa." next
-        "@Quick, get a picture of it!" next
-        window_clear
-        "@Um...{pause(30)}It's coming this way...!" wait //TODO: Maybe rewrite this, it's kinda generic
-        battle(448) //BOSS FIGHT
-        music_stop //after the fight is over, prevent the map's default music from resuming
-        music_switching_off //make it so it won't start again and I can play a specific song later
-        healall
-        set(customFlags.bossFight1Finished)
-        //disable enemy encounters
-        hotspot_on(2, 39, WarpToAliens) //turn on the next hotspot...
-
-        hide_sprite(209, 9) //hides the boss sparkle by making it disappear with fancy vertical lines
-        set(customFlags.bossFight1Finished) //stop it from appearing again if the player runs up and then back down
-
-        window_open(1)
-        "@That was a close one!" next
-        "@We should probably head back..." wait
-        window_closeall
-        pause(60)
-        window_open(1)
-        "@Oh no. {pause(30)}RUN!" wait
-        window_closeall
-        music(49) //cover of "RUN!!" from Cave Story
-    }
-    else
-    {
-      "@What are you doing!?!" newline
-      "  Let's get out of here!!" wait
-    }
-    eob
-
-WarpToAliens:
-    music_switching_on //it was switched off so I can play fitting music while you run away
-    sound(54)
-    call(BuzzBuzzLight) //looks like a tractor beam from a UFO!
-    music_effect(3) //fade out the music
-    fadeToBlack()
-    pause(30)
-    goto(abduction.InTheTube)
+  //Hotspots used here:
+  //Abduction location is hotspot 39
+  if not customFlags.bossFight1Finished
+  {
+    window_open(1)
+    music_effect(3) //slowly fade out the music
+    "@Whoa." next
+    "@Quick, get a picture of it!" next
+    window_clear
+    "@Um...{pause(30)}It's coming this way...!" wait //TODO: Maybe rewrite this, it's kinda generic
+    battle(448) //BOSS FIGHT
+    music_stop //after the fight is over, prevent the map's default music from resuming
+    music_switching_off //make it so it won't start again and I can play a specific song later
+    healall
+    set(customFlags.bossFight1Finished)
+    set(customFlags.disable_enemies)
+    hotspot_on(2, 39, WarpToAliens) //turn on the next hotspot...
+    
+    hide_sprite(209, 9) //hides the boss sparkle by making it disappear with fancy vertical lines
+    set(customFlags.bossFight1Finished) //stop it from appearing again if the player runs up and then back down
+    
+    window_open(1)
+    "@That was a close one!" next
+    "@We should probably head back..." wait
+    window_closeall
+    pause(60)
+    window_open(1)
+    "@Oh no. {pause(30)}RUN!" wait
+    window_closeall
+    music(songnumbers.run) //TODO: Do this with map music changes instead
+  }
+  else
+  {
+    "@What are you doing!?!" newline
+    "  Let's get out of here!!" wait
+  }
   eob
 
-//SpriteAppear:
-//{
-//  mov_setxy (797, 3131) //the coordinates the sprite should appear
-//  mov_pause (2)
-//  mov_jmlmov (0xC3A2AA) //assign movement code 8, "stand there and do nothing"
-//}
+WarpToAliens:
+  unset(customFlags.disable_enemies)
+  music_switching_on //it was switched off so I can play fitting music while you run away
+  sound(54)
+  helpers.BuzzBuzzLight //looks like a tractor beam from a UFO!
+  music_effect(3) //fade out the music
+  helpers.fade_out
+  pause(30)
+  goto(abduction.InTheTube)
+  eob
 
-BuzzBuzzLight:
-    "[1F EA C5 00]" //unknown, but C5 00 refers to a sprite entry
-    "[1F 15 6A 00 36 00 01]" //sprite2_spawn(sprite,move,style)
-    "[1F 61]" //activate the movement code
-    eob
-
-//Stuff from https://forum.starmen.net/forum/Community/PKHack/CCScript-Commands-and-Techniques/page/1#post1978775
-command adr24(a) "[{byte[0] a} {byte[1] a} {byte[2] a}]"
-command adr32(a) "[{byte[0] a} {byte[1] a} {byte[2] a} 00]"
-
-command wait_movement "[1F 61]"
-
-command fadeToBlack()
-{
-    sprite2_spawn(106, 633, 1)
-    wait_movement
-}
-
-command give2(item, failLabel)
-{
-    //Give an item to the party.
-    //Takes into account the inventory being full!
-    "[1D 03 FF]"
-    "[1B 02]" adr24(failLabel) "[00]"
-    "[1D 0E 00]" item
-    call(0xc7dccf)
-    "[13]"
-    //Usage example:
-    //--------------
-    //pizzaguy:
-    //"@Hey, take this pizza." next
-    //give2(95, pizzaguy_noroom)
-    //eob
-    //
-    //pizzaguy_noroom:
-    //"@Oh... it won't fit." next
-    //"@Make some room in your bag and come back later." end
-}
-
-command equip_char_with_item(char, inventory_slot)
-{
-    //equip all characters
-    //XX = character, YY is the inventory slot
-    "[1F 83 {byte char} {byte inventory_slot}]"
-    //"[1F 83 02 YY]"
-    //"[1F 83 03 YY]"
-    //"[1F 83 04 YY]"
-}
-
-command item_use_npc(item, fail_label) //A command for using Key Items on an NPC
-{
-  "[1B 00][19 19 00 00][1B 04][0B {byte[0] item}]"
-  "[1B 02]" adr32(fail_label)
-
-  //Usage example:
-  //--------------
-  //guy_pointer1:
-  //"@Can I see your backstage pass, sir?" end
-  //
-  //guy_pointer2:
-  //item_use_npc(125, guy_pointer2_wrongitem)
-  //"@Thank you for showing me your pass, sir." next
-  //"@Please go on ahead." end
-  //
-  //guy_pointer2_wrongitem:
-  //"@This isn't a backstage pass." end
-}
-
-
-
-command npc_do_mc(tpt,move) "[1F F1 {short tpt} {short move}]"
-
-command sprite2_do_mc(sprite, move) "[1F F2 {short sprite} {short move}]"
-
-
-// Movement code creation commands
-//command movs_init_alt(speed, style) //Used in movecode_walk
-//{
-//  mov_jslmov_short(0xC3AAAA, 0x01F6)
-//  mov_jslasm(0xC0A685) "[{short speed}]"
-//  mov_tablewrite(5, byte style)
-//}
-
-//command movecode_walk(mc_num, speed, destX, destY)
-//{
-//  _mc: {
-//    movs_init_alt(speed, 2)
-//    movs_walker(destX, destY)
-//    mov_jslasm(0xC46E46)
-//    movs_go
-//    mov_halt
-//  }
-//  mov_link(mc_num, _mc)
-//}
-
-//command movecode_run(mc_num, speed, destX, destY)
-//{
-//  _mc: {
-//    movs_init(speed, 2)
-//    movs_walker(destX, destY)
-//    mov_jslasm(0xC46E46)
-//    movs_go
-//    mov_halt
-//  }
-//  mov_link(mc_num, _mc)
-//}
-
-//command movecode_appear(mc_num, x, y)
-//{
-//  _mc:
-//  {
-//    mov_setxy(x,y)
-//    mov_pause(2)
-//    mov_jmlmov(0xC3A2AA)
-//  }
-//  mov_link(mc_num, _mc)
-//}
-
-//command movecode_party_walk(movecode_num, speed, x1, y1, x2, y2) //Command for moving the party around the screen and having the camera follow
-//{
-//  _mc:
-//  {
-//    mov_setx(x1)
-//    mov_sety(y1)
-//    "[23 39 A0]"
-//    "[25 C8 9F]"
-//    "[3B FF]"
-//    "[08 E1 8B C4]"
-//    mov_jslasm(0xC0A685) "[{short speed}]"
-//    mov_loadtmp(0)
-//    mov_jslmov_short(0xC3AA1E, 0x01F6) //1A 1E AA
-//    mov_tablewrite(5, 1)
-//    movs_walker(x2, y2)
-//    mov_jslasm(0xC46E46)
-//    movs_go
-//    mov_halt
-//  }
-//  mov_link(movecode_num, _mc)
-//}
-
-command sprite2_spawn(sprite,move,style) "[1F 15 {short sprite} {short move} {byte style}]"
-
-//command party_walk(movecode_num, sprite)
-//{
-//  sprite2_spawn(sprite, movecode_num, 1)
-//  pause(1)
-//  "[1f ef {short sprite}]"
-//  "[1f e8 ff]"
-//  "[1f 61]"
-//  "[1f ed]"
-//  "[1f e5 ff]"
-//}
-//Usage:
-//movecode_party_walk(223, 0x100, 8136, 1096, 8100, 1096) //Creates the movecode, reference it later
-//text_block:
-//"@Oh, hi!" next
-//window_closeall
-//party_walk(223, 106) //Reference the movecode, sprite number
-//eob
-
-
-//char_look_at - created by jake_the_shrimp and phoenixbound
-//Usage: get_dir_from_char(1, TO_CHAR, 2) to get the direction from Ness to Paula in the party
-//You can read it in English, "from character 1 TO_CHARACTER 2"
-
-command get_dir_from_char(char, to_type, obj) "[19 22 {byte char} {byte to_type} {short obj}]"
-    define TO_CHAR = 1
-    define TO_NPC = 2
-    define TO_SPRITE2 = 3
-
-//Basically, use char_look_at(partymember,partymember2)
-command char_look_at(char, sprite) {
-    get_dir_from_char(char, TO_CHAR, sprite)
-    char_direction(char, 0)
-}

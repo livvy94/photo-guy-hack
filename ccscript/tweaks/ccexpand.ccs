@@ -42,7 +42,7 @@ CodeTable: {
   long Original1A09 // [1A 09] -- unused
   long Original1A0A // [1A 0A] -- something about phones
   long Original1A0B // [1A 0B] -- unused
-  long DoNothing // [1A 0C]
+  long cc_asmcall.CC_code_AsmCall // [1A 0C]
   long DoNothing // [1A 0D]
   long DoNothing // [1A 0E]
   long DoNothing // [1A 0F]

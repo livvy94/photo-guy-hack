@@ -1,0 +1,189 @@
+command equip_char_with_item(char, inventory_slot)
+{
+    //equip all characters
+    //XX = character, YY is the inventory slot
+    "[1F 83 {byte char} {byte inventory_slot}]"
+    //"[1F 83 02 YY]"
+    //"[1F 83 03 YY]"
+    //"[1F 83 04 YY]"
+}
+
+//char_look_at - created by jake_the_shrimp and phoenixbound
+//Usage: get_dir_from_char(1, TO_CHAR, 2) to get the direction from Ness to Paula in the party
+//You can read it in English, "from character 1 TO_CHARACTER 2"
+command get_dir_from_char(char, to_type, obj) "[19 22 {byte char} {byte to_type} {short obj}]"
+    define TO_CHAR = 1
+    define TO_NPC = 2
+    define TO_SPRITE2 = 3
+
+//Basically, use char_look_at(partymember,partymember2)
+command char_look_at(char, sprite) {
+    get_dir_from_char(char, TO_CHAR, sprite)
+    char_direction(char, 0)
+}
+
+//Stuff from https://forum.starmen.net/forum/Community/PKHack/CCScript-Commands-and-Techniques/page/1#post1978775
+command adr24(a) "[{byte[0] a} {byte[1] a} {byte[2] a}]"
+command adr32(a) "[{byte[0] a} {byte[1] a} {byte[2] a} 00]"
+
+command wait_movement "[1F 61]"
+
+command fade_out
+{
+    sprite2_spawn(106, 633, 1)
+    wait_movement
+}
+
+command later_that_night
+{
+  sprite2_spawn(106, 765, 1)
+  wait_movement
+  pause(180)
+}
+
+command BuzzBuzzLight
+{
+  //"[1F EA C5 00]" //todo: ccscriptify this bit
+  unfreeze_sprite_movement(197)
+  sprite2_spawn(106, 54, 1)
+  wait_movement
+}
+
+command unfreeze_sprite_movement(sprite) "[1F EA {short sprite}]"
+
+command give2(item, failLabel)
+{
+    //Give an item to the party.
+    //Takes into account the inventory being full!
+    "[1D 03 FF]"
+    "[1B 02]" adr24(failLabel) "[00]"
+    "[1D 0E 00]" item
+    call(0xc7dccf)
+    "[13]"
+    //Usage example:
+    //--------------
+    //pizzaguy:
+    //"@Hey, take this pizza." next
+    //give2(95, pizzaguy_noroom)
+    //eob
+    //
+    //pizzaguy_noroom:
+    //"@Oh... it won't fit." next
+    //"@Make some room in your bag and come back later." end
+}
+
+command npc_do_mc(tpt,move) "[1F F1 {short tpt} {short move}]"
+
+command sprite2_do_mc(sprite, move) "[1F F2 {short sprite} {short move}]"
+
+command sprite2_spawn(sprite,move,style) "[1F 15 {short sprite} {short move} {byte style}]"
+
+
+
+///////////////////////////////////////////////////////////////////////////
+
+
+//Command Graveyard - stuff that looks useful but I never used for anything
+
+//command item_use_npc(item, fail_label) //A command for using Key Items on an NPC
+//{
+  //"[1B 00][19 19 00 00][1B 04][0B {byte[0] item}]"
+  //"[1B 02]" adr32(fail_label)
+
+  //Usage example:
+  //--------------
+  //guy_pointer1:
+  //"@Can I see your backstage pass, sir?" end
+  //
+  //guy_pointer2:
+  //item_use_npc(125, guy_pointer2_wrongitem)
+  //"@Thank you for showing me your pass, sir." next
+  //"@Please go on ahead." end
+  //
+  //guy_pointer2_wrongitem:
+  //"@This isn't a backstage pass." end
+//}
+
+// Movement code creation commands
+//command movs_init_alt(speed, style) //Used in movecode_walk
+//{
+//  mov_jslmov_short(0xC3AAAA, 0x01F6)
+//  mov_jslasm(0xC0A685) "[{short speed}]"
+//  mov_tablewrite(5, byte style)
+//}
+
+//command movecode_walk(mc_num, speed, destX, destY)
+//{
+//  _mc: {
+//    movs_init_alt(speed, 2)
+//    movs_walker(destX, destY)
+//    mov_jslasm(0xC46E46)
+//    movs_go
+//    mov_halt
+//  }
+//  mov_link(mc_num, _mc)
+//}
+
+//command movecode_run(mc_num, speed, destX, destY)
+//{
+//  _mc: {
+//    movs_init(speed, 2)
+//    movs_walker(destX, destY)
+//    mov_jslasm(0xC46E46)
+//    movs_go
+//    mov_halt
+//  }
+//  mov_link(mc_num, _mc)
+//}
+
+//command movecode_appear(mc_num, x, y)
+//{
+//  _mc:
+//  {
+//    mov_setxy(x,y)
+//    mov_pause(2)
+//    mov_jmlmov(0xC3A2AA)
+//  }
+//  mov_link(mc_num, _mc)
+//}
+
+//command movecode_party_walk(movecode_num, speed, x1, y1, x2, y2) //Command for moving the party around the screen and having the camera follow
+//{
+//  _mc:
+//  {
+//    mov_setx(x1)
+//    mov_sety(y1)
+//    "[23 39 A0]"
+//    "[25 C8 9F]"
+//    "[3B FF]"
+//    "[08 E1 8B C4]"
+//    mov_jslasm(0xC0A685) "[{short speed}]"
+//    mov_loadtmp(0)
+//    mov_jslmov_short(0xC3AA1E, 0x01F6) //1A 1E AA
+//    mov_tablewrite(5, 1)
+//    movs_walker(x2, y2)
+//    mov_jslasm(0xC46E46)
+//    movs_go
+//    mov_halt
+//  }
+//  mov_link(movecode_num, _mc)
+//}
+
+//command party_walk(movecode_num, sprite)
+//{
+//  sprite2_spawn(sprite, movecode_num, 1)
+//  pause(1)
+//  "[1f ef {short sprite}]"
+//  "[1f e8 ff]"
+//  "[1f 61]"
+//  "[1f ed]"
+//  "[1f e5 ff]"
+//}
+//Usage:
+//movecode_party_walk(223, 0x100, 8136, 1096, 8100, 1096) //Creates the movecode, reference it later
+//text_block:
+//"@Oh, hi!" next
+//window_closeall
+//party_walk(223, 106) //Reference the movecode, sprite number
+//eob
+

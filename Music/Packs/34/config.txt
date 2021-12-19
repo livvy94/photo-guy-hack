@@ -1,0 +1,8 @@
+Pack number: 34
+Base instrument: default
+BRR sample dump offset: default
+
+#instruments
+{
+    "glass.brr"  $FF $E0 $B8 $08 $00
+}

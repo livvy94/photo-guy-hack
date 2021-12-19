@@ -1,0 +1,33 @@
+Pack number: 05
+Base instrument: 00
+BRR sample dump offset: 7000
+
+#instruments
+{
+  "Bass.brr"                    $8F $E6 $B8 $0F $F0
+  "Trumpet.brr"                 $FF $E0 $B8 $03 $00
+  "Trumpet.brr"                 $8F $EB $B8 $03 $00
+  "French Horn.brr"             $FF $E0 $B8 $03 $00
+  "French Horn.brr"             $8F $E0 $B8 $03 $00
+  "Tuba.brr"                    $FF $E0 $B8 $05 $00
+  "Synth (Level Up).brr"        $FF $E0 $B8 $05 $F0
+  "Synth (Level Up).brr"        $8F $F3 $B8 $05 $F0
+  "Synth (Sine).brr"            $8F $E0 $B8 $04 $00
+  "Synth (Home Sweet Home).brr" $8F $E0 $B8 $02 $00
+  "Synth (Electric Piano).brr"  $8F $F1 $B8 $04 $00
+  "Synth (Spooky).brr"          $8F $E0 $B8 $03 $10
+  "SFX (Acrade).brr"            $8F $E0 $B8 $02 $F0
+  "Synth (Square Wave).brr"     $8F $E0 $B8 $04 $00
+  "Synth (Sawtooth Wave).brr"   $8F $E0 $B8 $04 $00
+  "Organ.brr"                   $8F $E0 $B8 $03 $00
+  "SFX (Bird Chirping).brr"     $FF $E0 $B8 $03 $D0
+  "SFX (Phone Ringing).brr"     $FF $E0 $B8 $01 $30
+  "Synth (Half Sine).brr"       $FF $E0 $B8 $01 $00
+  "SFX (Menu Click).brr"        $FF $E0 $B8 $07 $A0
+  "Drum (Plain Hi-Hat).brr"     $8F $E0 $B8 $07 $A0
+  "Drum (Plain Bass).brr"       $8F $E0 $B8 $07 $A0
+  "Drum (Plain Snare).brr"      $8F $E0 $B8 $07 $A0
+  "Noise (Zap).brr"             $8F $EB $B8 $10 $F0
+  "Noise (White).brr"           $8F $E0 $B8 $00 $E0
+  "Noise (Zap 2).brr"           $8F $EB $B8 $07 $F0
+}

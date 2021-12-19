@@ -1,3 +1,5 @@
+define disable_enemies =        flag 11
+
 define jeffVisible =            flag 0x15d
 define maxwellConvo_1 =         flag 0x1F
 define maxwellConvo_2 =         flag 0x20
@@ -9,3 +11,19 @@ define darkroom =               flag 0x1C
 define saturnIsInYourParty =    flag 0x1D
 define bossFight1Finished =     flag 0x1E
 define mariaSparkleVisible =    flag 0x1F //entry #603 in the NPC Config Table
+
+command initialize
+  set(customFlags.jeffVisible)
+  set(customFlags.mariaSparkleVisible)
+  unset(customFlags.jeffInParty)
+  unset(customFlags.maxwellConvo_1)
+  unset(customFlags.maxwellConvo_2)
+  unset(customFlags.photo1_viewed)
+  unset(customFlags.photo2_viewed)
+  unset(customFlags.photo3_viewed)
+  unset(customFlags.bossFight1Finished)
+  unset(customFlags.saturnIsInYourParty)
+  set(flag 544) //enable the normal Winters music
+  set(0x17) //idk what this does but the original name is "FLG_WINS_TONY"
+  //set(0x8174) //I have no idea why this was in oldtext.ccs, I'll keep it here commented out just in case
+  eob
