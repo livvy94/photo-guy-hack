@@ -11,20 +11,20 @@ Saturn3:
   "@very far from mr. saturn..." end
 
 Saturn4:
-"so many creepy bugs!" next
-"you are happy bugs." end
+  "so many creepy bugs!" next
+  "you are happy bugs." end
 
 Saturn5:
-"shh! secret home" next
-"down here," linebreak
-"safe, safe." end
+  "shh! secret home" next
+  "down here," linebreak
+  "safe, safe." end
 
 Saturn6:
-"help us build pod" next
-"i, mr saturn, can steal warp engine" next
-"fromwhere? somewhere." next
-"you find exposition." next
-"ding!" end
+  "help us build pod" next
+  "i, mr saturn, can steal warp engine" next
+  "fromwhere? somewhere." next
+  "you find exposition." next
+  "ding!" end
 
 
 SaturnJoinable:
