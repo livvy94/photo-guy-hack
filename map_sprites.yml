@@ -1,34 +1,52 @@
 0:
   0:
-  - X: 245
-    Y: 203
-    NPC ID: 1254
   - X: 112
     Y: 36
     NPC ID: 8
   - X: 50
     Y: 52
     NPC ID: 1264
+  - X: 17
+    Y: 145
+    NPC ID: 1254
+  - X: 81
+    Y: 142
+    NPC ID: 1255
+  - X: 143
+    Y: 142
+    NPC ID: 1256
+  - X: 207
+    Y: 143
+    NPC ID: 1257
+  - X: 216
+    Y: 57
+    NPC ID: 1262
   1:
-  - X: 48
-    Y: 160
-    NPC ID: 1267
-  - X: 72
-    Y: 176
+  - X: 18
+    Y: 144
+    NPC ID: 1258
+  - X: 80
+    Y: 141
     NPC ID: 1259
   - X: 144
-    Y: 240
-    NPC ID: 1256
-  - X: 180
-    Y: 133
-    NPC ID: 1251
+    Y: 144
+    NPC ID: 1261
+  - X: 207
+    Y: 145
+    NPC ID: 1262
   2:
-  - X: 128
-    Y: 136
-    NPC ID: 1253
-  - X: 56
-    Y: 192
-    NPC ID: 1250
+  - X: 17
+    Y: 144
+    NPC ID: 1263
+  - X: 81
+    Y: 143
+    NPC ID: 1265
+  - X: 141
+    Y: 142
+    NPC ID: 1266
+  - X: 207
+    Y: 139
+    NPC ID: 1267
   3: null
   4: null
   5: null
@@ -195,9 +213,6 @@
     NPC ID: 72
 1:
   0:
-  - X: 160
-    Y: 8
-    NPC ID: 1255
   - X: 136
     Y: 144
     NPC ID: 1258
@@ -207,26 +222,11 @@
   - X: 185
     Y: 170
     NPC ID: 1263
-  1:
-  - X: 96
-    Y: 72
-    NPC ID: 1257
-  - X: 208
-    Y: 80
-    NPC ID: 1252
-  2:
-  - X: 136
-    Y: 48
-    NPC ID: 1266
-  - X: 96
-    Y: 80
-    NPC ID: 1567
-  - X: 152
-    Y: 104
-    NPC ID: 1262
-  - X: 116
-    Y: 104
-    NPC ID: 1265
+  - X: 232
+    Y: 51
+    NPC ID: 1267
+  1: null
+  2: null
   3: null
   4: null
   5:

@@ -384,7 +384,7 @@
   Tileset: 17
 32:
   Item: 0
-  Palette: 2
+  Palette: 0
   Town Map X: 0
   Town Map Y: 0
   Town Map Arrow: none
@@ -396,7 +396,7 @@
   Tileset: 27
 33:
   Item: 0
-  Palette: 2
+  Palette: 0
   Town Map X: 0
   Town Map Y: 0
   Town Map Arrow: none
@@ -408,7 +408,7 @@
   Tileset: 27
 34:
   Item: 0
-  Palette: 2
+  Palette: 0
   Town Map X: 0
   Town Map Y: 0
   Town Map Arrow: none
@@ -777,7 +777,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: disabled
-  Tileset: 30
+  Tileset: 27
 65:
   Item: 0
   Palette: 2
@@ -789,7 +789,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: disabled
-  Tileset: 30
+  Tileset: 27
 66:
   Item: 0
   Palette: 2
@@ -801,7 +801,7 @@
   Town Map Image: none
   Town Map: none
   Teleport: disabled
-  Tileset: 30
+  Tileset: 27
 67:
   Item: 176
   Palette: 0
