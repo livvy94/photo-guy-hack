@@ -1,67 +1,46 @@
 0x01:
   Song Pack: 0x01
-  Instrument Pack 1: 0x00
-  Instrument Pack 2: 0xFF
-  Address: 0x4800
+  Song File: song-01.ebm
 0x02:
   Song Pack: 0x04
-  Song File: Disable Echo LOL.ebm
+  Song File: song-02.ebm
 0x03:
   Song Pack: 0x04
   Song File: song-03.ebm
 0x04:
-  Song Pack: 0xFF
-  Instrument Pack 1: 0x05
-  Instrument Pack 2: 0xFF
-  Address: 0x2FDD
+  Song Pack: in-engine
+  Song File: song-04.ebm
 0x05:
-  Song Pack: 0xFF
-  Instrument Pack 1: 0x05
-  Instrument Pack 2: 0xFF
-  Address: 0x301C
+  Song Pack: in-engine
+  Song File: song-05.ebm
 0x06:
-  Song Pack: 0xFF
-  Instrument Pack 1: 0x05
-  Instrument Pack 2: 0xFF
-  Address: 0x36AA
+  Song Pack: in-engine
+  Song File: song-06.ebm
 0x07:
   Song Pack: 0x06
   Song File: song-07.ebm
 0x08:
-  Song Pack: 0xFF
-  Instrument Pack 1: 0x05
-  Instrument Pack 2: 0xFF
-  Address: 0x3A52
+  Song Pack: in-engine
+  Song File: song-08.ebm
 0x09:
-  Song Pack: 0xFF
-  Instrument Pack 1: 0x05
-  Instrument Pack 2: 0xFF
-  Address: 0x3B81
+  Song Pack: in-engine
+  Song File: song-09.ebm
 0x0A:
-  Song Pack: 0xFF
+  Song to Reference: 0x01
+  Offset: 0
   Instrument Pack 1: 0x05
-  Instrument Pack 2: 0xFF
-  Address: 0x4800
 0x0B:
-  Song Pack: 0xFF
-  Instrument Pack 1: 0x05
-  Instrument Pack 2: 0xFF
-  Address: 0x3DA1
+  Song Pack: in-engine
+  Song File: song-0B.ebm
 0x0C:
-  Song Pack: 0xFF
-  Instrument Pack 1: 0x05
-  Instrument Pack 2: 0xFF
-  Address: 0x4064
+  Song Pack: in-engine
+  Song File: song-0C.ebm
 0x0D:
-  Song Pack: 0xFF
-  Instrument Pack 1: 0x05
-  Instrument Pack 2: 0xFF
-  Address: 0x4298
+  Song Pack: in-engine
+  Song File: song-0D.ebm
 0x0E:
-  Song Pack: 0xFF
-  Instrument Pack 1: 0x05
-  Instrument Pack 2: 0xFF
-  Address: 0x41A8
+  Song Pack: in-engine
+  Song File: song-0E.ebm
 0x0F:
   Song Pack: 0x07
   Song File: song-0F.ebm
@@ -166,13 +145,13 @@
   Song File: song-30.ebm
 0x31:
   Song Pack: 0x27
-  Song File: Run.ebm
+  Song File: song-31.ebm
 0x32:
-  Song Pack: 0x27
-  Song File: Glass Breaking.ebm
+  Song Pack: 0x29
+  Song File: song-32.ebm
 0x33:
   Song Pack: 0x2B
-  Song File: Into the Rock.ebm
+  Song File: song-33.ebm
 0x34:
   Song Pack: 0x2D
   Song File: song-34.ebm
@@ -214,7 +193,7 @@
   Song File: song-40.ebm
 0x41:
   Song Pack: 0x43
-  Song File: Test Room.ebm
+  Song File: song-41.ebm
 0x42:
   Song Pack: 0x44
   Song File: song-42.ebm
@@ -316,13 +295,13 @@
   Song File: song-62.ebm
 0x63:
   Song Pack: 0x73
-  Song File: song-8D.ebm
+  Song File: song-63.ebm
 0x64:
   Song Pack: 0x75
   Song File: song-64.ebm
 0x65:
   Song Pack: 0x77
-  Song File: Flippant Foe.ebm
+  Song File: song-65.ebm
 0x66:
   Song Pack: 0x78
   Song File: song-66.ebm
@@ -363,10 +342,8 @@
   Song Pack: 0x84
   Song File: song-72.ebm
 0x73:
-  Song Pack: 0xFF
-  Instrument Pack 1: 0x05
-  Instrument Pack 2: 0xFF
-  Address: 0x44FC
+  Song Pack: in-engine
+  Song File: song-73.ebm
 0x74:
   Song Pack: 0x85
   Song File: song-74.ebm
@@ -389,10 +366,8 @@
   Song Pack: 0x22
   Song File: song-7A.ebm
 0x7B:
-  Song Pack: 0xFF
-  Instrument Pack 1: 0x05
-  Instrument Pack 2: 0xFF
-  Address: 0x455D
+  Song Pack: in-engine
+  Song File: song-7B.ebm
 0x7C:
   Song Pack: 0x89
   Song File: song-7C.ebm
@@ -425,12 +400,10 @@
   Song File: song-85.ebm
 0x86:
   Song Pack: 0x91
-  Song File: song-9B.ebm
+  Song File: song-86.ebm
 0x87:
-  Song Pack: 0xFF
-  Instrument Pack 1: 0x05
-  Instrument Pack 2: 0xFF
-  Address: 0x43FB
+  Song Pack: in-engine
+  Song File: song-87.ebm
 0x88:
   Song Pack: 0x26
   Song File: song-88.ebm
@@ -447,8 +420,8 @@
   Song Pack: 0x92
   Song File: song-8C.ebm
 0x8D:
-  Song Pack: 0x73
-  Song File: song-8D.ebm
+  Song to Reference: 0x63
+  Offset: 0
 0x8E:
   Song Pack: 0x93
   Song File: song-8E.ebm
@@ -489,8 +462,9 @@
   Song Pack: 0x98
   Song File: song-9A.ebm
 0x9B:
-  Song Pack: 0x91
-  Song File: song-9B.ebm
+  Song to Reference: 0x86
+  Offset: 0
+  Instrument Pack 2: 0xFF
 0x9C:
   Song Pack: 0x95
   Song File: song-9C.ebm
@@ -529,7 +503,7 @@
   Song File: song-A7.ebm
 0xA8:
   Song Pack: 0x9D
-  Song File: song-BD.ebm
+  Song File: song-A8.ebm
 0xA9:
   Song Pack: 0x9E
   Song File: song-A9.ebm
@@ -547,17 +521,13 @@
   Song File: song-AD.ebm
 0xAE:
   Song Pack: 0x01
-  Instrument Pack 1: 0x00
-  Instrument Pack 2: 0xFF
-  Address: 0x4A3D
+  Song File: song-AE.ebm
 0xAF:
   Song Pack: 0xA3
   Song File: song-AF.ebm
 0xB0:
-  Song Pack: 0xFF
-  Instrument Pack 1: 0x05
-  Instrument Pack 2: 0xFF
-  Address: 0x3C7B
+  Song Pack: in-engine
+  Song File: song-B0.ebm
 0xB1:
   Song Pack: 0x85
   Song File: song-B1.ebm
@@ -577,15 +547,11 @@
   Song Pack: 0x53
   Song File: song-B6.ebm
 0xB7:
-  Song Pack: 0xFF
-  Instrument Pack 1: 0x05
-  Instrument Pack 2: 0xFF
-  Address: 0x342A
+  Song Pack: in-engine
+  Song File: song-B7.ebm
 0xB8:
-  Song Pack: 0xFF
-  Instrument Pack 1: 0x05
-  Instrument Pack 2: 0xFF
-  Address: 0x31FA
+  Song Pack: in-engine
+  Song File: song-B8.ebm
 0xB9:
   Song Pack: 0x4F
   Song File: song-B9.ebm
@@ -599,8 +565,8 @@
   Song Pack: 0xA8
   Song File: song-BC.ebm
 0xBD:
-  Song Pack: 0x9D
-  Song File: song-BD.ebm
+  Song to Reference: 0xA8
+  Offset: 0
 0xBE:
   Song Pack: 0x53
   Song File: song-BE.ebm
