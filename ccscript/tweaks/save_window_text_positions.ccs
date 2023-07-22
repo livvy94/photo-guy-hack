@@ -1,0 +1,8 @@
+import asm65816
+ROM[0xC1EEB6] = LDA_i (9)  //Level:
+ROM[0xC1EF19] = LDA_i (13) //[level number]
+ROM[0xC1EFAC] = LDA_i (16) //Text Speed:
+
+ROM[0xC1F0DC] = LDX_i (7)  //Copy
+ROM[0xC1F117] = LDX_i (12) //Delete
+ROM[0xC1F135] = LDX_i (18) //Set up

@@ -8,6 +8,7 @@ import "tweaks/debugmenu.ccs"
 import "tweaks/file_menu_rewrite.ccs"
 import "tweaks/InvertSwirl1.ccs"
 import "tweaks/custom_windows_standalone.ccs"
+import "tweaks/save_window_text_positions.ccs"
 
 newgame_location(7264,1898)
 newgame_startup(init)

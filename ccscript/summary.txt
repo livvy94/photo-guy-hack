@@ -39,6 +39,7 @@ debugmenu                    $f10000      15536  bytes
 file_menu_rewrite            $f1800f      397    bytes
 InvertSwirl1                 $f18439      0      bytes
 custom_windows_standalone    $f18372      117    bytes
+save_window_text_positions   $f18439      0      bytes
 asm65816                     $f18439      0      bytes
 ccexpand                     $f17e70      415    bytes
 cc_asmcall                   $f182f2      128    bytes
@@ -804,6 +805,12 @@ Name                         Address
 ASM_CustomWindow_open        $f1837d
 ASM_CustomWindow_setupWindow $f1839a
 CustomWindowList             $f18372
+-----------------------------------------------------------------
+
+
+Labels in module save_window_text_positions
+Name                         Address
+-----------------------------------------------------------------
 -----------------------------------------------------------------
 
 
