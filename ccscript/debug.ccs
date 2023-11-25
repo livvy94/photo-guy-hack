@@ -14,7 +14,11 @@ debugLady:
   menu {
     "First Boss": {goto(wFirstBoss)}
     "Spaceship": {goto(warpToSpaceship)}
-    "Sound": {goto(soundTest)}
+    "Sound": {
+      window_closeall
+      window_open(1)
+      goto(0xc58d09)
+    }
   }
   eob
 
@@ -40,33 +44,12 @@ warpToSpaceship:
   eob
 
 command tryToStopMusicGlitchPlease
-  music(2) //this song has an [F6] in it
+  music(songnumbers.disable_echo)
   pause(10)
-  eob
-
-soundTest:
-  menu {
-    "Music": { goto(musicTestMenu) }
-    "Sounds": { goto(sfxTestMenu) }
-  }
   eob
 
 command eventFlagSound sound(85)
 
-musicTestMenu:
-  music_stop
-  window_clear
-  "  Song Table number:" newline
-  input(3)
-  music(0)
-  eob
-
-sfxTestMenu:
-  window_clear
-  input(3)
-  sound(0)
-  eob
-  
 WarpZone:
   "@Welcome to glorious 0, 0!" next
   window_clear

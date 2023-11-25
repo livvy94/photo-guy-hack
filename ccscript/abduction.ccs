@@ -1,3 +1,55 @@
+//Warp to the alien ship is teleport destination #144
+
+BossFight1:
+  //Hotspots used here:
+  //Abduction location is hotspot 39
+  if not customFlags.bossFight1Finished
+  {
+    window_open(1)
+    music_effect(3) //slowly fade out the music
+    "@Whoa." next
+    "@Quick, get a picture of it!" next
+    window_clear
+    "@Um...{pause(30)}It's coming this way...!" wait //TODO: Maybe rewrite this, it's kinda generic
+    battle(448) //BOSS FIGHT
+    music_stop //after the fight is over, prevent the map's default music from resuming
+    music_switching_off //make it so it won't start again and I can play a specific song later
+    healall
+    set(customFlags.bossFight1Finished)
+    set(customFlags.disable_enemies)
+    hotspot_on(2, 39, WarpToAliens) //turn on the next hotspot...
+    
+    hide_sprite(209, 9) //hides the boss sparkle by making it disappear with fancy vertical lines
+    set(customFlags.bossFight1Finished) //stop it from appearing again if the player runs up and then back down
+    
+    window_open(1)
+    "@That was a close one!" next
+    "@We should probably head back..." wait
+    window_closeall
+    pause(60)
+    window_open(1)
+    "@Oh no. {pause(30)}RUN!" wait
+    window_closeall
+    music(songnumbers.run) //TODO: Do this with map music changes instead
+  }
+  else
+  {
+    "@What are you doing!?!" newline
+    "  Let's get out of here!!" wait
+  }
+  eob
+
+WarpToAliens:
+  unset(customFlags.disable_enemies)
+  music_switching_on //it was switched off so I can play fitting music while you run away
+  sound(54)
+  helpers.BuzzBuzzLight //looks like a tractor beam from a UFO!
+  music_effect(3) //fade out the music
+  helpers.fade_out
+  pause(30)
+  goto(abduction.InTheTube)
+  eob
+
 //flag 1
 InTheTube:
   healall

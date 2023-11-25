@@ -87,7 +87,8 @@ GirlResearch:
       window_clear
       "  Documentation of the human form" next
       "  Findings:" next
-      "@Using this subject, we have extrapolated the human form" next
+      "@This test subject was detected wandering in the ruins of a large Earthling settlement." next
+      "@Using it, we have extrapolated the human form" next
       "  and documented all of its weaknesses." next
       call(EnterPasscode)
       if customFlags.saturnIsInYourParty {
@@ -96,7 +97,7 @@ GirlResearch:
         "  and transformed to show each possible variation in turn." next
         "  Physically, humans are of little threat, at least in small numbers." next
         "  Their vocalizations are annoying." next
-        "  In all prior experiments with Earthling wildlife," next
+        "  In prior experiments with Earthling flora and fauna," next
         "  the base signal stabilizes" next
         "  and the subject instinctively reassumes its base form. However..." next
         "  This subject reverted to one of the forms from the test instead." next

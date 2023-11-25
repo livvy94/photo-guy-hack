@@ -4618,11 +4618,11 @@
   - Type: object
     X: 18
     Y: 16
-    Text Pointer: oldtext.BossFight1
+    Text Pointer: abduction.BossFight1
   - Type: object
     X: 19
     Y: 16
-    Text Pointer: oldtext.BossFight1
+    Text Pointer: abduction.BossFight1
   3: null
   4: null
   5: null
