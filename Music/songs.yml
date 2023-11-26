@@ -145,13 +145,13 @@
   Song File: song-30.ebm
 0x31:
   Song Pack: 0x27
-  Song File: song-31.ebm
+  Song File: Run.ebm
 0x32:
-  Song Pack: 0x29
-  Song File: song-32.ebm
+  Song Pack: 0x27
+  Song File: Glass Breaking.ebm
 0x33:
   Song Pack: 0x2B
-  Song File: song-33.ebm
+  Song File: Into the Rock.ebm
 0x34:
   Song Pack: 0x2D
   Song File: song-34.ebm
@@ -193,7 +193,7 @@
   Song File: song-40.ebm
 0x41:
   Song Pack: 0x43
-  Song File: song-41.ebm
+  Song File: Test Room.ebm
 0x42:
   Song Pack: 0x44
   Song File: song-42.ebm
@@ -301,7 +301,7 @@
   Song File: song-64.ebm
 0x65:
   Song Pack: 0x77
-  Song File: song-65.ebm
+  Song File: Flippant Foe.ebm
 0x66:
   Song Pack: 0x78
   Song File: song-66.ebm
